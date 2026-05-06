@@ -1,0 +1,235 @@
+---
+title: "Vested vs. INDmoney vs. Interactive Brokers: which platform should an Indian use to buy US stocks?"
+description: "An honest comparison of the three viable routes for Indian residents investing in US equity. Costs, FX markup, tax handling, account safety, and which one is right for you."
+date: "2026-04-15"
+category: "us-investing"
+tags: ["brokerage", "vested", "indmoney", "ibkr", "comparison"]
+author: "Vested"
+---
+
+There are roughly twenty platforms that claim they let Indians invest in US stocks. In practice, three are worth your time: **Vested**, **INDmoney**, and **Interactive Brokers (IBKR)**. The other seventeen are either niche, unregulated, defunct, or thin wrappers over the same underlying US partner brokers as the big three.
+
+This post compares the three head-to-head on the dimensions that actually matter — not the marketing-friendly ones.
+
+## How the platforms are actually structured
+
+Before comparing them, it helps to understand the underlying plumbing.
+
+### Vested and INDmoney
+
+Both are **SEBI-registered Indian platforms** that act as intermediaries. When you buy AAPL on Vested, the trade actually flows through:
+
+```
+You → Vested (Indian platform) → DriveWealth or Stockal (US broker) → NYSE/NASDAQ
+```
+
+DriveWealth and Stockal are licensed US broker-dealers. Your shares are held at one of them, in your name, in a sub-account. Vested/INDmoney provides the UI, customer support, KYC, and the regulatory wrapper that makes it work for Indian residents.
+
+This means:
+
+- Your shares are real, in your name, at a real US broker.
+- If Vested/INDmoney goes under, your shares stay at the US broker — but you'd have to deal with that broker directly to access them.
+- The Indian platform takes a cut on FX and sometimes commissions; that's how they make money.
+
+### Interactive Brokers
+
+IBKR is a direct US broker. You're a customer of IBKR — there's no Indian intermediary.
+
+```
+You → Interactive Brokers (US broker) → NYSE/NASDAQ/global exchanges
+```
+
+IBKR has an Indian entity (IBKR India Pvt Ltd) for legal and tax service purposes, but for US stock trading you onboard with the US arm directly. You sign W-8BEN with IBKR. You receive 1099 forms from IBKR. You handle tax filings yourself.
+
+## The comparison, dimension by dimension
+
+### Onboarding time and difficulty
+
+| Platform | Time to first trade | Difficulty (1–5) |
+|---|---|---|
+| Vested | 30 min – 2 days | 1 |
+| INDmoney | 30 min – 2 days | 1 |
+| Interactive Brokers | 5–10 business days | 4 |
+
+Vested and INDmoney are paved roads. PAN, Aadhaar, bank account, video KYC — all of it lives in their app. Most users are trading within 24–48 hours.
+
+IBKR's onboarding is rigorous because IBKR is a serious US broker treating you as a serious investor. Expect:
+
+- Detailed financial questionnaire (income, net worth, investing experience).
+- W-8BEN treaty form upload.
+- Source of funds documentation.
+- Possibly back-and-forth with IBKR's compliance team if you put numbers they want to verify.
+
+This is not bad. It's just slower.
+
+### FX markup — where the real cost lives
+
+This is the biggest cost differential between the three. When you remit ₹10 lakh to your broker, the platform converts INR to USD at some rate. The difference between the rate they give you and the live interbank rate is the **FX markup**, and it's where most of the platforms make their money.
+
+| Platform | Typical FX markup vs. interbank |
+|---|---|
+| Vested | 75–100 paise per USD |
+| INDmoney | 50–80 paise per USD |
+| Interactive Brokers | 1–5 paise per USD |
+
+On a ₹10 lakh remittance (~$11,976 at ₹83.5):
+
+| Platform | FX markup cost |
+|---|---|
+| Vested (75p) | ₹8,982 |
+| INDmoney (60p) | ₹7,186 |
+| IBKR (3p) | ₹359 |
+
+That's a real number. On a ₹50 lakh annual investing budget, IBKR saves you ₹40,000+ a year vs. Vested. Over a decade, that's ₹4 lakh in your pocket.
+
+But — and this is important — that's *only* on the inbound conversion. You don't pay FX again until you repatriate (sell + bring INR back to India). For a long-hold investor, FX is a one-time-per-remittance cost, not a recurring drag.
+
+### Brokerage commissions
+
+| Platform | Equity commission | ETF commission |
+|---|---|---|
+| Vested | $0 / share (built into FX) | $0 |
+| INDmoney | $0 / share | $0 |
+| IBKR (Tiered plan) | $0.0035/share, min $0.35 | Same |
+| IBKR (Fixed plan) | $0.005/share, min $1 | Same |
+
+For most retail-sized trades (a few hundred shares), IBKR's commission is negligible. On a 100-share VTI buy, you pay $0.35 — about ₹30. Vested and INDmoney don't charge a per-trade commission but bake their economics into FX.
+
+### Asset universe — what you can actually buy
+
+| Platform | What's available |
+|---|---|
+| Vested | Curated list: ~200 ETFs + top US stocks. Limited mid/small-cap coverage. No options, no OTC stocks, no international markets. |
+| INDmoney | Broader — most major NYSE/NASDAQ stocks and ETFs. Still no options, no OTC, no international. |
+| IBKR | Everything. NYSE, NASDAQ, AMEX, OTC, plus 80+ international exchanges. Options, futures (margin permission required, not for most retail), bonds, mutual funds. |
+
+If you want to buy a small-cap US stock or a London-listed ETF, IBKR is the only path among the three.
+
+### Fractional shares
+
+| Platform | Fractional shares? |
+|---|---|
+| Vested | Yes — buy as little as $1 of any supported stock |
+| INDmoney | Yes |
+| IBKR | Yes (added in 2020) |
+
+All three now offer fractionals. Used to be a meaningful Vested advantage; not anymore.
+
+### Tax document handling
+
+| Platform | Year-end tax docs |
+|---|---|
+| Vested | INR P&L statement, Schedule FA helper, capital gains breakdown — all India-friendly |
+| INDmoney | Same — full Indian tax-friendly outputs |
+| IBKR | US-style 1099 forms (1099-DIV for dividends, 1099-B for sales). You convert to INR and prepare Schedule FA yourself. |
+
+This matters more than people think. If you're filing your own ITR, the difference between "download a Schedule FA helper PDF" and "manually compute peak value across 200 trading days from a US-format 1099-B" is real. For users with IBKR, hiring a CA familiar with foreign equity is essentially mandatory; with Vested/INDmoney, you can DIY if you're patient.
+
+### W-8BEN handling
+
+The W-8BEN is the IRS form that establishes you as a non-US person and reduces dividend withholding to 25% under the US-India treaty.
+
+- **Vested / INDmoney**: handled at signup. You sign once digitally; renewal every 3 years is automated.
+- **IBKR**: you upload W-8BEN yourself. Renewal reminders come from IBKR. Slightly more work.
+
+If you don't have a valid W-8BEN on file, your dividend withholding is **30%, not 25%** — and the extra 5% is *not recoverable* via FTC. Make sure your W-8BEN is current.
+
+### Customer support
+
+| Platform | Support quality |
+|---|---|
+| Vested | India-based, in-app chat, English/Hindi, IST hours. Responses within 24 hours typically. |
+| INDmoney | Similar — India-based, multi-channel. |
+| IBKR | US-based, email + chat. Strong on technical broker issues; weaker on Indian-specific tax questions. Hours overlap awkwardly with IST. |
+
+For most retail users, India-based support is meaningfully better. You can call when you're confused about a TCS deduction. With IBKR, you'll Google or pay a CA.
+
+### Account safety and stability
+
+| Platform | Underlying broker | Safety |
+|---|---|---|
+| Vested | DriveWealth (US, FINRA-regulated) | SIPC insurance up to $500k per account |
+| INDmoney | Stockal / DriveWealth | Same SIPC coverage |
+| IBKR | Interactive Brokers (US, FINRA-regulated, public company) | SIPC + supplemental excess insurance up to $30M |
+
+**SIPC** is the US equivalent of investor protection — it covers you if the *broker* fails (not if your stocks go down). SIPC insures up to $500,000 per account, including up to $250,000 in cash.
+
+IBKR adds proprietary excess insurance through Lloyd's of London, taking total coverage to $30M. For a high-net-worth investor with millions at the broker, this matters. For most retail accounts under $500k, the standard SIPC is plenty.
+
+What about the Indian platform itself failing? Vested and INDmoney are private companies — if either goes bankrupt, your shares remain at the US broker (DriveWealth/Stockal) in your name. You'd contact the US broker directly to claim them. Not zero-friction, but not catastrophic.
+
+### Repatriation — getting money back to India
+
+When you sell US stocks and want to bring INR home, the flow is:
+
+1. Sell shares (USD lands in your broker cash account).
+2. Withdraw to your Indian bank account.
+3. Bank converts USD → INR.
+
+| Platform | Repatriation friction |
+|---|---|
+| Vested | 3–7 business days, decent FX |
+| INDmoney | Similar |
+| IBKR | 2–5 business days, best FX |
+
+All three are fine. IBKR is marginally faster and cheaper.
+
+## Cost comparison: a 5-year scenario
+
+Suppose you invest ₹50 lakh over 5 years (₹10 lakh per year), buying VTI and holding. Total costs across the three platforms:
+
+| Cost line | Vested | INDmoney | IBKR |
+|---|---|---|---|
+| FX markup (₹10L × 5 yrs × 75p / 60p / 3p per $) | ₹44,910 | ₹35,928 | ₹1,796 |
+| Brokerage commissions (5 buys, ~100 shares each) | ₹0 | ₹0 | ~₹150 |
+| Annual platform/account fees | ₹0 | ₹0 | ₹0 |
+| Wire fees (5 wires) | ₹2,500 | ₹2,500 | ₹2,500 |
+| **Total 5-year cost** | **₹47,410** | **₹38,428** | **₹4,446** |
+
+IBKR saves you ~₹40k vs. Vested over 5 years on this scenario. That's the trade-off: **lower cost vs. easier UX and India-friendly tax outputs.**
+
+## So which one should you actually use?
+
+### Use Vested or INDmoney if:
+
+- You're starting out (under ~₹10 lakh deployed).
+- You don't want to deal with US-format tax forms.
+- You want everything in INR with built-in Schedule FA helpers.
+- The FX markup is small in absolute terms because your investing amount is small.
+- You value India-business-hours support.
+
+Between Vested and INDmoney, **either is fine**. INDmoney has slightly better FX (~15p tighter on average) and a wider asset list. Vested has slightly better Indian-tax tooling. If you're already a user of one, stay. If you're starting fresh and FX matters, lean INDmoney.
+
+### Use IBKR if:
+
+- You're investing larger amounts (₹25 lakh+ a year) where FX markup adds up.
+- You want access to international markets (London ETFs, TSE, HKEX) — IBKR is the only option.
+- You're comfortable with US-format tax forms or you have a CA who is.
+- You want maximum broker stability and excess SIPC coverage.
+
+### A pragmatic hybrid
+
+For investors with a long horizon and growing portfolios, a common pattern:
+
+1. **Year 1–2**: start on Vested or INDmoney. Learn the LRS/Schedule FA cycle. Get comfortable.
+2. **Year 3+, deploying ₹25 lakh+/year**: open an IBKR account in parallel. Use IBKR for new deployments. Leave existing positions on the Indian platform (transferring shares is non-trivial).
+
+You end up with assets at both brokers. Schedule FA includes both. Slightly more reporting, much lower ongoing FX cost.
+
+## The verdict
+
+There is no universal winner. The right answer depends on **how much you're investing per year** and **how much friction you're willing to handle for cost savings.**
+
+| Annual investing budget | Recommendation |
+|---|---|
+| Under ₹5 lakh | Vested or INDmoney. Don't optimize FX, just get started. |
+| ₹5–25 lakh | INDmoney leans cheaper; Vested leans more polished. Pick based on UX preference. |
+| Above ₹25 lakh | IBKR for new flows. Migrate over time if it makes sense. |
+
+A few things this post deliberately did not say:
+
+- "Platform X is a scam." None of the three are scams. They're regulated.
+- "You should use a private bank's PMS." For amounts under ₹5 crore, this is generally not a better deal — high fees, narrow universe, opaque structures.
+- "Use crypto exchanges to get USD exposure." Don't. The regulatory uncertainty is real and crypto USD-pegged exposure is a fundamentally different bet than equity.
+
+The boring conclusion is the right one: pick the platform that matches your stage, focus on actually deploying money, and revisit the choice every 2–3 years as your portfolio grows.

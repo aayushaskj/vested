@@ -1,0 +1,250 @@
+---
+title: "How US stocks are taxed in India: capital gains, dividends, and the 24-month rule"
+description: "Every Indian US investor must navigate three tax events: dividend withholding, capital gains in INR, and Schedule FA. Here's the complete framework, with worked examples."
+date: "2026-04-01"
+category: "us-investing"
+tags: ["tax", "capital-gains", "dividends", "form-67", "ftc"]
+author: "Vested"
+---
+
+There is no way to invest in US stocks from India without learning the tax rules. The good news: there are only three tax events you need to understand. The bad news: each one has nuances that can cost real money if you ignore them.
+
+This post walks through all three — **dividend taxation, capital gains taxation, and the foreign tax credit mechanism** — with worked examples in INR.
+
+## The three taxable events
+
+When you invest in US stocks as an Indian resident, taxes arise in three distinct moments:
+
+1. **You receive a dividend.** Taxed both in the US (withheld at source) and in India (slab rate, with FTC available).
+2. **You sell a stock for a gain.** Taxed in India only (no US capital gains tax for non-US persons, under the treaty). Taxed at slab rate for short-term, 12.5% for long-term.
+3. **You file your ITR.** Schedule FA discloses everything; Form 67 claims the FTC for #1.
+
+Notably absent: there is no tax event simply for *holding* US stock. Just owning VTI doesn't trigger tax. The triggers are dividend and sale.
+
+## Tax event 1: Dividends
+
+### What happens at the source (US side)
+
+When a US-listed company or ETF pays a dividend to a non-US investor:
+
+| Step | Detail |
+|---|---|
+| 1. Company declares dividend | Say $1/share on 100 shares = $100 |
+| 2. Dividend received by your broker | $100 sent to your broker |
+| 3. US withholding applied | 25% withheld for India treaty residents (if W-8BEN is on file) |
+| 4. Cash credited to your account | $75 |
+| 5. IRS receives | $25, your taxpayer ID is reported |
+
+**The 25% rate** comes from Article 10 of the **US-India tax treaty**. Without a valid W-8BEN on file, the default rate is **30%**, and the extra 5% is **not recoverable**. Always keep W-8BEN current.
+
+### What happens in India
+
+The dividend is **fully taxable** in India at your **slab rate**, on the **gross** amount (₹100 in our example, not ₹75). The Indian tax department sees the gross dividend as your income.
+
+But — to prevent double taxation — India offers a **foreign tax credit (FTC)** for the US tax already paid. The mechanism is **Section 90/90A** of the Income Tax Act, claimed via **Form 67** before your ITR.
+
+### The FTC mechanic
+
+The FTC is the *lower* of:
+
+1. The foreign tax actually paid (the 25% withheld).
+2. The Indian tax on the same income.
+
+In most cases — for someone in the 30% slab + cess — the Indian tax (~31.2% effective) is *higher* than the US tax (25%). So the FTC = 25% of the gross dividend, and the Indian additional tax is 6.2% (the difference between 31.2% and 25%).
+
+For someone in the 20% slab (~20.8% effective with cess), the Indian tax is *lower* than the US tax. The FTC is capped at the Indian tax — meaning you've effectively paid 25% to the US and *get no credit back* in India because Indian tax was already lower. The 5% delta is an effective drag.
+
+### Worked example: ₹50,000 of dividends, 30% slab
+
+| | Amount |
+|---|---|
+| Gross dividend | ₹50,000 |
+| US withholding (25%) | ₹12,500 |
+| Cash received | ₹37,500 |
+| Indian tax @ 31.2% on gross | ₹15,600 |
+| FTC available (lower of US tax or Indian tax) | ₹12,500 |
+| Indian tax payable | ₹3,100 |
+| **Net cash retained** | **₹37,500 − ₹3,100 = ₹34,400** |
+| **Effective total tax rate** | **(₹50,000 − ₹34,400) / ₹50,000 = 31.2%** |
+
+Notice: the *total* tax burden ends up at the Indian slab rate (~31.2%), because the FTC mechanism is designed to ensure you pay the higher of the two countries' rates, not both. This is the treaty working as intended.
+
+### Worked example: ₹50,000 of dividends, 20% slab
+
+| | Amount |
+|---|---|
+| Gross dividend | ₹50,000 |
+| US withholding (25%) | ₹12,500 |
+| Cash received | ₹37,500 |
+| Indian tax @ 20.8% on gross | ₹10,400 |
+| FTC available (lower of US tax or Indian tax) | ₹10,400 |
+| Indian tax payable | ₹0 |
+| **Net cash retained** | **₹37,500** |
+| **Effective total tax rate** | **(₹50,000 − ₹37,500) / ₹50,000 = 25%** |
+
+Here the FTC fully covers Indian tax, but you still effectively paid 25% to the US — because the lower-bracket Indian rate didn't exceed it. The unused FTC ($2,100 in this case) cannot be carried forward.
+
+### What if you don't file Form 67?
+
+If you skip Form 67, **you forfeit the FTC**. The 30% slab person above would pay ₹15,600 of Indian tax on top of the ₹12,500 already withheld — total tax of ₹28,100 on a ₹50,000 dividend. **Effective tax rate: 56.2%.** That's the cost of the missed filing.
+
+Form 67 must be filed *before* you submit your ITR. Both filings happen on the IT Department's e-filing portal. Form 67 takes 15 minutes once you have the data.
+
+## Tax event 2: Capital gains
+
+### How US stocks are classified for Indian tax
+
+US-listed stocks held by Indian residents are classified as **unlisted foreign equity** for Indian capital gains purposes. The relevant tax thresholds are *different from* Indian listed stocks:
+
+| Holding period | Indian listed equity | US equity |
+|---|---|---|
+| Short-term | ≤ 12 months | ≤ 24 months |
+| Long-term | > 12 months | > 24 months |
+| Short-term tax | 20% (post Budget 2024) | Slab rate |
+| Long-term tax | 12.5% above ₹1.25L exempt | 12.5%, no exemption |
+
+The two big surprises for first-timers:
+
+1. **24 months for long-term** (not 12 months like Indian listed shares). Selling at month 23 is short-term.
+2. **No ₹1.25 lakh annual exemption.** That's only for Indian listed equity. Foreign equity LTCG starts at rupee one.
+
+### How the gain is calculated (in INR)
+
+The Indian tax department wants everything in INR. The mechanic:
+
+- **Cost basis (INR)** = USD purchase price × USD/INR rate on purchase date
+- **Sale proceeds (INR)** = USD sale price × USD/INR rate on sale date
+- **Capital gain (INR)** = Sale proceeds − Cost basis
+
+The exchange rates used must be the **SBI TT-buying rate** on the relevant dates, per the ITR utility. Your broker's executed FX rate is not what the tax department uses.
+
+### Why currency depreciation creates "phantom gains"
+
+Suppose you buy 100 shares of VTI at $200 each on a day USD/INR is ₹83. Cost basis: ₹16,60,000.
+
+Two years later, VTI is still at $200 (zero return in USD). USD/INR is now ₹86. You sell.
+
+| | USD | INR |
+|---|---|---|
+| Cost basis | $20,000 | ₹16,60,000 |
+| Sale proceeds | $20,000 | ₹17,20,000 |
+| **Gain in USD terms** | **$0** | |
+| **Gain in INR terms** | | **₹60,000** |
+
+You made zero return on the underlying investment, but you owe Indian tax on a ₹60,000 capital gain because the rupee weakened. **This is real and recurring**: rupee depreciation against the dollar produces taxable gains in INR even when the USD-denominated asset is flat.
+
+For long-term holders, this works in your favor *if* you're net-long USD assets (which you are if you hold US stocks). But you do owe the tax on the currency leg.
+
+### Worked example: ₹10 lakh in VTI, sold after 36 months
+
+You remit ₹10 lakh in April 2023 (USD/INR = ₹83). Buy ~$12,048 of VTI. VTI returns 10% annualized in USD over 3 years. You sell in April 2026 (USD/INR = ₹86).
+
+| | USD | INR |
+|---|---|---|
+| Initial buy | $12,048 | ₹10,00,000 |
+| Sale value | $16,032 | ₹13,78,752 |
+| Capital gain | $3,984 | ₹3,78,752 |
+| LTCG @ 12.5% | | ₹47,344 |
+| Cess @ 4% | | ₹1,894 |
+| **Total tax** | | **₹49,238** |
+| **Net proceeds** | | **₹13,29,514** |
+| **Net annualized return (INR, after tax)** | | **~9.9%** |
+
+Decompose the gain:
+
+- USD return contribution: $3,984 × ₹83 = ₹3,30,672
+- INR depreciation contribution: $16,032 × ₹3 (₹86 − ₹83) = ₹48,096
+- Total: ₹3,78,768 ≈ ₹3,78,752 (rounding)
+
+Of the ₹49,238 total tax, ~₹6,300 is on the currency leg alone. That's the "currency tax."
+
+### What if you sell at a loss?
+
+Long-term capital losses on foreign equity can be **set off against any long-term capital gains** (Indian listed shares, Indian property, other foreign equity, etc.) in the same year. Unused LTCL can be **carried forward for 8 years**.
+
+Short-term capital losses on foreign equity can be set off against any capital gains (LT or ST) in the same year, and carried forward 8 years.
+
+This is useful: if you sell one US position at a loss, you can absorb gains elsewhere.
+
+### Tax-loss harvesting in India
+
+In the US, the "wash sale rule" prevents you from selling at a loss and immediately rebuying the same security to claim the loss. **India has no equivalent rule** for foreign equity. You can technically sell VTI at a loss on day 1 and buy it back on day 2.
+
+**Caveat:** the IT department has anti-avoidance principles (GAAR — General Anti-Avoidance Rule). Selling and immediately rebuying *purely* to harvest a tax loss could be challenged under GAAR if the structure is egregious. For most retail-scale transactions, it's not on their radar.
+
+## Tax event 3: The annual filing
+
+This isn't really a tax — it's the disclosure obligation. Schedule FA is covered in detail in the [LRS, TCS, and Schedule FA post](/posts/lrs-tcs-schedule-fa-compliance-trifecta), so I'll keep it short here.
+
+What you file each year:
+
+1. **Schedule FA**: every foreign asset held during the FY, with peak value, closing balance, and income earned, all in INR.
+2. **Capital gains schedule**: any sales during the year, with cost basis and proceeds in INR.
+3. **Income from other sources**: dividends received during the year, in INR.
+4. **Form 67** (if claiming FTC): filed before the ITR.
+
+What you keep on file (don't submit, but be ready to produce):
+
+- Year-end broker statements.
+- SBI TT-buying rate snapshots for purchase, sale, and dividend dates.
+- W-8BEN copy.
+- Form A2 copies for each remittance.
+
+## A few special situations
+
+### NRIs returning to India
+
+If you were an NRI accumulating US stocks while abroad and then become an Indian resident, your existing US equity becomes subject to Indian taxation prospectively from the date you become a resident. Cost basis carries forward at INR-equivalent on the date of return (not the original USD purchase date).
+
+This is a meaningful event. If you're an NRI planning to return, talk to a CA *before* you cross the residency threshold — there are sometimes one-time planning windows.
+
+### Inherited US stock
+
+If you inherit US stock from a US-resident relative, the cost basis "step-up" rules in the US (where the inheritor's basis becomes the market value at date of death) do NOT necessarily flow through to Indian tax. The Indian cost basis is generally the original purchase basis of the deceased, in INR equivalent. This can create huge capital gain liabilities on inherited holdings.
+
+This is the kind of situation where a CA familiar with cross-border estate planning saves you genuinely large amounts. Don't DIY.
+
+### RSUs from a US employer
+
+RSU taxation has its own complete framework — perquisite tax at vest, capital gains on sale, and FTC for any US withholding. See the [RSU vesting post](/posts/rsu-vesting-the-real-tax-math) for the detailed breakdown.
+
+### Gifts of US stock
+
+Gifting US stock to a non-resident relative (e.g., parents in another country) is allowed under LRS subject to limits, and is treated as a transfer at fair market value for Indian tax. You'd realize capital gain (or loss) at the time of gift.
+
+Gifting to an Indian resident relative is tax-free for the recipient under section 56, but you (the giver) may still trigger capital gain depending on how the gift is structured. Cross-border gift tax is fiddly; consult a CA.
+
+## The annual budget for taxes — what to expect
+
+For a moderate-size US portfolio (₹15 lakh, with ~1.5% dividend yield, no sales in the year), the annual tax friction looks like:
+
+| | INR |
+|---|---|
+| Dividends received (gross) | ₹22,500 |
+| US withholding (25%) | ₹5,625 |
+| Indian tax @ 30% slab + cess | ₹7,020 |
+| Less FTC | ₹5,625 |
+| Indian tax payable on dividends | ₹1,395 |
+| **Total tax in dividend cycle** | **₹7,020** |
+| **% of portfolio** | **0.47%** |
+
+If you also sold and realized ₹1 lakh of LTCG:
+
+| | INR |
+|---|---|
+| LTCG | ₹1,00,000 |
+| Tax @ 12.5% + cess | ₹13,000 |
+| **Combined annual tax** | **₹20,020** |
+
+That's ~1.3% of the portfolio. Not nothing, but not catastrophic. Most importantly: **the tax structure rewards holding for 24+ months**. A short-term sale at the same gain would've been ~₹35,880 — almost 3x the tax.
+
+## The summary rule
+
+If you remember nothing else from this post:
+
+1. **Hold for 24+ months** to qualify for LTCG. Short-term is brutal at slab rate.
+2. **File Form 67 every year** if you receive any US dividends. Missing it loses the FTC.
+3. **Track INR cost basis per lot** at purchase. You'll need it at sale.
+4. **Keep records for 7 years.** Foreign asset audit windows are long.
+
+The Indian tax system is designed to be navigable for foreign equity investors, but it requires you to do the paperwork. The penalty for sloppiness is high; the reward for diligence is the tax structure works as intended.

@@ -1,0 +1,299 @@
+---
+title: "Form 67 and the foreign tax credit: how to avoid double taxation on US dividends"
+description: "If you receive dividends from US stocks or RSUs as an Indian resident, you'll lose meaningful money to double taxation unless you file Form 67 correctly. Here's the complete walkthrough."
+date: "2026-03-11"
+category: "rsu-management"
+tags: ["form-67", "ftc", "tax", "dividends", "compliance"]
+author: "Vested"
+---
+
+If you hold US stocks — including RSUs that paid dividends before you sold them — you will eventually face a basic problem: the US has already taxed your dividends at 25%, and India wants to tax them again at your slab rate.
+
+Without intervention, that's double taxation. The dividend gets hit twice. For someone in the 30% slab, the effective rate would be **~56%** on every dividend dollar.
+
+The intervention exists. It's called **Form 67**, and it lets you claim a **foreign tax credit (FTC)** for the US tax already paid. But it has to be filed correctly, on time, with the right documents — or you forfeit the credit and pay the full double tax.
+
+This post walks through exactly how to do it.
+
+## Why Form 67 exists
+
+The **US-India Double Taxation Avoidance Agreement (DTAA)** — Article 25 specifically — gives Indian residents the right to claim relief for US taxes paid on US-source income. **Section 90 of the Indian Income Tax Act** translates this treaty right into Indian domestic law. **Form 67** is the procedural mechanism — the filing you make to actually claim the credit.
+
+Three layers:
+
+1. **Treaty (DTAA, Article 25)**: gives you the right.
+2. **Section 90 of Income Tax Act**: domestic implementation.
+3. **Form 67 + Rule 128 of Income Tax Rules**: how to file.
+
+Skip any layer and the credit doesn't apply.
+
+## What counts as "foreign tax paid"
+
+The FTC covers **foreign taxes paid on foreign-source income that's also taxed in India.** For Indian US investors, this typically means:
+
+| Income type | US tax paid | Indian tax | FTC available? |
+|---|---|---|---|
+| Dividends from US stocks | 25% withholding | Slab rate | Yes |
+| US RSU vesting | 0% (typically; sometimes NRA WH) | Slab rate | Yes if any US tax was paid |
+| Capital gains from US stock sale | 0% (treaty: only India taxes) | LTCG/STCG | No (India only) |
+| Interest from US bonds | 15% withholding (typically) | Slab rate | Yes |
+
+The big one for most retail investors is dividends.
+
+## The FTC formula — the lower-of rule
+
+The credit available to you is the **lower of**:
+
+1. The actual foreign tax paid.
+2. The Indian tax that would otherwise be payable on that same foreign income.
+
+This is the cap. India will not credit you for more foreign tax than the Indian tax you'd otherwise owe on that income.
+
+### Worked example A: 30% slab person
+
+Dividend: ₹50,000 gross.
+
+| | INR |
+|---|---|
+| US withholding (25%) | ₹12,500 |
+| Indian tax on ₹50,000 @ 31.2% (30% + cess) | ₹15,600 |
+| FTC = lower of US tax / Indian tax | ₹12,500 |
+| Net Indian tax payable | ₹15,600 − ₹12,500 = ₹3,100 |
+
+Effective total tax: ₹15,600 (Indian rate). The US tax was *fully credited*.
+
+### Worked example B: 20% slab person
+
+Dividend: ₹50,000 gross.
+
+| | INR |
+|---|---|
+| US withholding (25%) | ₹12,500 |
+| Indian tax on ₹50,000 @ 20.8% (20% + cess) | ₹10,400 |
+| FTC = lower of US tax / Indian tax | ₹10,400 |
+| Net Indian tax payable | ₹10,400 − ₹10,400 = ₹0 |
+| Unused US tax (₹12,500 − ₹10,400) | ₹2,100 |
+
+For the 20% person, Indian tax is fully covered, but ₹2,100 of US tax is "wasted" — they paid it but couldn't credit it. **This unused FTC cannot be carried forward.**
+
+### Worked example C: 5% slab person (low income)
+
+Dividend: ₹50,000 gross. Assume person is in 5% slab.
+
+| | INR |
+|---|---|
+| US withholding (25%) | ₹12,500 |
+| Indian tax @ 5.2% | ₹2,600 |
+| FTC = lower of | ₹2,600 |
+| Net Indian tax | ₹0 |
+| Unused US tax | ₹9,900 |
+
+A low-slab person effectively pays the *higher* US rate. The treaty mechanism ensures you pay at least the higher of the two countries' rates — there's no scenario where you pay less than 25% on US dividends.
+
+## What happens if you don't file Form 67
+
+This is where it really hurts. If you skip Form 67:
+
+- You **forfeit the FTC entirely.**
+- You owe **the full Indian tax** on the gross dividend (no credit).
+- The US tax stays withheld (you can't recover it).
+- Effective tax rate: 25% (US) + Indian slab rate.
+
+For a 30% slab person on ₹50,000 of dividends:
+
+| | INR |
+|---|---|
+| US withholding | ₹12,500 |
+| Indian tax (no FTC) | ₹15,600 |
+| Total tax | ₹28,100 |
+| **Effective rate** | **56.2%** |
+
+Compare to with Form 67: ₹15,600 total = 31.2%. **Skipping Form 67 nearly doubles your tax.**
+
+## When Form 67 must be filed
+
+The deadline rule is critical: **Form 67 must be filed *before* you submit your ITR for the relevant assessment year.**
+
+If you file Form 67 *after* your ITR, the FTC is denied — even if all the documentation was in order. This is a procedural rule with no leniency.
+
+Practical timing for FY 2026–27 (Assessment Year 2027–28):
+
+| Date | Action |
+|---|---|
+| March 31, 2027 | FY ends. Take year-end snapshot of dividends and US tax withheld. |
+| April–June 2027 | Compile dividend and FTC data from broker statements. |
+| Before July 31, 2027 (ITR due date) | File Form 67 first. Then file ITR. |
+| July 2027 | Submit ITR with FTC claim. |
+
+If your CA is pushing your ITR to the wire (last week of July), confirm Form 67 has already been submitted before they file.
+
+## Documents you need
+
+To fill out Form 67, gather:
+
+1. **Broker year-end statement** (1099-DIV from a US broker like Fidelity/Schwab, or the equivalent INR statement from Vested/INDmoney).
+2. **Total foreign income** (gross dividends in INR, summed across all dividends in the FY).
+3. **Total foreign tax withheld** (in INR, using SBI TT-buying rate on each dividend date).
+4. **Treaty article reference** — for US dividends to Indian residents, this is **Article 10** of the US-India DTAA.
+5. **Tax Identification Number (TIN)** of the country (USA) — typically use your US broker's IRS TIN reference, or "Tax Resident of USA" without specifying your own TIN if you don't have an SSN/ITIN.
+
+## Filling out Form 67 — step-by-step
+
+Form 67 is filed on the **Income Tax e-filing portal** (incometax.gov.in). The flow:
+
+### Step 1: Login and access
+
+Login at incometax.gov.in with your PAN. Go to **e-File → Income Tax Forms → File Income Tax Forms**. Search for "Form 67" and click "File Now".
+
+### Step 2: Select assessment year
+
+Select the AY for which you're claiming relief. For income earned in FY 2026–27, the AY is **2027–28**.
+
+### Step 3: Country and treaty details
+
+| Field | Entry |
+|---|---|
+| Country | United States of America |
+| Article of treaty | 10 (for dividends) — but use 25 (relief from double taxation) as the operative clause |
+| Tax identification number | "N/A" if you don't have a US SSN/ITIN |
+
+The Income Tax Department's guidance says to use Article 25 (the relief article) as the basis for the FTC claim. Article 10 is what *imposes* the 25% rate; Article 25 is what gives you *relief*.
+
+### Step 4: Income details
+
+For each foreign income source, fill in:
+
+- **Nature of income**: "Dividend" (or "Salary income — RSU" if applicable).
+- **Source country**: USA.
+- **Gross income (INR)**: Total dividends received (gross of withholding) in INR.
+- **Tax paid in foreign country (INR)**: Total US withholding in INR.
+- **Tax payable in India on this income**: The Indian slab rate × gross income.
+- **Lower of the above two**: The FTC amount you're claiming.
+
+### Step 5: Supporting documents
+
+Upload:
+
+- Year-end broker statement showing gross dividends and withholding.
+- Bank statement showing dividend credit (if your broker doesn't itemize it clearly).
+- Sometimes requested: a certificate from the foreign tax authority confirming the tax was paid. For US dividend withholding via a US broker, the broker statement is typically accepted.
+
+### Step 6: Submit
+
+Submit electronically with your DSC (Digital Signature) or EVC (Electronic Verification Code via OTP).
+
+You'll receive an acknowledgement number. **Save it.** Reference it when filing your ITR.
+
+### Step 7: File ITR with the FTC claim
+
+When filing your ITR (typically ITR-2 if you have foreign income), there's a section for foreign income and FTC. Reference the Form 67 acknowledgement number. Enter the same FTC amount you claimed in Form 67. The system cross-checks.
+
+## Common Form 67 mistakes
+
+After watching enough Indian US-investors do this, here's the recurring list:
+
+### Mistake 1: Filing Form 67 *after* the ITR
+
+Most expensive mistake. Forfeits the credit entirely. Form 67 first, ITR second. Always.
+
+### Mistake 2: Using broker exchange rates instead of SBI TT-buying
+
+The IT Department uses **SBI TT-buying rate** for INR conversion. Your broker probably uses a market mid rate or interbank rate. Small difference, but on audit they'll question it. Use SBI TT-buying.
+
+### Mistake 3: Forgetting RSU NRA withholding
+
+Some companies' plan administrators apply small US Non-Resident Alien withholding to RSU vests for Indian employees, even though typically the vest is fully Indian for tax purposes. If any US tax was withheld at vest, you can claim FTC for it. Check your year-end pay statement.
+
+### Mistake 4: Missing dividends from a forgotten brokerage
+
+If you have multiple US brokerage accounts (e.g., one from a previous employer's RSU plan, one from a self-directed account), each will issue its own 1099-DIV. Check all of them. A forgotten Fidelity account from your last job may have ₹3,000 of dividends that need disclosure.
+
+### Mistake 5: Not filing because "dividends were small"
+
+There's no minimum threshold for Form 67. Even ₹500 of US dividends technically requires it for FTC — though the cost-benefit at that small amount probably isn't worth the time. For dividends above ₹2,000–3,000, file. For dividends in the lakhs, definitely file.
+
+### Mistake 6: Filing Form 67 but not claiming FTC in ITR
+
+The two filings have to *match*. If you file Form 67 claiming ₹12,500 of FTC, your ITR has to claim the same ₹12,500. Inconsistency triggers a notice.
+
+## The ITR-2 FTC schedule
+
+Form 67 is the standalone filing. But the FTC claim also goes into your **ITR-2**, in **Schedule TR (Tax Relief)**. This schedule asks:
+
+- Total foreign income.
+- Country of source.
+- Treaty article.
+- Foreign tax paid.
+- Indian tax payable.
+- Relief claimed (the FTC amount, matching Form 67).
+
+If you're using a CA, double-check that they've filled this schedule. Some CAs unfamiliar with foreign income leave it blank by accident, defeating the FTC.
+
+## What about state taxes?
+
+US state taxes (e.g., California, New York) are also potentially eligible for FTC, but only if the income is taxable in both the US state *and* India. For Indian residents:
+
+- **Federal US dividend withholding**: 25% under treaty. Eligible for FTC.
+- **US state withholding on dividends**: typically zero for non-residents. Not relevant.
+
+For RSUs vested while you were physically in a US state, state income tax may have been withheld. That state tax is generally creditable in India *if* India is also taxing that vest. But this is a niche situation; if you're a pure Indian-resident remote employee, no US state should be withholding from your vest.
+
+## Carrying forward unused FTC
+
+**You cannot carry forward unused FTC.** If your Indian tax on a foreign income was lower than the foreign tax paid (the 20% slab example earlier), the unused difference is permanently forfeited.
+
+This is why dividend-heavy strategies work *worse* for Indians than Americans — high dividends create more "wasted" US withholding for low-bracket Indian investors.
+
+## A worked annual cycle
+
+Suppose in FY 2026–27 you receive:
+
+- VTI dividends: ₹15,000 (US withheld: ₹3,750)
+- VEA dividends: ₹8,000 (US withheld: ₹2,000)
+- Single-stock dividends: ₹5,000 (US withheld: ₹1,250)
+- **Total foreign dividends: ₹28,000. Total US tax: ₹7,000.**
+
+You're in the 30% slab + 15% surcharge + cess = 35.88% effective.
+
+| | INR |
+|---|---|
+| Gross dividends (foreign income) | ₹28,000 |
+| US tax withheld | ₹7,000 |
+| Indian tax on ₹28,000 @ 35.88% | ₹10,046 |
+| FTC claimed (lower of US tax / Indian tax) | ₹7,000 |
+| Net Indian tax payable | ₹3,046 |
+| **Total tax** | **₹10,046** |
+| **Effective rate** | **35.88%** (Indian slab + surcharge + cess) |
+
+**If Form 67 not filed:**
+
+| | INR |
+|---|---|
+| US tax withheld | ₹7,000 |
+| Indian tax (no FTC) | ₹10,046 |
+| **Total tax** | **₹17,046** |
+| **Effective rate** | **60.9%** |
+
+Difference: ₹7,000 of avoidable tax for a 15-minute filing.
+
+## The annual Form 67 routine
+
+If you have any US dividends in a year:
+
+1. **Q1 (April–June)**: Compile broker statements and dividend tally.
+2. **Before ITR due date (July 31)**: File Form 67 on the e-filing portal.
+3. **Save acknowledgement.**
+4. **File ITR-2** with matching FTC claim in Schedule TR.
+5. **Save all documentation** for 7 years.
+
+That's it. Once you've done it once, it's a 30-minute annual task.
+
+## Why this matters more than people realize
+
+Taken alone, Form 67 is just one filing. But over a 20-year US-equity investing horizon, the cumulative impact is significant.
+
+A ₹50 lakh portfolio with 1.5% dividend yield generates ₹75,000 of dividends per year. US withholding: ₹18,750. **If you skip Form 67 every year for 20 years, that's ₹3.75 lakh of overpaid tax.** Compounded at 8%, that's ₹17 lakh of foregone investment returns.
+
+Filing Form 67 takes 30 minutes a year. The ratio of effort to savings is one of the best in personal tax law.
+
+Don't skip it.

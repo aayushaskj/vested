@@ -1,0 +1,316 @@
+---
+title: "The complete RSU guide for Indians at US multinationals"
+description: "Vesting, taxes, withholding, repatriation, and reinvestment — the full RSU lifecycle for Indian residents employed by US-headquartered companies. Numbers, scenarios, and what to do at each stage."
+date: "2026-03-25"
+category: "rsu-management"
+tags: ["rsu", "compensation", "tax", "vesting", "guide"]
+author: "Vested"
+---
+
+If you work for a US-headquartered multinational from India — Google, Microsoft, Amazon, Meta, Salesforce, Atlassian, Stripe, Databricks, the next ten — there's a high chance a meaningful part of your compensation comes as **Restricted Stock Units (RSUs)**.
+
+RSUs are great. They're also more complicated than the equity comp at any Indian company you've worked at. The tax rules are split between two countries. The vesting math has surprises. The "what to do with the cash once you sell" decision is where most of the long-term wealth either gets built or quietly leaks away.
+
+This is the comprehensive guide. I'll cover the full lifecycle — grant, vest, post-vest, sell, reinvest — with numbers at each stage.
+
+## What an RSU actually is
+
+An **RSU** is a promise from your employer to give you a share of company stock at a future date, *if* you're still employed there. Until that future date arrives (called the **vest date**), you don't own anything. You can't sell. You can't vote. If you quit, the unvested portion disappears.
+
+When the RSU vests, the share is transferred to your brokerage account. *That moment* is when it becomes yours.
+
+### Grant vs. vest — the two events
+
+| Event | What happens | Tax consequence |
+|---|---|---|
+| Grant | Company tells you "you'll get 400 RSUs over 4 years" | None |
+| Vest | Shares actually transfer to your brokerage | Perquisite tax in India (this is the big one) |
+| Sale | You sell vested shares | Capital gains tax in India |
+
+The grant has no tax. People often confuse this. Receiving the *promise* is not a taxable event. Receiving the *shares* is.
+
+### Vesting schedules
+
+Most US tech companies use a **4-year cliff schedule**:
+
+- Year 1: 25% vests at the 1-year cliff (none vests before 12 months).
+- Years 2–4: remaining 75% vests in monthly or quarterly installments.
+
+Some companies use other patterns:
+
+- **Front-loaded**: 33% / 27% / 22% / 18%. Designed to hook you in early years.
+- **Back-loaded**: 10% / 20% / 30% / 40%. Designed to keep you longer.
+- **Annual cliff**: 25% each year on the anniversary.
+
+The total grant vesting over 4 years is typical; the *distribution* across the years varies by company.
+
+### Refresher grants
+
+Most companies issue smaller "refresher" grants annually after your initial grant, also vesting over 4 years. These overlap with your initial vesting, smoothing your annual RSU income. After year 4 of employment, your annual RSU income roughly equals your annualized refresher grant + tail end of older grants.
+
+## The vesting event — what happens, and what gets taxed
+
+This is the most important section in the post. Get this wrong and you'll be confused every quarter for years.
+
+### What technically happens at vest
+
+On vest day, three things occur, roughly in this order:
+
+1. **The company calculates the FMV** of your vesting shares (using the closing price on vest day, or some defined window — your plan documents specify).
+2. **Tax is computed and withheld**. The exact mechanism varies by employer; the most common is "sell-to-cover" — they sell some of your vesting shares to generate cash for tax.
+3. **The remaining shares are deposited** in your brokerage account (typically Fidelity, E*TRADE, Morgan Stanley/Solium, or Carta for newer companies).
+
+### The tax math at vest (Indian side)
+
+In India, the vested RSU value is treated as **salary income** in the form of a **perquisite**. It's taxable at your **marginal slab rate**.
+
+Worked example:
+
+- 25 shares vest on March 15, 2026.
+- Stock price on vest day: $200.
+- USD/INR on vest day: ₹83.5.
+- Vest value (gross): 25 × $200 × ₹83.5 = **₹4,17,500**.
+- Your marginal tax: 30% slab + 15% surcharge + 4% cess.
+
+Tax computation:
+
+| | INR |
+|---|---|
+| Vest value (gross) | ₹4,17,500 |
+| Base tax @ 30% | ₹1,25,250 |
+| Surcharge @ 15% | ₹18,788 |
+| Subtotal | ₹1,44,038 |
+| Cess @ 4% | ₹5,762 |
+| **Total tax** | **₹1,49,800** |
+| **Effective rate** | **35.88%** |
+
+That ₹1,49,800 of tax has to come from somewhere. Enter sell-to-cover.
+
+### Sell-to-cover, explained
+
+Your employer's plan administrator sells enough shares on vest day to cover the tax liability and remits the cash to your tax authority (in India, via your employer's TDS payroll line).
+
+For our example:
+
+- Tax to cover: ₹1,49,800
+- Stock price: $200 = ₹16,700 per share
+- Shares sold to cover: ₹1,49,800 ÷ ₹16,700 = ~9 shares
+- Shares remaining in your account: 25 − 9 = 16 shares
+
+**The 9 shares that got sold don't appear in your brokerage account.** You only see 16 shares deposited. This often confuses first-timers — they expect 25 and see 16. The difference is the tax sold off.
+
+### Why sell-to-cover matters: the price-on-vest-day risk
+
+Sell-to-cover happens at the market price on vest day. If the stock drops 20% the next week, you've still paid tax on the higher price. The 16 shares you held are now worth 20% less — but the ₹1,49,800 you paid in tax wasn't refunded.
+
+This is unavoidable, but worth understanding. Vesting is a forced taxable event that locks in tax at the price *that day*, regardless of subsequent stock movement.
+
+### Other withholding methods
+
+Some companies offer alternatives to sell-to-cover:
+
+- **Sell-all**: All vesting shares are sold; cash equivalent of (gross − tax) is deposited. You hold no shares.
+- **Net issuance**: The company holds back shares to cover tax (similar to sell-to-cover but no actual market trade).
+- **Cash withholding**: You wire cash separately to cover tax. Rare for retail employees.
+
+For Indian residents, sell-to-cover is the default and almost always the right choice. Sell-all is fine if you don't want exposure to the company stock. Cash withholding is rarely worth the complexity.
+
+## What about US tax on the vest?
+
+Here's a question that comes up a lot: "Does the US also tax my vest?"
+
+The answer depends on your situation:
+
+### If you're an Indian resident with no US tax presence
+
+You are taxed on the RSU vest **only in India**, under Article 16 of the US-India treaty (employment income is taxable in the country of residence and where the employment is exercised). Your employer in India will treat it as salary; payroll handles the TDS through Indian tax channels.
+
+Your US broker may still collect *some* US withholding on the vest (NRA — Non-Resident Alien — withholding), depending on how the plan is set up. This is unusual for a pure Indian-resident grant but can happen with certain plan structures.
+
+If US withholding *is* applied, you can claim FTC in India via Form 67, the same way you would for dividends.
+
+### If you're a US tax resident or have a US presence (substantial physical presence in US)
+
+Different ballgame. The vest is taxable in the US first (W-2 income), and your Indian residency status determines whether India also has rights. Talk to a cross-border CA.
+
+For 95% of Indian residents working remotely or from India for a US multinational, the vest is purely an Indian tax event.
+
+## Post-vest: what's in your account and what to do with it
+
+After tax is sorted, you have *some number of shares* in your US brokerage account. Now what?
+
+### The three immediate decisions
+
+You have three choices on vest day:
+
+1. **Sell everything immediately** (sometimes called "vest-and-cash-out").
+2. **Hold all the post-tax shares** indefinitely.
+3. **Sell some, hold some** — partial liquidation.
+
+This decision is covered in depth in the [hold vs. sell post](/posts/should-you-sell-rsus-at-vest-or-hold). The summary version:
+
+- If your post-vest exposure to the company stock is more than ~20% of your net worth, **lean toward selling**.
+- If your company is a single-stock concentration risk you can't otherwise hedge, **lean toward selling**.
+- If you have a strong informational view that the stock is undervalued, **maybe hold**.
+- If you're indifferent, **sell and diversify**. Single-stock concentration is the higher-risk default.
+
+### What does "post-tax shares" actually mean for cost basis?
+
+The shares left in your account after sell-to-cover have a **cost basis equal to the FMV at vest** (the price the perquisite was valued at). You've already paid Indian tax on this value — it does NOT get taxed again as salary.
+
+If you sell at the vest-day price, your capital gain is zero. You've already paid tax (the perquisite tax). No additional Indian tax.
+
+If you sell later at a higher price, the gain (in INR) above the cost basis is taxable as capital gains.
+
+If you sell later at a lower price, you have a capital loss (which can be set off against other capital gains).
+
+### Cost basis tracking — the spreadsheet you'll need
+
+Every RSU tranche needs to be tracked individually. Mine looks like this (simplified):
+
+| Vest date | Shares (gross) | Shares (net of tax) | FMV/share USD | USD/INR | INR cost basis (net) |
+|---|---|---|---|---|---|
+| 2024-03-15 | 25 | 16 | $180 | ₹83.0 | ₹2,38,720 |
+| 2024-06-15 | 25 | 16 | $195 | ₹83.4 | ₹2,60,210 |
+| 2024-09-15 | 25 | 16 | $210 | ₹83.7 | ₹2,81,232 |
+| 2024-12-15 | 25 | 16 | $200 | ₹83.5 | ₹2,67,200 |
+| 2025-03-15 | 25 | 16 | $215 | ₹83.8 | ₹2,88,272 |
+
+When you sell, you specify which lot(s) — "FIFO" by default, but you can usually elect specific-lot accounting at the broker. This matters: selling the 2024-03 tranche (cost ₹2,38,720) generates a different gain than selling the 2025-03 tranche (cost ₹2,88,272).
+
+For Indian tax, **specific lot identification is allowed** if your broker supports it, and you should use it to optimize whether each sale is short-term (≤ 24 months) or long-term (> 24 months).
+
+## Selling shares: capital gains in India
+
+Same rules as any US stock — see the [tax post](/posts/how-us-stocks-are-taxed-in-india) for the full mechanics. The summary:
+
+- Holding period measured **from vest date** (not grant date).
+- Short-term (≤ 24 months): slab rate.
+- Long-term (> 24 months): 12.5% + cess, no exemption.
+- Gain in **INR** (proceeds in INR − cost basis in INR), not USD.
+
+The 24-month rule is brutal for fast-vest-fast-sell workflows. If you sell a tranche 23 months after vest, you pay ~35.88% effective short-term tax. Wait 25 months, you pay ~13%. The same gain produces 2.7x the tax difference.
+
+## Repatriating cash to India
+
+You sold some RSUs. Cash sits in your US brokerage account in USD. How do you get it home?
+
+### The flow
+
+1. Initiate withdrawal from broker → your bank account.
+2. Bank receives USD wire.
+3. Bank converts USD → INR at the prevailing rate (with FX markup).
+4. INR credited to your account.
+
+Time: 2–7 business days. Cost: typically ₹500–1,500 wire fee + FX markup of 30–80 paise.
+
+### Is this an LRS event?
+
+**No.** LRS governs *outbound* remittances only. Bringing money *back* to India from foreign investments is fully permitted under FEMA and does not count against your USD 250,000 LRS limit.
+
+### Tax implications of repatriation
+
+Repatriation itself is not a tax event. The tax was triggered when you *sold* the shares, regardless of where the cash subsequently moves. Bringing the USD home is just a currency conversion.
+
+That said, you do want to keep records — when, how much, at what FX rate. This appears in your bank statements and your broker statements; together they reconstruct the history.
+
+## What to do with the proceeds — the underrated decision
+
+This is the part most RSU content skips. You sold ₹15 lakh worth of vested RSUs. Tax was paid. ₹13 lakh is sitting in your Indian bank account. **Now what?**
+
+The single biggest determinant of long-term wealth from RSU compensation isn't the company stock's performance after vest. It's what you do with the cash once you sell.
+
+### The three reinvestment paths
+
+**Path A: Indian equity / index funds.**
+
+Rebuild a diversified Indian portfolio. Nifty 50 index funds, Nifty Next 50, mid-cap, Nifty 500. Boring, broad, low-cost.
+
+Pros: simplest. No new compliance burden. India already governs your tax life.
+Cons: removes the USD diversification that having US RSUs gave you.
+
+**Path B: Re-deploy back into US ETFs via LRS.**
+
+Take the INR proceeds, send them back through LRS, buy VTI or QQQM. You're maintaining USD exposure but shifting from concentrated single-stock (your employer) to diversified ETF.
+
+Pros: keeps the USD diversification. Reduces single-stock risk.
+Cons: triggers TCS if you've already used your ₹10 lakh LRS bucket. Adds complexity.
+
+**Path C: A blend.**
+
+E.g., 60% Indian index funds, 40% redeployed to US ETFs. Captures rupee-denominated assets and keeps some USD exposure.
+
+This is the path I'd lean toward for most people. The proportions depend on what your overall portfolio already looks like.
+
+### The "leave it in cash" trap
+
+The default behavior — "I'll figure out what to do with this later" — is the worst path. Cash sitting in your savings account at 3.5% earns less than inflation, and the ₹13 lakh becomes ₹12 lakh of real purchasing power within 18 months.
+
+**Have a redeployment plan before you sell.** Even a rough one. Don't sell unless you know what the proceeds are going to do.
+
+## A worked annual cycle
+
+Let's walk through one year of an RSU holder.
+
+**Setup:** Senior engineer at a US multinational, India-based. Annual RSU grant: ~₹40 lakh (gross). Vesting quarterly, ~₹10 lakh per quarter. 30% slab + 15% surcharge.
+
+| Event | Quarterly amount (INR) |
+|---|---|
+| Vest value (gross) | ₹10,00,000 |
+| Indian perquisite tax @ 35.88% | ₹3,58,800 (sell-to-cover) |
+| Net shares received (USD value) | ₹6,41,200 |
+| Decision: sell 50%, hold 50% | |
+| Cash to Indian bank (after sale, FX) | ₹3,15,000 |
+| Held shares | ₹3,20,000 |
+| Repatriated cash deployed to: | |
+| - Indian index fund | ₹1,50,000 |
+| - Re-LRS to US ETFs | ₹1,50,000 |
+| - Cash buffer | ₹15,000 |
+
+Over 4 quarters: ₹40 lakh gross → ₹14.35 lakh tax → ₹25.65 lakh net.
+
+Of the ₹25.65 lakh:
+
+- ₹12.8 lakh held as company stock (USD).
+- ₹6 lakh deployed to Indian index funds (INR).
+- ₹6 lakh re-deployed to US ETFs via LRS (USD).
+- ₹0.85 lakh in cash buffer.
+
+Year-end: company stock down 15% (volatility), index funds up 12%, ETFs up 8%. Total RSU-derived wealth at year-end: ~₹25.5 lakh.
+
+The diversification cushion shows up here. If you'd held everything as company stock, the same 15% decline applied to ₹25.65 lakh = ₹21.8 lakh end-of-year. The diversification preserved ~₹3.7 lakh.
+
+That's a single year. Compounded over a career, the difference is enormous.
+
+## The annual RSU checklist
+
+Year-round, an RSU holder needs to:
+
+- [ ] Track every vest event with FMV, USD/INR rate, and net shares received (cost basis in INR).
+- [ ] Disclose every quarter-end and year-end value in Schedule FA.
+- [ ] File Form 67 if any US dividend or withholding occurred.
+- [ ] Plan repatriation around TCS thresholds (don't trigger 20% TCS on inbound LRS replenishment unless necessary).
+- [ ] Keep year-end statements from your broker for 7+ years.
+
+And the bigger framing:
+
+- [ ] Decide once a year what % of total compensation should remain as company stock.
+- [ ] Have a redeployment plan before each sale, not after.
+- [ ] Reassess tax bracket and surcharge implications annually (especially if total compensation crosses ₹50 lakh, ₹1 cr, or ₹2 cr — surcharge slabs).
+
+## The ten rupees of advice
+
+If RSU posts could be reduced to ten lessons:
+
+1. Vest is a tax event. Nothing before it is.
+2. Sell-to-cover is automatic and unavoidable. Plan around it.
+3. Cost basis is FMV at vest, in INR. Track every tranche.
+4. 24-month rule: hold past 24 months for LTCG, or eat slab rate.
+5. Concentration in single company stock is the silent risk. Diversify.
+6. Form 67 for any dividend or withholding. Don't skip.
+7. Schedule FA for the holdings. Don't skip.
+8. Have a reinvestment plan *before* selling.
+9. Cash decay is real. Don't sit on rupees indefinitely.
+10. The compensation game is multi-year. Optimize for the cycle, not the quarter.
+
+Done right, RSU comp is one of the most powerful wealth-building tools available to an Indian working professional. Done sloppily, it's a stream of taxable events that quietly compound into very little. Most of the difference is in the small decisions made the day after each vest.

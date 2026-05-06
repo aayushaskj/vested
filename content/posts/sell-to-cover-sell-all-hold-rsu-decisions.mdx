@@ -1,0 +1,246 @@
+---
+title: "Sell-to-cover, sell-all, hold: the three RSU vest decisions and when to use each"
+description: "Every RSU vest forces a decision. Sell shares to cover tax only? Sell all and take cash? Hold everything? Here's a framework for picking the right answer for your situation."
+date: "2026-03-18"
+category: "rsu-management"
+tags: ["rsu", "vesting", "concentration-risk", "decisions"]
+author: "Vested"
+---
+
+When your RSUs vest, your employer's plan administrator presents you with (typically) three options for how to handle the tax obligation:
+
+1. **Sell-to-cover** — sell just enough shares to pay the tax, hold the rest.
+2. **Sell-all** — sell everything, take the cash equivalent of (gross − tax).
+3. **Hold** (also called "cash-pay" or "wire-in") — wire your own money to cover tax, keep all the shares.
+
+Most employees default to sell-to-cover because that's what the plan administrator pre-checks. But the right choice depends on your specific situation, and for many Indians the default isn't optimal.
+
+This post walks through the three options with numbers, then gives you a framework for picking.
+
+## The three options, numerically
+
+Let's use a concrete vest event:
+
+- 50 RSUs vesting.
+- Stock price on vest day: $200.
+- USD/INR: ₹83.5.
+- Vest value (gross): 50 × $200 × ₹83.5 = ₹8,35,000.
+- Your marginal tax: 30% slab + 15% surcharge + 4% cess = 35.88%.
+- Tax owed: ₹2,99,598.
+
+### Option 1: Sell-to-cover
+
+You sell just enough shares to pay the tax.
+
+| Step | Computation | Result |
+|---|---|---|
+| Tax owed | ₹2,99,598 | |
+| Per-share value | $200 × ₹83.5 | ₹16,700 |
+| Shares sold to cover tax | ₹2,99,598 ÷ ₹16,700 | ~18 shares |
+| Shares remaining in account | 50 − 18 | **32 shares** |
+| Value of remaining shares (at vest) | 32 × ₹16,700 | **₹5,34,400** |
+
+Your account shows: 32 shares + ₹0 cash (the tax was sold out and remitted on your behalf).
+
+### Option 2: Sell-all
+
+The entire 50-share lot is sold; cash net of tax is deposited.
+
+| Step | Result |
+|---|---|
+| Gross sale value | ₹8,35,000 |
+| Tax @ 35.88% | ₹2,99,598 |
+| Net cash | **₹5,35,402** |
+
+Your account shows: 0 shares + $6,412 (~₹5,35,402) in cash.
+
+The difference between sell-to-cover and sell-all in dollar terms: about ₹1,000 (rounding from the share-quantity granularity in sell-to-cover). Functionally identical in absolute value — the difference is *exposure*. After sell-to-cover, you hold 32 shares; after sell-all, you hold zero.
+
+### Option 3: Hold (cash-pay)
+
+You wire your own ₹2,99,598 to the broker (or to your employer, depending on the plan structure). All 50 shares stay in your account.
+
+| Step | Result |
+|---|---|
+| Vest value retained | ₹8,35,000 |
+| Tax paid (out of separate cash) | ₹2,99,598 (your money) |
+| Shares retained | **50 shares** |
+| Effective net wealth shift | + ₹8,35,000 in shares − ₹2,99,598 in cash − value of cash you paid |
+
+You've effectively converted ₹2,99,598 of cash into ₹2,99,598 worth of additional company stock exposure (the difference between holding 32 vs. 50 shares is 18 shares × ₹16,700 = ₹3,00,600 — same as the tax).
+
+So **option 3 = option 1 + (₹3 lakh of additional cash deployed into company stock at vest-day price)**.
+
+## The framework: pick based on your concentration risk
+
+The right choice has almost nothing to do with the vest itself and almost everything to do with your **overall portfolio**. The relevant question is:
+
+> *After this vest is fully processed (tax + repatriation + diversification), what % of my total net worth will be in this single company stock?*
+
+If the answer is over 25%, lean toward sell-all. If under 10%, sell-to-cover or hold is fine. Between 10% and 25% is a personal-judgment zone.
+
+### Why concentration matters
+
+A single company stock is, statistically, riskier than the broad market. The reasons:
+
+- **Idiosyncratic risk**: one product launch, one earnings miss, one CEO scandal can drop the stock 30% in a day.
+- **Industry concentration**: your company's stock and your *job* are correlated. A sector downturn that lays you off is also when your stock is at its worst.
+- **No mean reversion guarantee**: most individual stocks underperform the index over long periods. The index outperforms because of a small number of winners.
+
+A diversified ETF doesn't have these risks at the same magnitude.
+
+### Concentration thresholds
+
+A rough framework I've seen used by financial advisors:
+
+| % of net worth in single stock | Risk level | Recommendation |
+|---|---|---|
+| Under 5% | Low | Hold or sell-to-cover; doesn't matter much |
+| 5–15% | Moderate | Sell-to-cover; consider gradual selling over months |
+| 15–30% | High | Sell-all on each new vest until % drops |
+| > 30% | Concentrated | Aggressive selling — sell-all + sell some held lots |
+
+These aren't rules of physics. They're heuristics. Your tolerance for single-stock volatility might be higher or lower than someone else's.
+
+### A worked example
+
+Suppose you're a senior engineer with:
+
+- Indian salary + bonus: ₹60 lakh/year, after-tax savings of ~₹25 lakh/year.
+- Existing portfolio: ₹40 lakh in Indian index funds, ₹10 lakh in PPF.
+- US RSUs, currently holding 200 shares of company stock at $200 = ₹33,40,000.
+
+Total net worth: ₹40 + ₹10 + ₹33.4 = ₹83.4 lakh.
+
+% in company stock: 33.4 / 83.4 = **40%**. *Concentrated*.
+
+Now you have 50 more shares vesting (₹8.35 lakh gross).
+
+**If you sell-to-cover**: you end up with 232 shares (200 existing + 32 new) = ₹38,74,400. Your concentration goes from 40% to 41% (denominator also grew). *Worse*.
+
+**If you sell-all**: you end up with 200 shares = ₹33.4 lakh, plus ₹5.35 lakh of cash (which you can deploy into Indian index funds). Concentration: 33.4 / 88.75 = **38%**. Slightly better.
+
+**If you sell-all AND sell some of the existing 200**: more aggressive. You sell 50 of the 200 existing shares (after 24-month long-term threshold for tax efficiency) and the new vest. You end up with 150 shares = ₹25 lakh in company stock, plus ~₹13 lakh of cash to redeploy. Concentration: 25 / 88.5 = **28%**. Meaningfully better.
+
+For a 40%-concentrated holder, sell-all on each vest plus periodic selling of older long-term lots is the right structural answer.
+
+### When holding makes sense
+
+The minority case: holding all your RSUs (option 3) can be the right call if:
+
+1. **Your concentration is already low** (under 5%). The marginal vest doesn't shift the picture.
+2. **You have an actual informational edge.** You know something specific about the company's near-term future that the market doesn't price.
+3. **You can't easily get the equivalent exposure another way.** This is rare for public companies — you can buy your sector via VTI/QQQ — but exists for some pre-IPO situations.
+4. **You have ample diversified savings already.** The RSUs are a "moonshot" allocation rather than core wealth.
+
+For most Indian RSU holders working at large public US tech companies, none of these apply. Sell-to-cover is fine for low concentration; sell-all for high.
+
+## The case against "always hold"
+
+A common contrarian view: "Past tech employees who held all their company stock made fortunes. Why would I sell?"
+
+The selection bias is severe. You hear about Microsoft, Google, NVIDIA, Apple — companies whose stocks compounded extraordinarily. You don't hear about employees of Cisco (peaked 2000, still below peak 25 years later), Yahoo, AOL, IBM, Intel (off 60% from peak in 2024–25), or any of the dozens of mid-cap tech companies whose stock went sideways for a decade.
+
+If you held only one company's stock from 2000 to 2025, the spread of outcomes is *huge*. The median outcome is "underperformed the index." The average is dragged up by a few extreme winners. **You don't know in advance which one yours is.**
+
+Diversifying into the broad market gives you the *median outcome of all winners*, which is much closer to "good" than the median outcome of betting on one stock.
+
+## The case against "always sell"
+
+The other extreme: "Sell every vest immediately, no exceptions." Also wrong.
+
+Selling immediately means:
+
+- You have no exposure to the asymmetric upside if your company turns out to be a winner.
+- You miss the alignment between you and the company that RSUs are partly designed to create.
+- For tax efficiency, you may be selling in the worst possible window (right at vest, before you can hold for 24 months and qualify for LTCG).
+
+If your company stock represents 5% of your net worth and you joined precisely because you believed in the company, *holding through one vest cycle* (24 months) costs you very little tax-wise and lets you participate in upside.
+
+## Tax efficiency: the 24-month consideration
+
+If you're going to sell, *when* matters. Every RSU vest you sell within 24 months of vest is taxed as **short-term capital gain** at slab rate. Held > 24 months: **long-term at 12.5%**.
+
+For someone in the 30% slab + 15% surcharge + cess (35.88% effective short-term):
+
+| Sale window | Tax rate | On ₹1 lakh of gain |
+|---|---|---|
+| Under 24 months | 35.88% | ₹35,880 |
+| > 24 months | 13% (12.5% + 4% cess) | ₹13,000 |
+
+That's a 2.7x difference. *On the same gain.*
+
+This argues for one of two patterns:
+
+**Pattern A: Sell at vest.** No capital gain (because cost basis = vest-day FMV = sale price). All tax is the perquisite tax. This is sell-all on every vest.
+
+**Pattern B: Hold > 24 months, then sell.** Capital gain accrues over time, taxed at 12.5%. Total tax = perquisite tax (paid at vest) + LTCG (paid at sale).
+
+The pattern that's bad: **Sell at month 23**. You've eaten the perquisite tax *and* the maximum short-term capital gains tax.
+
+If you find yourself wanting to sell in the 12–24 month window, ask whether you can wait. Three more months can be ₹1–2 lakh of saved tax on a typical vest.
+
+## What about diversification *during* the holding period?
+
+Suppose you decide to hold post-vest. The shares sit in your US broker for some duration, then you sell. During that period, your concentration risk is high. Is there a way to hedge?
+
+Theoretically: yes. You could buy puts on the company stock (if it has options markets), buy an inverse ETF, or short an industry ETF. **None of this is available to Indian residents under LRS.** Options trading abroad is prohibited under FEMA for Indian residents. Inverse ETFs hold derivatives internally and are sometimes blocked by Indian platforms.
+
+In practice, your only "hedge" while holding is to keep the holding period short (sell as soon as it crosses 24 months for LTCG efficiency) or to reduce concentration through other means (build up Indian assets faster).
+
+## A framework for the actual decision
+
+Once a quarter (or whenever your next vest comes), run through this checklist:
+
+1. **What is my current concentration in this stock as % of net worth?** (Include unvested RSUs at expected vest-day value.)
+2. **Will the upcoming vest push concentration higher or lower?** (Higher if I sell-to-cover, lower if I sell-all.)
+3. **What's my target concentration?** (15% is a common target; 30% is a yellow flag; > 50% is a red flag.)
+4. **Are there older lots eligible for long-term sale?** (Vested > 24 months ago.)
+5. **What's my reinvestment plan for any cash freed up?**
+
+Run through this and the choice usually becomes clear. Sell-to-cover with no other action is rarely the right structural answer for someone over the 15% concentration threshold; it just maintains the status quo while accumulating more single-stock exposure.
+
+## A few specific scenarios
+
+### Scenario A: Junior engineer, 2nd year, low concentration
+
+- Total comp: ₹35 lakh, mostly cash.
+- RSU vesting: ₹3 lakh per quarter.
+- Existing holdings: minimal (just-built emergency fund).
+
+**Recommendation**: sell-to-cover is fine. The stock is a small fraction of your total wealth. The volatility is manageable. Use the freed-up cash to build core Indian assets (index funds, NPS).
+
+### Scenario B: Senior engineer, year 5, high concentration
+
+- Total comp: ₹75 lakh.
+- Existing company stock: ₹50 lakh.
+- Other investments: ₹30 lakh.
+- Concentration: 50 / 80 = 62%.
+
+**Recommendation**: sell-all on every new vest. Additionally, sell 5–10 lakh of older long-term lots each quarter and redeploy to diversified ETFs/Indian index. Aim to reduce concentration to under 30% over 12–18 months.
+
+### Scenario C: Pre-IPO startup, illiquid stock
+
+- Total comp: ₹40 lakh + RSUs in pre-IPO company at $X "estimated value."
+- Cannot sell shares (no public market).
+
+**Recommendation**: option 3 (hold) by default — you can't sell anyway. But push your employer for a tender offer or secondary sale opportunity if the company is mature. Track the perquisite tax obligation carefully — you'll owe Indian tax on the FMV at vest, but have illiquid shares to sell to pay it. This is a real cash-flow problem some pre-IPO employees face.
+
+### Scenario D: Recent acquisition / IPO event
+
+- Your company just went public (or was acquired). Your shares are suddenly liquid.
+- A flood of vesting (acceleration) creates a big tax bill.
+
+**Recommendation**: aggressive sell-all, even if you believe in the post-IPO company. Acquisition / IPO events often coincide with peak euphoria pricing; the lockup expiry typically creates downward pressure 6–12 months later. Locking in cash at IPO/acquisition prices is conservative and rarely the wrong call.
+
+## The summary
+
+There is no universal "right" answer. The framework:
+
+- **Default for low concentration (under 15%)**: sell-to-cover, redeploy freed cash to diversified assets.
+- **Default for high concentration (> 25%)**: sell-all on every new vest, plus opportunistic sale of older long-term lots.
+- **Special situations**: hold only when you have a real informational edge or genuinely high risk tolerance.
+
+The most expensive mistake in RSU management is *unconscious accumulation*: defaulting to sell-to-cover for years, watching your concentration grow to 60%+ of net worth, and then experiencing a 40% decline that wipes out years of savings.
+
+Make the decision deliberately each quarter. The choices compound.
