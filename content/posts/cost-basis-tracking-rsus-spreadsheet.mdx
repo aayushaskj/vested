@@ -1,0 +1,241 @@
+---
+title: "Cost basis tracking for RSUs: the spreadsheet you actually need"
+description: "When you sell an RSU lot 3 years from now, you'll need INR cost basis to the exact tranche. Most employees can't reconstruct this. Here's the spreadsheet structure that works, with examples."
+date: "2025-11-05"
+category: "rsu-management"
+tags: ["rsu", "cost-basis", "tracking", "spreadsheet", "tax"]
+author: "Vested"
+---
+
+The single most underrated piece of personal-finance hygiene for an RSU holder is **maintaining a cost-basis spreadsheet**.
+
+Here's why it matters: when you sell an RSU lot in 2030, the Indian tax department wants to know your INR cost basis for that specific lot. The cost basis is the FMV at vest × USD/INR on vest day. Your broker statement, by then, may have been replaced by a new portal. Your employer might have switched plan administrators. The original vest emails might be in a deleted Gmail account from a job you left in 2025.
+
+If you can't produce the cost basis, the IT Department's default is to **deny it entirely** — taxing your sale on the full proceeds. On a long-held position with substantial gain, this can mean lakhs of unnecessary tax.
+
+This post shows you the exact spreadsheet structure to maintain, what each column should contain, and a worked example.
+
+## The minimum viable columns
+
+Every RSU/ESPP/single-stock lot needs these columns:
+
+| Column | Why it matters |
+|---|---|
+| Vest/Purchase date | Anchors the holding period for LTCG/STCG |
+| Asset (ticker + company name) | Schedule FA disclosure |
+| Type (RSU/ESPP/buy) | Tax category |
+| Shares (gross) | What was originally granted |
+| Tax withheld (shares) | Sell-to-cover detail |
+| Shares (net) | What you actually hold |
+| FMV per share USD | Per-share valuation at vest/purchase |
+| USD/INR rate (SBI TT-buying) | The conversion rate that matters for tax |
+| Cost basis per share INR | Per-share INR cost |
+| Total cost basis INR (net) | Total INR you've paid Indian tax on |
+
+Plus optionally:
+
+- Notes (e.g., "Vest from L4 promotion grant", "Refresher year 2", "Pre-IPO acceleration")
+- Plan administrator (Fidelity, E*TRADE, etc.)
+- Sale-completed flag (if/when you've sold this lot)
+
+## A worked spreadsheet
+
+Here's what a real spreadsheet looks like for someone 3 years into a 4-year RSU vesting at a US tech company:
+
+| Date | Asset | Type | Gross | Tax shares | Net | FMV USD | USD/INR | Per-share INR | Total INR (net) |
+|---|---|---|---|---|---|---|---|---|---|
+| 2023-06-15 | XYZ | RSU | 25 | 9 | 16 | $180.00 | ₹82.5 | ₹14,850 | ₹2,37,600 |
+| 2023-09-15 | XYZ | RSU | 25 | 9 | 16 | $195.00 | ₹83.0 | ₹16,185 | ₹2,58,960 |
+| 2023-12-15 | XYZ | RSU | 25 | 9 | 16 | $210.00 | ₹83.3 | ₹17,493 | ₹2,79,888 |
+| 2024-03-15 | XYZ | RSU | 25 | 9 | 16 | $200.00 | ₹83.2 | ₹16,640 | ₹2,66,240 |
+| 2024-06-15 | XYZ | RSU | 25 | 9 | 16 | $215.00 | ₹83.5 | ₹17,953 | ₹2,87,243 |
+| 2024-12-31 | XYZ | ESPP | 12 | 0 | 12 | $230.00 | ₹83.7 | ₹19,251 | ₹2,31,012 |
+| 2025-03-15 | XYZ | RSU | 25 | 9 | 16 | $245.00 | ₹83.9 | ₹20,556 | ₹3,28,890 |
+| 2025-06-15 | XYZ | RSU | 25 | 9 | 16 | $260.00 | ₹84.2 | ₹21,892 | ₹3,50,272 |
+
+Eight lots over two years. Total net cost basis: ₹21,40,105. Total net shares held: 124.
+
+When you go to sell — say, in 2027 — you can pick which lot(s) to sell from. Selling the June 2023 lot first gives you LTCG (held > 24 months) and the lowest cost basis (largest gain, but lowest tax rate). Selling the most recent vests gives you STCG (slab rate) on possibly smaller gains.
+
+## How to actually keep the spreadsheet
+
+### Method 1: Manual entry (recommended)
+
+Open Google Sheets or Excel. Set up the columns above. Every quarter when you have a vest:
+
+1. Open the vest confirmation from your plan administrator.
+2. Copy: gross shares, FMV per share, sell-to-cover share count (calculate net = gross − tax shares).
+3. Open the SBI TT-buying rate page for the vest date (search "SBI exchange rates" on Google → Forex → TT-buying for USD).
+4. Enter the row.
+
+Time per vest: 5 minutes.
+
+### Method 2: Broker auto-export + manual append
+
+Some plan administrators (Fidelity, E*TRADE) export transaction history as CSV. Download every quarter, append to your master spreadsheet. Verify the FMV / shares match what was on your payslip (sometimes broker data has timing edge cases).
+
+### Method 3: Apps and tools
+
+There are emerging apps that auto-track equity comp (Equity Tracker, Carta for compensation, etc.). Most are US-focused and don't compute INR cost basis correctly. Manual is still safer for Indian tax purposes.
+
+## The Schedule FA computation
+
+Same data drives Schedule FA reporting:
+
+| Schedule FA field | How to compute from spreadsheet |
+|---|---|
+| Initial value of investment | Sum of "Total INR (net)" across all lots |
+| Peak value during FY | Max market value during the year. Calculate as (shares × peak USD price during FY × peak USD/INR during FY). Use highest combination. |
+| Closing balance | Shares held × USD price on Mar 31 × SBI TT-buying rate on Mar 31 |
+| Total income | Dividends + realized gains during the year (in INR) |
+
+Save end-of-year snapshots:
+
+- Total shares held on March 31.
+- USD price on March 31 (closing).
+- USD/INR on March 31 (SBI TT-buying).
+- Peak USD price during the FY.
+- Peak USD/INR during the FY.
+
+These five numbers, applied to your share count, give you everything Schedule FA needs.
+
+## Maintaining the spreadsheet over years
+
+Over a 5–10 year career at a US multinational, your spreadsheet grows to 50–100+ lots. Some best practices:
+
+### Practice 1: Save annually
+
+Every March 31, save a snapshot of the year. Name files like `RSU_FY2026-27.xlsx`. Don't just keep the current spreadsheet; have year-end snapshots in case current data gets corrupted.
+
+### Practice 2: Back up
+
+Cloud storage (Google Drive, OneDrive) plus a local backup. Some IT Department notices come 7+ years after the relevant transaction. Your records need to outlast your job change, your laptop replacement, your Gmail account purge.
+
+### Practice 3: Keep transaction confirmations
+
+Save the original vest confirmations / 1099 forms / broker statements as PDFs alongside the spreadsheet. If the IT Department wants to verify a number, you'll need the underlying source document.
+
+### Practice 4: Reconcile annually
+
+Once a year, reconcile your spreadsheet against your broker statement. Make sure share counts match. Sometimes data entry errors compound.
+
+### Practice 5: Plan ahead for sales
+
+When you're considering a sale, run a "what-if" on different lots:
+
+- Sell oldest first (FIFO): typically LTCG, smaller cost basis (larger gain).
+- Sell highest cost basis: minimizes gain.
+- Sell newest first (LIFO): typically STCG, smaller gain at slab rate.
+
+Your broker's specific-lot ID feature lets you choose. Use it strategically.
+
+## Adding sales to the spreadsheet
+
+When you sell a lot, extend the row:
+
+| Column | Entry on sale |
+|---|---|
+| Sale date | Date of sale |
+| Sale price USD | USD per share at sale |
+| USD/INR sale | SBI TT-buying on sale date |
+| Sale proceeds INR | Shares × USD × INR rate |
+| Capital gain (INR) | Sale proceeds INR − Cost basis INR (this lot) |
+| Holding period | Sale date − Vest date |
+| LTCG or STCG | Based on whether holding ≥ or < 24 months |
+| Tax | LTCG: 12.5% × gain. STCG: slab × gain |
+
+Keep the row even after sale — it's your record for the ITR filing.
+
+## A few non-obvious tracking issues
+
+### Issue 1: Stock splits
+
+If your company does a stock split (e.g., 4-for-1), your share counts and per-share prices change. Adjust historical rows: multiply share counts by 4, divide per-share FMV and per-share INR by 4. Total INR cost basis stays the same.
+
+Don't forget. Future sales of that lot need adjusted basis to be correct.
+
+### Issue 2: Reverse stock splits
+
+Same as splits but inverse. Rare for established US companies; sometimes happens at smaller companies.
+
+### Issue 3: Spinoffs
+
+If your company spins off a subsidiary (e.g., HP → HPE), you get shares of both. Cost basis allocates proportionally based on FMV ratio. Track both new entities separately from spinoff date.
+
+### Issue 4: Mergers/acquisitions
+
+If your company gets acquired (cash, stock, or hybrid):
+
+- Cash buyout: treated as a sale at the cash price. Capital gains realized. Spreadsheet record updates with sale info.
+- Stock-for-stock merger: cost basis carries forward to the new company's stock; track new ticker.
+- Hybrid: pro-rata cost basis allocation between cash (sale) and new stock (continued holding).
+
+### Issue 5: Dividend reinvestment (DRIP)
+
+If you've enabled dividend reinvestment, each quarterly dividend buys more shares at the prevailing price. Each reinvestment is a new lot with its own cost basis.
+
+For Indian tax purposes, this gets complicated quickly. **Recommendation: turn off DRIP** for foreign holdings if you're an Indian resident. Take dividends as cash, redeploy manually if desired. Simpler tracking.
+
+### Issue 6: Multiple grants from same employer
+
+You may have an initial grant + 4 refresher grants over 5 years. Each grant has its own vesting schedule.
+
+Track grants separately if they have different vesting schedules. But for tax purposes, all shares of the same ticker are fungible — you can sell any lot regardless of which grant it came from.
+
+## When tracking gets too hard: hire a CA
+
+If your equity comp gets to:
+
+- ₹1.5 cr+ in vested holdings.
+- 100+ lots across multiple grants.
+- Multiple employers / acquisitions.
+- ESPP + RSU + occasional self-directed buys.
+
+…then it's worth hiring a CA who specializes in cross-border equity comp. They'll maintain the spreadsheet for you, ensure Schedule FA is correct, and file Form 67 for any dividend FTC. Cost: typically ₹15,000–50,000/year depending on complexity.
+
+For senior employees with substantial equity, the CA fee is well below the tax mistakes they'll catch.
+
+## A self-check: can you answer these questions?
+
+If your spreadsheet is good, you should be able to answer in 60 seconds:
+
+1. What's my total net INR cost basis across all current holdings?
+2. How many shares are eligible for LTCG today (held > 24 months)?
+3. What was my peak holding value during the last FY (in INR)?
+4. If I sell ₹X today, what's my expected tax bill?
+
+If any of those takes more than a minute, your tracking has gaps. Fix them before you need the answer for tax filing.
+
+## A template you can copy
+
+Open Google Sheets. Create columns A through L:
+
+- A: Date
+- B: Ticker / Asset
+- C: Type (RSU/ESPP/Buy)
+- D: Gross shares
+- E: Tax shares (sell-to-cover)
+- F: Net shares (D − E)
+- G: FMV per share USD
+- H: USD/INR rate
+- I: Per-share INR (G × H)
+- J: Total INR (F × I)
+- K: Notes
+- L: Sale info (date, price, gain, tax)
+
+That's the entire structure. Fill in one row per vest event going forward.
+
+If you have past vests, reconstruct from your old broker statements. It's tedious but doable. The alternative — discovering at tax time that you don't have the data — is much worse.
+
+## The summary
+
+A cost basis spreadsheet for RSUs is:
+
+- Boring to maintain.
+- Critical for tax compliance.
+- Saves real money over a multi-year holding.
+- Takes 5 minutes per quarter to update.
+
+The marginal effort is tiny; the cost of not doing it is potentially a substantial tax over-payment 5 years from now when you sell. Set up the spreadsheet today. Add every vest going forward. Save backups. Update once a quarter.
+
+Done.

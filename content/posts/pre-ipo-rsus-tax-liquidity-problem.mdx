@@ -1,0 +1,310 @@
+---
+title: "Pre-IPO RSUs: the unique tax and liquidity problem"
+description: "If your US-headquartered employer is private, your RSUs trigger Indian tax at vest at FMV — but you can't sell. Here's the cash-flow trap and how to navigate it."
+date: "2025-10-22"
+category: "rsu-management"
+tags: ["pre-ipo", "rsu", "private-company", "double-trigger", "liquidity"]
+author: "Vested"
+---
+
+If you work for a private US company that grants RSUs — Stripe, Databricks, Anthropic, Plaid, Notion, Canva, dozens of others — you have one of the most awkward equity-comp situations possible. You owe taxes on shares you can't sell, valued at prices nobody can verify, with no liquid market for the underlying stock.
+
+This post is for that situation. We'll cover how pre-IPO RSUs work, the **double-trigger** mechanism that some private companies use to delay the tax bill, and what to actually do about the cash-flow problem.
+
+## How public-company RSUs work, briefly
+
+Recap: at a public US company (say, Microsoft), an RSU vests, FMV is the closing price that day, sell-to-cover handles the tax, and you walk away with post-tax shares you can sell anytime in the open market.
+
+The key feature: there's **a liquid market**. You can always convert shares to cash within 24 hours.
+
+## How pre-IPO RSUs work
+
+At a private company, no liquid market exists. RSUs work the same conceptually, but with two crucial differences:
+
+### Difference 1: FMV is determined by 409A valuation
+
+The FMV at vest is the company's most recent **409A valuation**. This is a third-party-determined fair-market-value assessment, refreshed every 6–12 months by valuation firms (Carta, Aon, etc.).
+
+The 409A value is typically *lower* than the latest preferred-stock funding round price, because it values common stock (what you have) at a discount to preferred stock (what investors have). Discounts of 30–60% are common.
+
+This is the FMV used for:
+
+- US tax (if applicable to you).
+- **Indian perquisite tax**.
+- Cost basis going forward.
+
+### Difference 2: No liquid market for the shares
+
+You cannot sell vested RSU shares on a public exchange because the company is not public. Limited options exist:
+
+- Wait for the IPO (could be 3 months, could be 7 years, could be never).
+- Wait for the company to be acquired (cash exit).
+- Tender offer / secondary sale that the company facilitates.
+- Sell to an outside buyer through a private secondary market (Forge, EquityZen) — only if the company permits.
+
+So your shares are real on paper, valued at the 409A price, but you can't easily turn them into cash.
+
+## The Indian tax problem
+
+Here's where it gets brutal for Indian residents:
+
+### Pre-IPO RSU vesting still triggers Indian perquisite tax
+
+When your pre-IPO RSU vests:
+
+1. The company computes FMV at the latest 409A.
+2. This value × your shares × USD/INR = perquisite income in India.
+3. You owe tax at slab + surcharge + cess.
+
+For a senior engineer at a high-valued private company, this can be ₹10–50 lakh of tax per year.
+
+### Sell-to-cover often doesn't work
+
+In a public company, sell-to-cover sells some of your vesting shares to fund tax. In a private company:
+
+- There's no public market to sell shares.
+- Some private companies still implement a form of "sell-to-cover" by reducing your gross share count (you keep N shares, the company "absorbs" M shares to pay the tax).
+- Many private companies *can't* do sell-to-cover because they don't have a tender-offer mechanism. **You owe the tax in cash, with no offset shares.**
+
+### You owe Indian tax in INR cash
+
+For an employee at a US private company:
+
+- Tax owed at vest (at 409A FMV).
+- Stock cannot be sold.
+- You need to find INR cash to pay the tax bill.
+
+A typical scenario:
+
+- Your annual RSU grant at 409A: $400k vesting over 4 years.
+- Year 1 vest: 25 × ($400k / 100 shares) = $100k worth at 409A (~₹83 lakh).
+- Indian tax @ 35.88%: **₹29.8 lakh** owed at vest.
+- Cash on hand: probably your salary, partially invested.
+
+Where does ₹29.8 lakh come from? Either:
+
+- From your existing cash savings (depletes liquid wealth).
+- From your salary going forward (skips other goals).
+- Borrowed (loan against assets, personal loan).
+
+This is the cash-flow trap.
+
+## The "double-trigger" RSU — the saving grace
+
+Some private US companies use **double-trigger RSUs**:
+
+- **Trigger 1**: time-based vesting (the standard 4-year schedule).
+- **Trigger 2**: a liquidity event (IPO, acquisition, or qualifying tender).
+
+Both must occur for the RSU to actually be considered "vested" for tax purposes.
+
+In practical terms:
+
+- Year 1, 25% time-vests. **No tax** triggered yet (no liquidity event).
+- Year 2, more time-vests. Still no tax.
+- Year 4, 100% time-vested. Still no tax if no IPO.
+- IPO happens at Year 5. **All time-vested RSUs now satisfy both triggers and become taxable.**
+
+This is a huge benefit. You don't pay tax until there's actual liquidity. The tax bill aligns with cash availability.
+
+### Which companies use double-trigger?
+
+Common at high-valued late-stage private US companies. Examples (varies; verify with your specific employer):
+
+- Stripe
+- Databricks
+- Anthropic
+- Plaid
+- Discord
+- GitLab (pre-IPO)
+- Reddit (pre-IPO)
+- Most "decacorn" private companies in the past 5 years.
+
+Less common at:
+
+- Smaller private companies that haven't yet structured for double-trigger.
+- Companies that converted from RSAs (Restricted Stock Awards) to RSUs without rethinking the structure.
+
+### Indian tax interaction with double-trigger
+
+The double-trigger structure means **the Indian tax event is also delayed**. Your perquisite tax is owed when:
+
+1. Time-based vesting has occurred AND
+2. Liquidity event has occurred.
+
+When IPO happens, suddenly all your time-vested RSUs become taxable simultaneously. This creates a *massive* tax bill at IPO — but at the same time, you can sell shares to pay it (sell-to-cover at IPO works because the stock is now liquid).
+
+For Indian residents, this is *much better* than single-trigger:
+
+- No cash-flow problem during private years.
+- IPO-time tax matches IPO-time liquidity.
+- Sell-to-cover is feasible.
+
+## What if your company uses single-trigger?
+
+Some private companies still use **single-trigger** (time-based only) RSUs. The tax bill arrives with no liquidity to pay it. You're on the hook in cash.
+
+If this is your situation, options:
+
+### Option 1: Tender offers
+
+Some private companies hold periodic **tender offers** — opportunities for employees to sell some of their vested shares back to the company (or to investors). Frequency varies: some annually, some every 18 months, some never.
+
+Tender offers solve the liquidity problem if they happen often enough. Usually you can sell 5–25% of vested holdings during a tender. Use tender proceeds to pay the accumulated tax bill.
+
+### Option 2: Loan against shares
+
+Some specialty lenders (Hercules, ESO Fund, Quid) lend against private-company stock. You pledge shares as collateral; they advance cash; you repay on liquidity event.
+
+The interest rates are high (8–15%) and the terms are stringent. But for someone with a large tax bill from RSUs and no cash, this can bridge to IPO.
+
+### Option 3: Negotiate cash refresher
+
+When negotiating your offer, you can ask for cash sign-on bonuses larger than typical, specifically to cover anticipated tax bills on vest.
+
+This is a legitimate negotiation — recruiters at private companies hear this. They can sometimes accommodate with larger cash.
+
+### Option 4: Personal loan / credit line
+
+Less ideal but viable: a personal loan from your bank, paid off when liquidity arrives. High interest, but available.
+
+### Option 5: Selling other assets
+
+Liquidating Indian equity, FDs, or other holdings to fund the RSU tax. Painful but a backup.
+
+## A framework for evaluating private company RSU offers
+
+If you're evaluating an offer with pre-IPO RSUs:
+
+### Step 1: Determine the trigger structure
+
+Ask explicitly: **"Are these single-trigger or double-trigger RSUs?"** Don't accept ambiguity. Get it in writing in the offer letter or equity plan documents.
+
+### Step 2: Calculate the worst-case tax bill
+
+Assume the highest-likely 409A valuation over the vesting period. Calculate the perquisite tax you'd owe:
+
+- For a $300k/year vest at 35.88% effective rate: ~₹90 lakh/year of tax.
+
+### Step 3: Identify cash-flow alignment
+
+If single-trigger: you need ₹90 lakh/year of cash to pay tax with no offsetting liquidity. Is your salary + savings sufficient?
+
+If double-trigger: tax is delayed until IPO. Cash flow during private years is fine.
+
+### Step 4: Check for tender history
+
+Does the company have a history of tender offers? How frequently? At what ratio (% of holdings sellable)?
+
+If you can sell 20% of your vested holdings every 18 months, the cash-flow problem is mostly solved even with single-trigger.
+
+### Step 5: Adjust the perceived value of the offer
+
+A $400k/year RSU grant at a private company:
+
+- Double-trigger + frequent tenders: ~$400k effective (delayed tax, decent liquidity).
+- Single-trigger + no tenders: ~$200k effective (you can only realize value at eventual IPO, after all the tax bills already paid).
+
+The discount is real. Negotiate accordingly.
+
+## The IPO event itself
+
+When your private company eventually goes public:
+
+### Day 0–7 (post-IPO)
+
+- Your double-trigger RSUs become taxable. All accumulated time-vested shares trigger Indian perquisite tax simultaneously.
+- Many companies impose **IPO lockups** — you can't sell for 90–180 days post-IPO.
+- During lockup, you owe tax but can't sell.
+
+### Lockup (90–180 days)
+
+This is when the cash-flow problem peaks. Tax is owed but stock is restricted. Possibilities:
+
+- Some plans provide **early sell-to-cover at IPO** specifically to handle this.
+- Bridge financing as before.
+- Pre-arrangement with employer.
+
+### Lockup expiry
+
+Once lockup expires, you can sell freely. Use proceeds to:
+
+1. Pay accumulated tax (if not already paid).
+2. Diversify away from concentrated single-stock exposure.
+
+This is when the [sell-to-cover, sell-all, hold framework](/posts/sell-to-cover-sell-all-hold-rsu-decisions) applies, just with multiple years of vesting all becoming sellable at once.
+
+## Schedule FA for pre-IPO RSUs
+
+A subtle point: even before liquidity, you have **vested-but-unsold private company shares** (in the case of single-trigger) — or **vested-but-not-tax-triggered** shares (double-trigger).
+
+For Schedule FA purposes:
+
+- Single-trigger: shares are yours; disclose them in Schedule FA at FMV (409A value).
+- Double-trigger: technically, you don't own the shares yet (no second trigger). Most CAs don't include them in Schedule FA. But some interpret conservatively and disclose.
+
+Talk to your CA. The practice varies.
+
+## Indian regulatory considerations
+
+A few additional wrinkles for Indian residents at pre-IPO US companies:
+
+### LRS doesn't apply (typically)
+
+Pre-IPO RSU shares come *to* you as compensation. They're not a remittance from India. So LRS doesn't apply to receiving them.
+
+If you eventually want to sell at IPO, repatriating the proceeds is also not an LRS event (inbound, not outbound).
+
+### W-8BEN still required
+
+Same as public-company RSUs. Make sure your plan administrator has a current W-8BEN to ensure correct (typically zero) US withholding on vest.
+
+### Schedule FA for vested-but-unsold private company shares
+
+Disclose, even though there's no public market. Use the 409A-valuation FMV as the disclosure value.
+
+### Form 67 for any US dividends
+
+Most private companies don't pay dividends. Skip if so.
+
+## A worked example
+
+You join a US private company at L5 with $500k of RSUs over 4 years. Double-trigger.
+
+- Year 1: 25% time-vests. ₹100 lakh worth (gross). **No tax** (no liquidity event).
+- Year 2: more time-vests. **No tax**.
+- Year 3: more time-vests. **No tax**.
+- Year 4: all 100% time-vested. **No tax**.
+- Year 5: IPO at 2x latest 409A. All vested RSUs become taxable.
+
+At IPO:
+
+- Vest value: $500k × 2x = $1M total (the 409A from years 1–4 was lower; market-cap at IPO is typically higher).
+- Perquisite tax in India @ 35.88% on the FMV at vest (which 409A = $500k? Or the IPO price? Tax law specifies FMV at the moment the trigger is satisfied — the IPO price, generally).
+- Tax bill: ~₹3 cr.
+- IPO sell-to-cover: 36% of shares sold to fund tax.
+
+You walk away with 64% of $1M = $640k worth of shares (₹5.3 cr). All accumulated over 5 years, all converted to cash at lockup expiry.
+
+Compared to a public-company offer of similar nominal value: you defer 5 years of tax bills, get them all at once, and have liquidity to pay them. Net-net, it's similar to public-company outcome — *if* the IPO happens.
+
+## What if the IPO never happens?
+
+This is the risk. If your company never goes public and is never acquired:
+
+- Single-trigger: you've paid tax on shares that may turn out to be worthless. Unrecoverable loss.
+- Double-trigger: no tax was triggered. The shares might be worthless on paper, but you didn't lose cash to taxes.
+
+The double-trigger structure protects you from the worst case.
+
+## The summary
+
+Pre-IPO RSUs are a high-variance compensation. For Indian residents:
+
+1. **Always confirm trigger structure** (single vs. double) before accepting an offer.
+2. **Discount single-trigger offers heavily** unless tenders are frequent and reliable.
+3. **Plan cash flow** for the tax obligation, especially if single-trigger.
+4. **Disclose in Schedule FA** even without liquidity.
+5. **At IPO, expect a massive tax + opportunity event** within a 90–180 day window.
+
+The average outcome at a successful pre-IPO unicorn is excellent (large equity gains, IPO liquidity). The worst-case outcome at a failed startup is substantial (tax paid on worthless shares). Picking the right structure and the right company matters more than at public-company employers.

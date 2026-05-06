@@ -1,0 +1,271 @@
+---
+title: "Employer transfer (relocation US ↔ India): the cross-border tax reset"
+description: "Moving from a US office to an Indian office (or vice versa) of the same employer triggers a complex tax reset. Vested RSUs, partial-year residency, sourcing rules. Here's the playbook."
+date: "2025-09-10"
+category: "rsu-management"
+tags: ["relocation", "international-transfer", "tax", "rsu", "residency"]
+author: "Vested"
+---
+
+If you work for a US-headquartered multinational and your job involves a relocation between the US and Indian offices — for a project, a long-term assignment, or a permanent move — your tax situation gets significantly more complicated. Each jurisdiction has its own rules about which income belongs to it, and your equity comp can end up partially-sourced to both countries.
+
+This post walks through the most common scenarios and the playbook for each.
+
+## The two main directions
+
+We'll cover both directions:
+
+1. **US → India transfer**: you've been working in the US (typically on H-1B or L-1) and you're being transferred back to India.
+2. **India → US transfer**: you've been working in India and your employer is transferring you to the US (often L-1 visa).
+
+Each has different tax mechanics.
+
+## Direction 1: US → India transfer
+
+### The residency change
+
+You were a US tax resident (whether on H-1B, L-1, or as a green card holder). You move back to India. Indian residency starts to accumulate.
+
+Quick recap of Indian residency:
+
+- ≥ 182 days in India in a financial year → Indian resident.
+- 60–181 days, with prior-year conditions → variable status.
+- < 60 days → typically NRI.
+
+If you arrive in India in October (FY 2026–27), you'll be in India for ~180 days that year. You may or may not cross the 182-day threshold. The next FY (2027–28), you're in India ~365 days; clearly resident.
+
+### The RNOR window
+
+Critically: even after becoming an Indian resident, if you've been an NRI for at least 9 of the previous 10 years, you qualify for **RNOR (Resident but Not Ordinarily Resident)** status for **2 years**.
+
+During RNOR:
+- Foreign-source income (US-source) is NOT taxable in India.
+- No Schedule FA disclosure required.
+- Capital gains on foreign assets sold during this window are NOT taxable in India.
+
+This is the same structure as the [NRI returnee post](/posts/nri-returning-india-existing-us-portfolio).
+
+### What happens to your RSUs
+
+Suppose you have:
+- 200 vested RSUs in your Fidelity account from US years.
+- 100 unvested RSUs that will continue vesting after your move.
+
+**Vested RSUs**: yours. They sit at the broker. Schedule FA disclosure resumes once you become Ordinarily Resident (post-RNOR).
+
+**Unvested RSUs**: continue vesting per your employment relationship. But **the tax treatment of each vest depends on where you are when it vests**:
+
+- If you vest while in US: US perquisite tax (W-2 income).
+- If you vest after moving to India but during RNOR: complex sourcing rules. Often: **the RSU vest is allocable to where the work was performed during the vesting period**.
+
+The "sourcing" rule: if a 4-year RSU was granted while you were in the US, and you spent 3 years working in the US and 1 year in India before this particular tranche vested, **75% of the vest value is sourced to the US** (US-sourced income, US tax) and **25% sourced to India** (Indian-sourced income, Indian tax).
+
+This is called the **dual-sourcing** approach. It's the standard treatment for cross-border RSU vests under the US-India treaty.
+
+### The practical implication
+
+For each vest after your move, your employer (or their tax advisor) needs to determine:
+
+1. What % of the underlying earning period was in the US.
+2. What % was in India.
+3. Apportion vest value accordingly.
+4. Withhold US tax on US-portion, Indian tax on Indian-portion.
+5. Issue you both a US W-2 (for US-portion) and Indian payslip entry (for India-portion).
+
+This is messy but standard. Most US multinationals handle it via internal mobility/equity teams.
+
+### Form 67 for cross-border vests
+
+If both countries tax the same income (e.g., a vest where India and US both claim sourcing), you can claim **FTC in India** via Form 67 for the US tax paid. Standard mechanism.
+
+For dual-sourced vests with clean apportionment, no double tax — each country taxes its share.
+
+## Direction 2: India → US transfer
+
+The reverse. You worked in India for years; your employer is transferring you to the US (typically L-1 visa).
+
+### The residency change
+
+You become a US tax resident under the **substantial presence test**. The day you arrive in the US, your US-resident status begins (or after a partial-year transition).
+
+Indian residency: depends on how many days you spent in India before the move. If you moved in October, you're likely Indian-resident for FY 2026–27 still.
+
+Subsequent FY: if you're in the US for 365 days, you're NRI for Indian purposes.
+
+### What happens to your RSUs
+
+Suppose you had ₹50 lakh of vested RSUs in your Indian-employer-related US brokerage.
+
+**Vested RSUs**: yours. The transfer doesn't trigger any sale. They stay in your account.
+
+**Unvested RSUs**: continue vesting. Same sourcing logic as Direction 1, but reversed:
+
+- A vest after your US move is mostly US-sourced (you're working in US during the vesting period).
+- But if any of the earning period was in India, that portion is India-sourced.
+
+**Indian tax on the India-portion** still applies until the relevant tranche has fully transitioned to US-only sourcing.
+
+### Capital gains on shares already-held
+
+If you sell vested shares after moving to the US:
+
+- During the year you became NRI: capital gains on Indian-equity sales are still subject to Indian tax (if you were resident at sale time). Foreign equity (US RSUs in your case) is also Indian-taxable if you're still resident.
+- Once fully NRI: only Indian-source income is Indian-taxable. US shares (sold while NRI) are NOT Indian-taxable. They're taxed in the US under US capital gains rules.
+
+### The "exit" planning window
+
+When moving from India to the US, there's sometimes an opportunity to realize Indian-source capital gains in the year before becoming NRI:
+
+- Sell appreciated Indian listed equity in your last Indian-resident year.
+- Pay Indian LTCG @ 12.5%.
+- Move to the US.
+- Reinvest in US-equity equivalent.
+
+Why? Because once NRI, your Indian-listed equity is still taxed in India when sold (Indian-source income for NRIs). Selling before transitioning gives you a clean reset.
+
+This is rarely the optimal move on its own — it's only worth doing if you have other reasons to rebalance — but worth considering.
+
+## A worked example: US → India transfer
+
+**Setup**: You worked in the US for 8 years on H-1B. You're being transferred back to India in October 2026.
+
+**RSU position**:
+- 300 vested shares in Fidelity (cost basis: $40k from various vests over the years).
+- 150 unvested shares: 2-year remaining vesting schedule.
+
+**Plan**:
+
+### Pre-transfer (April–September 2026, still in US)
+
+1. Verify residency status: full-year US tax resident for FY 2026–27 still likely.
+2. Top off any tax-advantaged accounts (401k, Roth IRA, HSA).
+3. Review whether to roll 401k → IRA before move.
+4. Update broker accounts with anticipated address change.
+
+### Move (October 2026)
+
+1. Update Fidelity / Vested / IBKR with Indian address.
+2. Re-file W-8BEN with Indian residence.
+3. Update with employer's mobility team to ensure correct vesting source-allocation going forward.
+
+### Post-move, RNOR window (October 2026 – approx. April 2029)
+
+1. Claim RNOR status if eligible. Foreign-source income (your US salary's tail-end, US RSU vests) potentially exempt from Indian tax during this window (depending on facts).
+2. Review whether to sell appreciated US-equity holdings during RNOR (no Indian tax on the gains).
+3. Indian salary kicks in normally. Tax in India on Indian-source income.
+
+### Continuing RSU vesting
+
+- For each vest after Oct 2026, apportion based on time-spent in US vs. India during the vest period.
+- Initially, most vests will be heavily US-sourced (you spent most of the vesting period in US).
+- Over 2–3 years, vests become mostly India-sourced.
+
+### Becoming Ordinarily Resident (~2029)
+
+1. RNOR window ends.
+2. Schedule FA disclosure begins (for all foreign assets).
+3. Form 67 for any FTC on cross-border RSU vests.
+4. Full Indian taxation of all income.
+
+## Common mistakes in cross-border transfers
+
+### Mistake 1: Not informing the employer of the move
+
+Sometimes employees are transferred and the equity-plan administrator isn't updated promptly. RSU vests then get treated as full-US-source (incorrect once you're in India).
+
+Update HR, mobility, and the plan administrator within 30 days of the move.
+
+### Mistake 2: Selling RSUs in the wrong year
+
+If you became NRI in October 2026, and you want to realize Indian capital gains before Indian tax obligations end, sell *before* September 2026 (while still resident). After NRI status, Indian-source income tax obligation ends, but you've also lost the LTCG efficiency.
+
+### Mistake 3: Forgetting India side compliance
+
+Even after moving to the US, if you held ₹X of Indian assets at any point in the FY, Indian compliance applies for that portion.
+
+### Mistake 4: Double taxation due to FTC mistakes
+
+Cross-border vests with sourcing-allocation can be complex. If apportionment isn't correct, both countries might tax the same dollar. FTC corrects this — but only if you file Form 67 timely in India (and US 1116/1118 timely in the US).
+
+Hire a cross-border CA for the transition years. The cost is well below the tax mistakes prevented.
+
+### Mistake 5: Not updating brokerage W-8BEN / W-9
+
+When moving:
+- US → India: update from W-9 (US person) to W-8BEN (non-US person).
+- India → US: update from W-8BEN to W-9.
+
+Mismatched paperwork can create unnecessary withholding or reporting issues.
+
+## Tax treaty articles that apply
+
+For cross-border equity comp, the relevant US-India treaty articles:
+
+| Article | Topic | Application |
+|---|---|---|
+| Article 16 | Employment income | Generally taxable in country of residence and where work is performed |
+| Article 24 | Independent personal services | For non-employee compensation (rare for typical RSUs) |
+| Article 25 | Relief from double taxation | The FTC mechanism |
+
+Most cross-border RSU vests fall under Article 16. Sourcing follows where the work was performed.
+
+## Plan administrator / employer responsibilities
+
+For US multinationals with Indian operations, the equity / mobility team typically:
+
+- Tracks employees who relocate between countries.
+- Updates payroll allocations for cross-border vests.
+- Issues consolidated tax documents for the year (W-2 + Indian salary slips, with apportionment notes).
+- Coordinates with the broker for sell-to-cover withholding correctness.
+
+If you find your employer's mobility team isn't on top of this, escalate. Self-correcting these issues at filing time is much harder than getting them right at vest.
+
+## Indian compliance during the transition
+
+During the year of the move, your Indian filing is more complex than usual:
+
+- ITR-2 likely required (foreign income).
+- Schedule FA may be partial (depending on residency status mid-year).
+- Foreign tax credit on US tax paid via Form 67.
+- Possibly dual-status treatment.
+
+Hire a CA experienced in cross-border transitions for at minimum the first 2 years post-move. Most large CAs (KPMG, PwC, Deloitte) have specialized teams. Independent CAs with cross-border practice work too, often at lower cost.
+
+## A summary checklist for cross-border movers
+
+### Before the move (60+ days out)
+
+- [ ] Identify residency status changes by date.
+- [ ] Notify employer's mobility / equity team.
+- [ ] Plan account address changes.
+- [ ] Identify pre-move tax optimization opportunities.
+
+### At the move
+
+- [ ] Update broker addresses, W-8BEN/W-9 forms.
+- [ ] Update payroll for the new country.
+- [ ] Document the move date for residency calculations.
+
+### Post-move year 1
+
+- [ ] File partial-year tax returns in both countries as applicable.
+- [ ] Claim FTC for any double-taxed income.
+- [ ] Update Schedule FA / RNOR status as applicable.
+
+### Ongoing (years 2–3)
+
+- [ ] Maintain cross-border CA relationship.
+- [ ] Track vests with proper sourcing.
+- [ ] Schedule FA disclosures once Ordinarily Resident.
+
+## The summary
+
+Cross-border employment transfers create some of the most complex tax situations a working professional can face. For Indian residents:
+
+1. **Direction matters**: US → India and India → US have different mechanics.
+2. **The RNOR window is valuable** for US → India transferees — use it for tax-efficient sales.
+3. **Sourcing rules apply to RSU vests** that span the move date.
+4. **FTC via Form 67** prevents double taxation when sourcing overlaps.
+5. **Hire a CA** experienced with cross-border employment for the transition years.
+
+Done thoughtfully, a cross-border transfer is just an extra layer of administration. Done sloppily, it can mean lakhs of unnecessary tax, missed FTC opportunities, or compliance failures discovered years later. Plan ahead.

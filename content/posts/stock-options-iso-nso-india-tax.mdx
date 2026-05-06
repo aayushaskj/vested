@@ -1,0 +1,275 @@
+---
+title: "Stock options (ISO/NSO) at US companies: how Indians get taxed"
+description: "ISOs and NSOs are different from RSUs. They have an exercise price, a strike date, and three potential tax events instead of two. Here's how Indians get taxed on each."
+date: "2025-09-24"
+category: "rsu-management"
+tags: ["stock-options", "iso", "nso", "tax", "exercise"]
+author: "Vested"
+---
+
+Most Indian employees at US multinationals get RSUs. But some — particularly at startups, smaller US companies, or in specific roles — receive **stock options** (ISOs or NSOs) instead. Stock options are mechanically different from RSUs, and the tax treatment in India is different too.
+
+This post explains stock options, the difference between ISOs and NSOs, and how each tax event flows for an Indian resident.
+
+## Stock options vs. RSUs: the fundamental difference
+
+| | RSU | Stock Option |
+|---|---|---|
+| What it is | A promise to give you free shares at vest | A right to BUY shares at a fixed price (strike) before expiry |
+| Cost to receive at vest | None | None (you receive the right; you haven't exercised yet) |
+| Cost to convert to shares | None (vest = shares) | Strike price × number of shares (you pay this to "exercise") |
+| Value if stock declines below strike | Always positive (shares are free) | Worthless (you wouldn't exercise) |
+| Tax events | One (vest = perquisite + later sale gain) | Three: grant, exercise, sale |
+
+The big distinction: stock options have **a strike price**. You pay this price to convert the option to actual shares. RSUs are free at vest.
+
+## Two types: ISO and NSO
+
+US companies grant two main types of stock options:
+
+### ISO — Incentive Stock Option
+
+- US tax-advantaged for US employees.
+- Strict requirements (only employees, $100k vest limit per year, etc.).
+- Special tax treatment in the US (no AMT preference if held long enough).
+
+### NSO — Non-Qualified Stock Option
+
+- More flexible. Can be granted to non-employees, advisors, contractors.
+- Standard US tax treatment (ordinary income at exercise).
+- More common at startups granting options to international employees.
+
+**For Indian residents, the US ISO/NSO distinction is mostly irrelevant.** India taxes both the same way. The distinction matters mostly for US tax purposes, which doesn't apply to Indian-resident employees with no US tax presence.
+
+But: the type still affects the *strike-vs-exercise-vs-sale* mechanics, so worth understanding.
+
+## The three tax events for Indian residents
+
+For a stock option — ISO or NSO — held by an Indian resident, three potential tax events occur over the option's lifecycle:
+
+### Event 1: Grant
+
+You receive the option. **No Indian tax event.** Just like RSU grant.
+
+### Event 2: Vesting (NOT a tax event)
+
+The option becomes exercisable as it vests. Importantly, **vesting alone is not a tax event**. You can exercise (or not) once vested.
+
+This is different from RSUs, where vesting *is* the tax event. With options, vesting is just the moment when you're permitted to exercise.
+
+### Event 3: Exercise
+
+You decide to exercise — you pay the strike price, receive the shares.
+
+**This is the perquisite tax event in India.** The taxable amount is:
+
+```
+Perquisite income = (FMV at exercise − Strike price) × Number of shares
+```
+
+This is the "spread." It's treated as salary income at slab rate.
+
+Example:
+- Strike price: $50/share.
+- FMV at exercise: $200/share.
+- Spread: $150/share.
+- Exercise 1,000 shares.
+- Total perquisite: 1,000 × $150 = $150,000 = ₹1.25 cr (at ₹83.5/USD).
+- Indian tax @ 35.88%: ~₹45 lakh.
+
+**You owe ₹45 lakh of Indian tax on exercise**, even if you haven't sold any shares.
+
+### Event 4: Sale
+
+After exercise, you hold actual stock. When you sell:
+
+- Capital gain = Sale price − FMV at exercise (your cost basis).
+- Holding period from exercise date.
+- Standard foreign equity rules: 24-month threshold, 12.5% LTCG / slab STCG.
+
+So the lifecycle for an Indian resident:
+
+1. Grant → no tax.
+2. Vest → no tax (option just becomes exercisable).
+3. Exercise → perquisite tax on spread (slab rate).
+4. Sale → capital gains on appreciation since exercise.
+
+## The exercise decision
+
+The most consequential moment is the **exercise decision**. Some considerations:
+
+### When to exercise: Near vesting
+
+If you exercise shortly after vest (when FMV ≈ strike, if granted at-the-money), the spread is small. Small spread = small perquisite tax.
+
+For startup options with low strike prices and low current FMV, this is feasible — exercise quickly, lock in low cost basis, then capital gains build up over time.
+
+### When to exercise: After significant appreciation
+
+If you exercise after the stock has appreciated a lot (FMV >> strike), the spread is huge. Huge spread = large perquisite tax. But you also have shares with high cost basis, so smaller future capital gains.
+
+### The cash-flow problem
+
+To exercise, you must **pay the strike price in cash**. For 1,000 options at $50 strike: $50,000 = ~₹42 lakh in cash to your broker.
+
+Plus: you owe Indian perquisite tax on the spread, also in cash.
+
+Total cash needed at exercise: strike payment + Indian tax.
+
+For our example: ₹42 lakh (strike) + ₹45 lakh (tax) = **₹87 lakh of cash** needed to exercise 1,000 options.
+
+This is a major constraint. Many option-holders can't afford to exercise before sale.
+
+### "Cashless exercise" — sometimes available
+
+Some US plans allow **cashless exercise**: the broker simultaneously exercises and sells some/all shares, using the sale proceeds to cover the strike payment.
+
+| Variant | What happens |
+|---|---|
+| Sell-all cashless | All shares exercised + sold. You receive (FMV − strike) per share in cash, less tax. |
+| Sell-to-cover cashless | Enough shares sold to cover strike + tax; you keep the rest. |
+
+For Indian residents, sell-to-cover cashless is similar to RSU sell-to-cover — convenient, no out-of-pocket cash needed.
+
+But: cashless exercise requires a *liquid market* for the underlying stock. At pre-IPO companies, no liquid market exists. You can't do cashless exercise. You must come up with cash.
+
+### Pre-IPO option exercise: the early-exercise dilemma
+
+At pre-IPO companies, employees sometimes "early exercise" options:
+
+- Exercise as soon as possible (or even before vest, if plan permits).
+- Pay the strike price (often very low — pennies per share at early-stage companies).
+- Lock in low cost basis.
+- Wait for IPO; capital gains accrue from there.
+
+The advantage: post-exercise capital gain is taxed at 12.5% LTCG (after 24 months). This is much better than perquisite tax on the spread at exercise time.
+
+The risk: if the company never exits, you've paid strike for worthless shares. Money lost.
+
+For Indian residents at pre-IPO US companies, early exercise is a real consideration but requires:
+
+1. Plan permits early exercise.
+2. You can afford the strike payment.
+3. You're willing to take the company-failure risk.
+
+## A worked example: NSO at a private US startup
+
+You join a Series B US startup as a senior engineer. They grant you 50,000 NSOs at $1 strike. Vesting: 4 years, 1-year cliff, monthly thereafter.
+
+### Year 1 (after cliff)
+
+- 12,500 options vested.
+- Current 409A FMV: $3/share.
+- If you exercise now: pay $12,500 strike. Spread = ($3 − $1) × 12,500 = $25,000.
+- Indian perquisite tax on $25,000 (~₹20.8 lakh) at 35.88% = ₹7.5 lakh.
+- Total cash needed: $12,500 (strike) + ₹7.5 lakh (tax) ≈ ₹18 lakh + ₹7.5 lakh = ₹25.5 lakh.
+
+If you don't have ₹25.5 lakh handy, you can't exercise yet.
+
+### Year 4 (fully vested, approaching IPO)
+
+- 50,000 options vested.
+- FMV: $20/share (company has grown).
+- Spread if exercised now: ($20 − $1) × 50,000 = $950,000.
+- Indian perquisite tax on $950,000 (~₹7.9 cr) at 35.88% ≈ ₹2.84 cr.
+- Strike: $50,000 ≈ ₹41.5 lakh.
+- Total cash to exercise all 50,000: ₹3.25 cr.
+
+That's a problem. Most retail employees don't have ₹3 cr of cash sitting around.
+
+### The pragmatic path
+
+For most option-holders without massive savings:
+
+1. **Don't exercise during private years if you can't afford it.** Wait for IPO + cashless exercise.
+2. **At IPO, do sell-to-cover cashless.** Sell enough shares to cover both strike and tax. Walk away with whatever's left.
+3. **Hold the remainder for 24+ months from exercise** for LTCG efficiency on further appreciation.
+
+This is functionally similar to how RSUs work post-IPO.
+
+## ESOPs at Indian startups (a brief note)
+
+Indian startups often grant **ESOPs** (Employee Stock Option Plans) — a similar structure to NSOs but governed by Indian rules.
+
+For Indian-resident employees of Indian startups:
+
+- Grant: no tax.
+- Exercise: perquisite tax on spread, at slab.
+- Sale: capital gains. Holding period: 24 months for unlisted equity (12 months if startup has IPO'd).
+- LTCG @ 12.5%, STCG at slab.
+
+Same fundamentals as NSO, but on Indian-listed (or unlisted) stock instead of US.
+
+## Tax interactions: ISO vs. NSO for Indians (mostly the same)
+
+Once again: for Indian residents, ISO and NSO are taxed the same way:
+
+- Perquisite at exercise (spread × shares).
+- Capital gains at sale (over exercise FMV).
+
+The US-specific advantages of ISOs (no AMT preference if held long enough, etc.) don't flow to Indian residents.
+
+The one nuance: if any US tax is withheld on exercise (rare for purely Indian-resident NSO holders, more possible for ISO holders if treated as US-source income for any reason), you can claim FTC via Form 67.
+
+## What about strike price denomination?
+
+Stock option strike prices are denominated in USD. When you exercise:
+
+- Strike payment is in USD.
+- FMV at exercise is in USD.
+- Indian tax computation converts everything to INR using SBI TT-buying on exercise date.
+
+Currency moves between grant and exercise affect your Indian-tax outcome:
+
+- Stronger rupee at exercise: lower INR perquisite, lower Indian tax.
+- Weaker rupee at exercise: higher INR perquisite, higher Indian tax.
+
+You're long USD via the option position. Currency timing matters.
+
+## Schedule FA for vested-but-unexercised options
+
+Subtle point: a *vested-but-unexercised option* is not technically a foreign asset you own in the share sense — you have a right, not equity. Most CAs interpret this as "no Schedule FA disclosure needed for unexercised options."
+
+Once exercised, the resulting shares are foreign equity → Schedule FA disclosure required.
+
+But: some interpretations argue that a vested option *is* a foreign asset (an unsettled right). When in doubt, consult your CA on whether to disclose vested-unexercised options.
+
+## When to choose options vs. RSUs (in negotiation)
+
+If a US employer offers you a choice of RSU vs. options:
+
+### Options favor:
+
+- Early-stage companies with high upside (option leverage).
+- Employees who can afford the strike payment.
+- Long holding horizons (LTCG efficiency post-exercise).
+
+### RSUs favor:
+
+- Mature companies (less upside leverage; certainty matters).
+- Employees who can't afford strike payments.
+- Cleaner tax treatment (perquisite at vest, no exercise complexity).
+
+Most US public companies have moved to RSUs because they're simpler and don't require employees to come up with cash. Most US startups still use options because the leverage matters.
+
+For Indian residents at startups, **options can be very lucrative if you can afford to exercise early at low FMV**. Otherwise, the cash-flow constraints make options painful.
+
+## The summary
+
+Stock options are mechanically more complex than RSUs:
+
+- **Three tax-relevant events**: grant (none), vest (none), exercise (perquisite), sale (capital gains).
+- **Strike payment required** at exercise.
+- **ISO/NSO distinction** matters for US, not for Indian residents.
+- **Cashless exercise** at public-company employers solves the cash-flow problem.
+- **Pre-IPO employees** face the worst cash-flow situation; early exercise is the standard hedge if affordable.
+
+For Indian employees who receive options, the planning is a multi-year process:
+
+1. Track your vest schedule.
+2. Plan for the eventual exercise tax.
+3. Consider early exercise if affordable and you believe in the company.
+4. At IPO/exit, use cashless exercise.
+5. Hold post-exercise shares for 24+ months for LTCG.
+
+Done well, options can be more lucrative than RSUs. Done poorly, they create cash-flow problems and unrecoverable tax bills on illiquid assets.
