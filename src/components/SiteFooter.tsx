@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FxTicker } from "@/components/FxTicker";
 
 export function SiteFooter() {
   return (
@@ -44,12 +45,13 @@ export function SiteFooter() {
             </p>
           </div>
         </div>
-        <div className="mt-10 flex flex-col gap-2 border-t border-ink-100 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-ink-100 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-ink-500">
             © {new Date().getFullYear()} Vested. All rights reserved.
           </p>
+          <FxTicker />
           <p className="text-xs text-ink-500">
-            Built with Next.js · Hosted on the open web.
+            Built with Next.js
           </p>
         </div>
       </div>

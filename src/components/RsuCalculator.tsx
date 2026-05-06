@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useFxRate, formatFxDate } from "@/hooks/useFxRate";
 
 const formatINR = (n: number) =>
   new Intl.NumberFormat("en-IN", {
@@ -19,10 +20,21 @@ const formatUSD = (n: number) =>
 export function RsuCalculator() {
   const [shares, setShares] = useState(100);
   const [pricePerShare, setPricePerShare] = useState(150);
-  const [fxRate, setFxRate] = useState(83.5);
+  const [fxRate, setFxRate] = useState(84);
+  const [fxTouched, setFxTouched] = useState(false);
   const [marginalSlab, setMarginalSlab] = useState(30);
   const [surcharge, setSurcharge] = useState(15);
   const [cessOn, setCessOn] = useState(true);
+
+  const { fx, loading: fxLoading } = useFxRate();
+
+  // Auto-fill the FX rate input with the live rate, but only until the
+  // user manually edits it. Once they touch the field, we stop overriding.
+  useEffect(() => {
+    if (fx && !fxTouched) {
+      setFxRate(Number(fx.rate.toFixed(2)));
+    }
+  }, [fx, fxTouched]);
 
   const result = useMemo(() => {
     const grossUSD = shares * pricePerShare;
@@ -77,10 +89,24 @@ export function RsuCalculator() {
             <NumberField
               label="USD → INR rate"
               value={fxRate}
-              setValue={setFxRate}
+              setValue={(v) => {
+                setFxRate(v);
+                setFxTouched(true);
+              }}
               min={0}
               step={0.1}
               suffix="₹"
+              hint={
+                fxLoading
+                  ? "Fetching live rate…"
+                  : fx
+                    ? fx.source === "fallback"
+                      ? "Live rate unavailable; using approximate value."
+                      : fxTouched
+                        ? `Custom value (live rate: ₹${fx.rate.toFixed(2)} on ${formatFxDate(fx.date)})`
+                        : `Live ECB rate, ${formatFxDate(fx.date)}`
+                    : undefined
+              }
             />
           </div>
 
@@ -180,6 +206,7 @@ function NumberField({
   step,
   prefix,
   suffix,
+  hint,
 }: {
   label: string;
   value: number;
@@ -188,6 +215,7 @@ function NumberField({
   step?: number;
   prefix?: string;
   suffix?: string;
+  hint?: string;
 }) {
   return (
     <label className="flex flex-col gap-1.5">
@@ -215,6 +243,7 @@ function NumberField({
           </span>
         )}
       </div>
+      {hint && <span className="text-xs text-ink-500">{hint}</span>}
     </label>
   );
 }
