@@ -1,9 +1,27 @@
+import type { Metadata } from "next";
 import { RsuCalculator } from "@/components/RsuCalculator";
+import { SITE_URL } from "@/lib/seo";
 
-export const metadata = {
-  title: "RSU Calculator — vesting, taxes & take-home",
+export const metadata: Metadata = {
+  title: "RSU Calculator — vesting tax & take-home for Indians",
   description:
-    "Estimate your RSU take-home as an Indian resident: gross value, US withholding, India perquisite tax, and net rupees in hand.",
+    "Estimate RSU take-home for Indian residents: gross USD value, INR perquisite tax, surcharge, and net rupees after sell-to-cover.",
+  alternates: { canonical: "/tools/rsu-calculator" },
+  openGraph: {
+    title: "RSU Calculator for Indian residents",
+    description:
+      "Estimate RSU take-home as an Indian resident: perquisite tax, surcharge, cess, and net rupees in hand.",
+    url: `${SITE_URL}/tools/rsu-calculator`,
+    type: "website",
+    locale: "en_IN",
+    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RSU Calculator for Indian residents",
+    description: "Estimate RSU take-home as an Indian resident.",
+    images: ["/og-default.png"],
+  },
 };
 
 export default function RsuCalculatorPage() {

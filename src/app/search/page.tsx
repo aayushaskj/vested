@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import { getAllPosts, CATEGORIES } from "@/lib/posts";
 import { SearchClient } from "@/components/SearchClient";
 
-export const metadata = {
-  title: "Search",
-  description: "Search every post on Vested.blog.",
+export const metadata: Metadata = {
+  title: "All posts — search the Vested archive",
+  description:
+    "Search every post on Vested by topic, tag, or keyword. US investing, RSUs, LRS, taxes, and more for Indian residents.",
+  alternates: { canonical: "/search" },
+  robots: { index: true, follow: true },
 };
 
 export default function SearchPage() {

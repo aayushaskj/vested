@@ -46,8 +46,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['"Inter"', "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
-        display: ['"Inter"', "system-ui", "sans-serif"],
+        sans: ['var(--font-inter)', '"Inter"', "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        display: ['var(--font-inter)', '"Inter"', "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       typography: ({ theme }: any) => ({

@@ -1,14 +1,45 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { PostCard } from "@/components/PostCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { CATEGORIES, getAllPosts } from "@/lib/posts";
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   const posts = getAllPosts();
   const [featured, ...rest] = posts;
 
+  const blogLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: SITE_NAME,
+    url: SITE_URL,
+    description:
+      "Practical guides on US investing, RSU management, LRS, and Indian tax for residents.",
+    inLanguage: "en-IN",
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.svg` },
+    },
+    blogPost: posts.slice(0, 10).map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: `${SITE_URL}/posts/${p.slug}`,
+      datePublished: p.date,
+    })),
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogLd) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-ink-100">
         <div

@@ -23,6 +23,7 @@ export function SiteHeader() {
           <NavLink href="/category/us-investing">US Investing</NavLink>
           <NavLink href="/category/rsu-management">RSUs</NavLink>
           <NavLink href="/tools/rsu-calculator">Calculator</NavLink>
+          <NavLink href="/blog">Archive</NavLink>
           <NavLink href="/about">About</NavLink>
           <Link
             href="/search"

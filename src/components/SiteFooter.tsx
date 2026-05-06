@@ -30,8 +30,9 @@ export function SiteFooter() {
             title="Site"
             links={[
               { href: "/about", label: "About" },
+              { href: "/blog", label: "All posts" },
               { href: "/search", label: "Search" },
-              { href: "/", label: "All posts" },
+              { href: "/feed.xml", label: "RSS feed" },
             ]}
           />
           <div>

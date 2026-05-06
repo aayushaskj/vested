@@ -1,10 +1,21 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { NewsletterForm } from "@/components/NewsletterForm";
 
-export const metadata = {
-  title: "About",
+export const metadata: Metadata = {
+  title: "About Vested",
   description:
-    "Vested.blog is a publication for Indian residents on US investing and RSU management.",
+    "Vested is a publication for Indian residents covering US investing, RSU management, and Indian tax compliance.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Vested",
+    description:
+      "Vested is a publication for Indian residents covering US investing, RSU management, and Indian tax compliance.",
+    url: "/about",
+    type: "profile",
+    locale: "en_IN",
+    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function AboutPage() {

@@ -88,3 +88,31 @@ export function formatDate(iso: string): string {
     day: "numeric",
   });
 }
+
+/**
+ * Returns up to `limit` related posts by tag overlap, falling back to category.
+ * Excludes the current post.
+ */
+export function getRelatedPosts(post: Post, limit = 3): Post[] {
+  const all = getAllPosts().filter((p) => p.slug !== post.slug);
+  const tagSet = new Set(post.tags ?? []);
+
+  const scored = all.map((p) => {
+    const tagOverlap = (p.tags ?? []).filter((t) => tagSet.has(t)).length;
+    const sameCategory = p.category === post.category ? 1 : 0;
+    // Score: tag overlap weighted heavier than category
+    const score = tagOverlap * 10 + sameCategory * 3;
+    return { post: p, score };
+  });
+
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    // Tiebreaker: newer first
+    return a.post.date < b.post.date ? 1 : -1;
+  });
+
+  return scored
+    .filter((s) => s.score > 0)
+    .slice(0, limit)
+    .map((s) => s.post);
+}
