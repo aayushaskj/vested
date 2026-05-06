@@ -1,0 +1,85 @@
+---
+title: "RSU vesting: the real tax math for Indian residents"
+description: "Your employer says your RSU is worth ₹10 lakh. After perquisite tax, US withholding, and Indian capital gains, what actually lands in your account? Let's run the numbers."
+date: "2026-05-01"
+category: "rsu-management"
+tags: ["rsu", "tax", "perquisite", "withholding", "form-67"]
+author: "Vested"
+---
+
+Your offer letter says you're getting **$50,000 in RSUs** vesting over four years. That sounds clean. It isn't.
+
+Between the day those RSUs vest and the day rupees actually hit your bank account, *three* different tax events happen. Most people only know about one.
+
+This post walks through all three for an Indian resident at a US multinational.
+
+## Event 1: vesting (perquisite tax)
+
+The day your RSUs vest, the **fair market value** of those shares is treated as **salary income** in India. Your employer adds it to your payslip as a "perquisite" and you owe tax on the entire vested value at your marginal slab.
+
+Walk through a single tranche:
+
+- **25 shares** vest at **$200/share** = $5,000.
+- USD/INR is **₹83.5** → vest value = **₹4,17,500**.
+- You're in the **30% slab** with 15% surcharge and 4% cess → effective rate ≈ **35.88%**.
+- Perquisite tax owed: **₹1,49,790**.
+
+Use the [RSU Calculator](/tools/rsu-calculator) to plug in your own numbers.
+
+How does your employer collect this? They sell some of the shares to cover it — the **sell-to-cover** mechanism. Typically they sell roughly 30–35% of the shares at market price on vest day, send INR equivalent to the tax authority, and deposit the remaining shares in your brokerage account.
+
+<Callout type="warning">
+Sell-to-cover happens at market price *on the day of vest*. If the stock drops 10% the next week, you've still paid tax on the higher price. There's no refund for that.
+</Callout>
+
+## Event 2: US dividend withholding (if you hold)
+
+If you keep the shares and they pay dividends, the US withholds **25% under the US-India treaty** (assuming you've filed a W-8BEN with your broker — your employer's plan administrator, usually Fidelity or E*TRADE, handles this).
+
+The 25% withholding is a **foreign tax credit** you can claim in India by filing **Form 67 before your ITR**. If you don't file Form 67 in time, you lose the credit and you've effectively been double-taxed on those dividends.
+
+## Event 3: capital gains when you sell
+
+Eventually you sell the shares. The gain (or loss) is computed in INR:
+
+- **Cost basis** = the FMV on vest day × USD/INR rate on vest day. (You already paid perquisite tax on this — it does *not* get taxed again.)
+- **Sale proceeds** = sale price × USD/INR rate on sale day.
+- **Capital gain** = proceeds − cost basis.
+
+Tax treatment depends on the holding period **from the vest date** (not the grant date):
+
+- **≤ 24 months**: short-term capital gain, taxed at your slab.
+- **> 24 months**: long-term capital gain at **12.5%** (no indexation, post Budget 2024) plus surcharge and cess.
+
+Two things often surprise people:
+
+1. The 24-month threshold (vs. 12 months for Indian listed shares).
+2. The currency leg: if the stock is flat in USD but the rupee depreciates, you have an *INR* gain that's taxable. Currency moves are baked into the math.
+
+## A worked end-to-end example
+
+Same 25-share tranche from above. Suppose you hold for 30 months and sell at $260/share, with USD/INR at ₹86 on sale day.
+
+| Event | Amount (INR) | Notes |
+|---|---|---|
+| Vest value (gross) | ₹4,17,500 | 25 × $200 × ₹83.5 |
+| Perquisite tax @ 35.88% | −₹1,49,790 | Sell-to-cover |
+| Net shares retained | ~16 shares | After ~9 sold for tax |
+| Sale proceeds (16 × $260 × ₹86) | ₹3,57,760 | |
+| Cost basis (16 × $200 × ₹83.5) | ₹2,67,200 | What you already paid tax on |
+| LTCG | ₹90,560 | |
+| LTCG tax @ 12.5% + cess | ~₹11,773 | |
+| **Net rupees from this tranche** | **~₹3,45,987** | |
+
+The headline "$5,000 vesting" turned into roughly ₹3.46 lakh in your hand — about 83% of the gross vest value, after a ~30% gain in the underlying stock. Most of the leakage is the perquisite tax at vest, not the capital gains tax.
+
+## What this means in practice
+
+A few takeaways that fall out of this math:
+
+- **Don't treat unvested RSUs as cash.** They're a leveraged, single-stock, dollar-denominated bet that you'll be partially forced to liquidate at vest.
+- **The perquisite tax dominates.** If you're going to optimize anything, optimize *when you sell* (capital gains decisions) — not whether to "avoid" the perquisite tax. You can't avoid it.
+- **File Form 67 if you hold for dividends.** Otherwise the 25% US withholding is just gone.
+- **Track your cost basis in INR per tranche.** When you sell, the broker reports USD numbers; the Indian tax filing needs INR. Keep a spreadsheet.
+
+In the next RSU post we'll cover the most under-discussed question: once those shares are sitting in your brokerage account, **should you keep them or sell?**

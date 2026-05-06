@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 16 20 29;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: rgb(var(--background));
+    color: rgb(var(--foreground));
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background-color: theme("colors.accent.200");
+    color: theme("colors.ink.900");
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-6;
+  }
+  .container-wide {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .badge-us {
+    @apply badge bg-brand-50 text-brand-700 ring-1 ring-inset ring-brand-100;
+  }
+  .badge-rsu {
+    @apply badge bg-accent-50 text-accent-700 ring-1 ring-inset ring-accent-100;
+  }
+  .badge-default {
+    @apply badge bg-ink-100 text-ink-700 ring-1 ring-inset ring-ink-200;
+  }
+}
