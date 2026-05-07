@@ -19,6 +19,7 @@ import { SITE_URL, SITE_NAME, ogImageUrl, postUrl } from "@/lib/seo";
 import { getAuthor, authorUrl, buildPersonLd } from "@/lib/authors";
 import { AuthorAvatar } from "@/components/AuthorAvatar";
 import { PostCalculatorCTA } from "@/components/PostCalculatorCTA";
+import { ShareButtons } from "@/components/ShareButtons";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -234,6 +235,9 @@ export default async function PostPage({
               </Link>
             </p>
           )}
+          <div className="mt-5">
+            <ShareButtons title={post.title} description={post.description} />
+          </div>
         </div>
       </header>
 
@@ -241,6 +245,19 @@ export default async function PostPage({
         <div className="prose prose-ink max-w-none">{compiled}</div>
 
         <PostCalculatorCTA post={post} />
+
+        <div className="mt-10 rounded-2xl border border-ink-100 bg-ink-50/40 p-5 sm:p-6">
+          <h3 className="font-display text-base font-semibold text-ink-900">
+            Found this useful? Share it.
+          </h3>
+          <p className="mt-1 text-sm text-ink-500">
+            Help another Indian working with US RSUs or LRS not get blindsided
+            by this stuff.
+          </p>
+          <div className="mt-4">
+            <ShareButtons title={post.title} description={post.description} />
+          </div>
+        </div>
 
         {(post.tags ?? []).length > 0 && (
           <div className="mt-10 flex flex-wrap items-center gap-2 text-sm">
