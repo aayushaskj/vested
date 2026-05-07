@@ -5,8 +5,10 @@ import { PostCard } from "@/components/PostCard";
 import {
   CATEGORIES,
   type Category,
+  formatDate,
   getPostsByCategory,
 } from "@/lib/posts";
+import { CALCULATORS } from "@/lib/calculators";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -110,17 +112,90 @@ export default async function CategoryPage({
         </p>
       </header>
 
-      <div className="mt-10">
-        {posts.length === 0 ? (
-          <p className="text-ink-500">No posts in this category yet.</p>
-        ) : (
-          <div className="grid gap-6 sm:grid-cols-2">
-            {posts.map((p) => (
-              <PostCard key={p.slug} post={p} />
-            ))}
+      {/* Pillar posts - top 3 longest in this category */}
+      {posts.length > 0 && (
+        <section className="mt-10">
+          <h2 className="font-display text-xl font-semibold text-ink-900">
+            Start here
+          </h2>
+          <p className="mt-1 text-sm text-ink-500">
+            Comprehensive pillar guides
+          </p>
+          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[...posts]
+              .filter((p) => p.content.length > 8000)
+              .slice(0, 3)
+              .map((p) => (
+                <PostCard key={p.slug} post={p} />
+              ))}
           </div>
+        </section>
+      )}
+
+      {/* Calculators in this category */}
+      {(() => {
+        const catCalcs = CALCULATORS.filter((c) =>
+          key === "rsu-management"
+            ? c.category === "rsu"
+            : c.category === "tax" || c.category === "investing" || c.category === "planning"
+        ).slice(0, 6);
+        if (catCalcs.length === 0) return null;
+        return (
+          <section className="mt-12">
+            <h2 className="font-display text-xl font-semibold text-ink-900">
+              Calculators for this topic
+            </h2>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {catCalcs.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={c.href}
+                    className="group flex flex-col rounded-xl border border-ink-100 bg-white p-4 transition hover:border-ink-200 hover:bg-ink-50"
+                  >
+                    <span className="font-display text-sm font-semibold text-ink-900 group-hover:text-brand-700">
+                      {c.title} →
+                    </span>
+                    <span className="mt-1 text-xs text-ink-500">
+                      {c.description}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })()}
+
+      {/* All posts */}
+      <section className="mt-12">
+        <h2 className="font-display text-xl font-semibold text-ink-900">
+          All posts
+        </h2>
+        {posts.length === 0 ? (
+          <p className="mt-4 text-ink-500">No posts in this category yet.</p>
+        ) : (
+          <ul className="mt-4 divide-y divide-ink-100">
+            {posts.map((p) => (
+              <li key={p.slug} className="py-4">
+                <Link
+                  href={`/posts/${p.slug}`}
+                  className="group flex flex-col gap-1"
+                >
+                  <div className="text-xs text-ink-500">
+                    <time dateTime={p.date}>{formatDate(p.date)}</time>
+                    <span className="mx-2">·</span>
+                    <span>{p.readingMinutes} min read</span>
+                  </div>
+                  <h3 className="font-display text-base font-medium text-ink-900 group-hover:text-brand-700 sm:text-lg">
+                    {p.title}
+                  </h3>
+                  <p className="text-sm text-ink-600">{p.description}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         )}
-      </div>
+      </section>
     </div>
   );
 }

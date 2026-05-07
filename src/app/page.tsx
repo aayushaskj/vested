@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PostCard } from "@/components/PostCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
-import { CATEGORIES, getAllPosts } from "@/lib/posts";
+import { CATEGORIES, getAllPosts, getPillarPosts } from "@/lib/posts";
+import { CALCULATORS } from "@/lib/calculators";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const posts = getAllPosts();
   const [featured, ...rest] = posts;
+  const pillars = getPillarPosts(6);
+  const featuredCalcs = CALCULATORS.slice(0, 6);
 
   const blogLd = {
     "@context": "https://schema.org",
@@ -120,6 +123,71 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Featured pillars */}
+      {pillars.length > 0 && (
+        <section className="container-wide pb-16">
+          <div className="flex items-end justify-between">
+            <div>
+              <h2 className="font-display text-2xl font-semibold tracking-tight text-ink-900">
+                Start here — the pillars
+              </h2>
+              <p className="mt-1 text-sm text-ink-500">
+                Long-form guides covering the core decisions
+              </p>
+            </div>
+            <Link
+              href="/blog"
+              className="text-sm font-medium text-ink-600 hover:text-ink-900"
+            >
+              All posts →
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {pillars.map((p) => (
+              <PostCard key={p.slug} post={p} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Featured calculators */}
+      <section className="container-wide pb-16">
+        <div className="flex items-end justify-between">
+          <div>
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-ink-900">
+              Calculators
+            </h2>
+            <p className="mt-1 text-sm text-ink-500">
+              {CALCULATORS.length} free tools — RSU, LRS/TCS, capital gains,
+              Form 67, and more
+            </p>
+          </div>
+          <Link
+            href="/tools"
+            className="text-sm font-medium text-ink-600 hover:text-ink-900"
+          >
+            All calculators →
+          </Link>
+        </div>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredCalcs.map((c) => (
+            <li key={c.slug}>
+              <Link
+                href={c.href}
+                className="group flex flex-col rounded-xl border border-ink-100 bg-white p-4 transition hover:border-ink-200 hover:bg-ink-50"
+              >
+                <span className="font-display text-sm font-semibold text-ink-900 group-hover:text-brand-700">
+                  {c.title} →
+                </span>
+                <span className="mt-1 text-xs text-ink-500">
+                  {c.description}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Latest posts */}
       <section className="container-wide pb-16">
         <div className="flex items-end justify-between">
@@ -127,7 +195,7 @@ export default function HomePage() {
             Latest posts
           </h2>
           <Link
-            href="/search"
+            href="/blog"
             className="text-sm font-medium text-ink-600 hover:text-ink-900"
           >
             Browse all →

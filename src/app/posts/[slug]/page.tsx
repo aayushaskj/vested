@@ -18,6 +18,7 @@ import { mdxComponents } from "@/components/mdxComponents";
 import { SITE_URL, SITE_NAME, ogImageUrl, postUrl } from "@/lib/seo";
 import { getAuthor, authorUrl, buildPersonLd } from "@/lib/authors";
 import { AuthorAvatar } from "@/components/AuthorAvatar";
+import { PostCalculatorCTA } from "@/components/PostCalculatorCTA";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -238,6 +239,8 @@ export default async function PostPage({
 
       <div className="container-prose pt-8 sm:pt-12">
         <div className="prose prose-ink max-w-none">{compiled}</div>
+
+        <PostCalculatorCTA post={post} />
 
         {(post.tags ?? []).length > 0 && (
           <div className="mt-10 flex flex-wrap items-center gap-2 text-sm">

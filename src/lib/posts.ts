@@ -111,7 +111,11 @@ export function formatDate(iso: string): string {
 }
 
 /**
- * Returns up to `limit` related posts by tag overlap, falling back to category.
+ * Returns up to `limit` related posts. Scoring:
+ *   - tag overlap × 10
+ *   - same category × 3
+ *   - same author × 2
+ *   - longer post (>= 2000 words) × 1 (favours pillars over short posts)
  * Excludes the current post.
  */
 export function getRelatedPosts(post: Post, limit = 3): Post[] {
@@ -121,14 +125,15 @@ export function getRelatedPosts(post: Post, limit = 3): Post[] {
   const scored = all.map((p) => {
     const tagOverlap = (p.tags ?? []).filter((t) => tagSet.has(t)).length;
     const sameCategory = p.category === post.category ? 1 : 0;
-    // Score: tag overlap weighted heavier than category
-    const score = tagOverlap * 10 + sameCategory * 3;
+    const sameAuthor = p.author && p.author === post.author ? 1 : 0;
+    const isLong = p.content.length > 8000 ? 1 : 0; // ~2000 words
+    const score =
+      tagOverlap * 10 + sameCategory * 3 + sameAuthor * 2 + isLong * 1;
     return { post: p, score };
   });
 
   scored.sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score;
-    // Tiebreaker: newer first
     return a.post.date < b.post.date ? 1 : -1;
   });
 
@@ -136,4 +141,15 @@ export function getRelatedPosts(post: Post, limit = 3): Post[] {
     .filter((s) => s.score > 0)
     .slice(0, limit)
     .map((s) => s.post);
+}
+
+/**
+ * For homepage / category pages: returns the "pillar" posts (longer pieces)
+ * sorted by length desc, then date desc.
+ */
+export function getPillarPosts(limit = 6): Post[] {
+  return getAllPosts()
+    .filter((p) => p.content.length > 8000) // ~2000+ words
+    .sort((a, b) => b.content.length - a.content.length)
+    .slice(0, limit);
 }
