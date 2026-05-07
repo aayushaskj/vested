@@ -27,7 +27,7 @@ export const CALCULATORS: CalculatorMeta[] = [
     href: "/tools/lrs-tcs-calculator",
     title: "LRS & TCS calculator",
     description:
-      "Compute the 20% TCS on LRS remittances above ₹10 lakh and how much actually lands at your broker.",
+      "Compute the 20% TCS on LRS remittances above Rs 10 lakh and how much actually lands at your broker.",
     category: "tax",
     status: "live",
   },

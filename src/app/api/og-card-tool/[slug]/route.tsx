@@ -87,7 +87,7 @@ export async function GET(
             fontWeight: 600,
           }}
         >
-          ƒx · {kicker}
+          fx · {kicker}
         </div>
 
         {/* Center: hero name + concept label, stacked */}
