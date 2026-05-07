@@ -1,0 +1,182 @@
+---
+title: "Rovia vs Fidelity NetBenefits: a guide for Indian RSU holders"
+metaTitle: "Rovia vs Fidelity NetBenefits (India)"
+description: "If your RSUs vest into Fidelity NetBenefits, here's the honest comparison with Rovia, the limitations Indian residents hit, and how to migrate shares."
+date: "2026-05-08"
+category: "rsu-management"
+tags: ["rsu", "fidelity", "netbenefits", "rovia", "share-transfer", "comparison"]
+author: "shivang-badaya"
+ogHook: "NetBenefits"
+ogLabel: "EMPLOYEE-PLAN PORTAL | NOT A BROKER"
+ogContext: "Why Fidelity NetBenefits hits a wall for Indian residents."
+---
+
+<EmployerCallout for="intel,arm,servicenow,microsoft,netapp,broadcom,walmart,oracle" />
+
+If you work at Intel, Arm, ServiceNow, Microsoft, NetApp, Broadcom, Walmart, or Oracle and your RSUs land in **Fidelity NetBenefits**, this post is for you. NetBenefits is the employee-facing portal Fidelity provides to companies that hire it for stock-plan administration. The login URL is usually `nb.fidelity.com` or you reach it through your company's HR-benefits portal.
+
+NetBenefits is a polished product. Of the three big employer stock-plan administrators (Fidelity NetBenefits, Morgan Stanley at Work / Shareworks, E*TRADE), it's typically the most refined experience. The dashboards look clean, the vesting calendar is clear, and the customer service is genuinely good. None of which solves the structural mismatch with how an Indian resident actually needs to manage and report a US equity position.
+
+## What NetBenefits actually is
+
+NetBenefits is a **stock-plan administration portal** sitting on top of a Fidelity Brokerage Services LLC brokerage account. The brokerage relationship is real, but it's a *non-retail* relationship &mdash; the account is set up under your employer's plan, not as a free-standing Fidelity retail account.
+
+This distinction matters because Fidelity Investments &mdash; the regular retail Fidelity that an American consumer uses for their personal portfolio &mdash; **does not open accounts for Indian residents**. The only Fidelity relationship you, as an Indian resident, can have is the employer-plan-tied NetBenefits account that exists because your company contracted Fidelity for stock-plan services.
+
+Practical consequence: you cannot open a "regular" Fidelity account, fund it from India, ACATS your NetBenefits shares into it, and use Fidelity's full retail brokerage features. The retail door is closed to you. The only door you have is the employee-plan door, with all its limits.
+
+## The five concrete problems for Indian residents
+
+### 1. Reports are US-format only
+
+When tax season rolls around, NetBenefits will send you a bundle of US-format documents:
+
+- **Form 1099-DIV** for any dividends paid on your held shares.
+- **Form 1099-B** for any sales you made during the tax year (the transactions, with USD cost basis and USD proceeds, broken out by short-term vs. long-term per IRS rules).
+- **Supplemental statements** showing wash-sale adjustments and other US-specific items.
+
+For your Indian filing, you need INR cost basis and INR proceeds at SBI TT rates, capital gains classified per the **Indian** holding-period rules (24-month threshold, not 12), and a Schedule FA disclosure with peak-balance and end-of-year value. NetBenefits doesn't produce any of this.
+
+The standard workflow most Indian RSU holders end up with: download the US 1099 forms, manually rebuild the relevant data in INR using SBI rate lookups, prepare Schedule FA on a separate spreadsheet. This is time-consuming and error-prone.
+
+### 2. Specific lot identification exists but isn't visible
+
+Fidelity, of all three major US employer-plan administrators, actually has the best lot-level support inside their UI. You *can* select specific lots when selling on NetBenefits. The flow exists.
+
+The problem is twofold. First, the default sell-flow doesn't surface it &mdash; you have to dig two clicks deep in the order entry to find "specific shares." Most Indian users never get there.
+
+Second, the substantiation that NetBenefits provides for the specific-lot sale is in US tax format. When you carry that to your CA in India for the ITR filing, the CA needs to convert each lot's cost basis to INR using the right SBI rate, recompute the holding period under Indian rules, and present it on the capital-gains schedule. Most CAs handling foreign equity for the first time don't know this is even an option, and they default to FIFO because that's what they're set up for.
+
+So even with the better lot tooling, the average Indian NetBenefits user still files FIFO.
+
+### 3. Tax-loss harvesting requires INR-aware tracking
+
+Indian capital loss rules: short-term losses can offset any capital gain (short or long); long-term losses can only offset long-term gains; both can be carried forward 8 years. Realizing those losses is profitable when you have offsetting gains elsewhere.
+
+The hard part is identifying which lots are below cost basis. NetBenefits shows you USD gain/loss per lot. Many lots that show a USD gain may have an INR loss after rupee depreciation, and vice versa. Without INR-cost-basis visibility, you're flying blind.
+
+A worked example. Suppose you have 100 shares from Q1 2022, vested at $200 with the SBI TT rate at 74. Cost basis: ~Rs 14,80,000. Today the stock is $260, but the SBI TT rate is now 88. Today's INR value: ~Rs 22,88,000. Up significantly in INR, mildly up in USD.
+
+Now another 100 shares from Q3 2022, vested at $310 with SBI TT at 80. Cost basis: ~Rs 24,80,000. Today the stock is $260 (down in USD), and INR rate is 88. Today's INR value: ~Rs 22,88,000. *Flat to slightly down in INR.*
+
+NetBenefits shows the second lot as a USD loss of $50 per share, $5,000 total. In INR, the loss is much smaller &mdash; maybe Rs 1.92 lakh, not the Rs 4.4 lakh equivalent you'd compute from the USD figure. If you're harvesting, you'll under-claim the loss because you're working from USD figures and applying a single year-end FX rate.
+
+These reconciliations need to be done at the lot level, in INR, with the correct SBI rate per acquisition date. NetBenefits doesn't surface that data.
+
+### 4. You can sell, but you can't really redeploy
+
+NetBenefits lets you sell vested shares. Once the cash is in your account, you can:
+
+- Withdraw it (which means USD wire to your Indian bank, with FX spread on conversion).
+- Buy other US stocks and ETFs &mdash; but you're limited by what NetBenefits supports for stock-plan accounts, which is typically a curated list rather than the full Fidelity universe.
+
+The restriction here is subtle. NetBenefits stock-plan accounts often have lower limits on what you can hold beyond your employer stock. At some plans you can buy almost any US-listed stock; at others you can only park cash in a money-market fund or buy a limited list of ETFs. The exact rules vary by employer plan.
+
+If you want to genuinely diversify into a three-fund portfolio after a sale &mdash; VTI, VXUS, BND or similar &mdash; the NetBenefits account may or may not let you, depending on which version of the plan your employer signed. You'll find out only when you try.
+
+### 5. The transfer-out option is real, but limited in destinations
+
+You can ACATS shares out of NetBenefits to another US broker. The mechanics work. The constraint, again, is finding a US broker that will receive the shares for an Indian-resident account holder.
+
+Charles Schwab International used to be the obvious destination. They stopped accepting new Indian-resident accounts somewhere around 2020 to 2023. TD Ameritrade (now Schwab) similarly excluded most non-US residents. Interactive Brokers' US entity has tightened on Indian residents over time, and IBKR India doesn't accept inbound ACATS from US brokers.
+
+The currently-available receiving options for Indian residents narrow to platforms partnered with Alpaca Securities. Rovia is one. The platforms that focus on retail US investing (INDmoney, the original Vested platform) don't currently support inbound ACATS.
+
+## The Rovia comparison
+
+| Dimension | Fidelity NetBenefits | Rovia |
+| --- | --- | --- |
+| Primary purpose | Employer stock-plan administration | Indian-resident US-equity brokerage with RSU focus |
+| Underlying broker | Fidelity Brokerage Services LLC (employee-plan tier) | Alpaca Securities LLC |
+| Buy general US stocks/ETFs after sell | Limited to plan's allowed universe; varies | Full NYSE/NASDAQ at launch; UCITS / global on 2026 roadmap |
+| Cost basis display | USD only | INR (vest-day SBI TT applied) |
+| Holding-period tagging | US 12-month rule | India 24-month rule with countdown per lot |
+| Specific lot identification | Available, but two clicks deep | Surfaced as the default workflow |
+| US 1099 forms | Yes | N/A (you file under Indian rules) |
+| Schedule FA helper | None | Auto-generated |
+| Form 67 prep | None | Dividend tracking with FTC-ready reporting |
+| Tax-loss harvesting reporting | None at lot-INR level | Realized-loss schedule with carry-forward tracker |
+| Brokerage commission on post-vest trades | Free on RSU sells; varies on other trades | 0.15% per trade |
+| FX markup on repatriation | Standard wire + Indian-bank FX spread | 50 to 70 paise per USD |
+| Customer support | US-based, very good for plan questions; weak on Indian tax | India-based, IST hours, India-tax fluent |
+| Inbound ACATS from other brokers | Partially supported; limited for non-US-resident accounts | Yes, via Alpaca |
+
+Where Fidelity NetBenefits is genuinely better, fairly:
+
+- **Rock-solid plan operations.** Vests happen on schedule, sell-to-cover works automatically, perquisite-tax withholding is dead-on. If you do nothing else, this works.
+- **Integrated with Fidelity's other employer benefits.** If your company has a 401(k) (relevant if you ever worked in the US), HSA, or pension administered by Fidelity, NetBenefits ties them together. Indian residents typically don't have all these benefits, but if you previously worked in the US and have a legacy 401(k), it shows up in the same login.
+- **Trustworthy brand.** Fidelity manages over $11 trillion in customer assets. Whatever else, the broker isn't going anywhere.
+
+So the case isn't "NetBenefits is bad." It's "NetBenefits is not built for the Indian-resident reporting workflow, and trying to do that workflow on top of it is more pain than necessary."
+
+## Migration: how to actually move shares from Fidelity NetBenefits to Rovia
+
+### Step 1: pull your transaction history
+
+Inside NetBenefits, go to "History" or "Statements" (the exact name varies a bit by employer plan). Export the full transaction history covering every vesting event since you started accruing RSUs. You want, for each vest:
+
+- Vest date
+- Number of shares
+- Vest-day USD price
+- Any sell-to-cover transaction at vest
+- Any subsequent sales
+
+NetBenefits typically lets you download as PDF and CSV. Take the CSV; it's easier to reconcile later.
+
+### Step 2: open a Rovia account
+
+PAN, Aadhaar, bank account, video KYC, W-8BEN. Onboarding takes 1 to 3 days for KYC + Alpaca account opening. You don't need to fund the account with INR via LRS for the share-transfer flow.
+
+### Step 3: initiate ACATS-in from Rovia
+
+Inside Rovia, go to "Transfer in shares" and fill in:
+
+- Sending broker: Fidelity Brokerage Services LLC (note: this is the broker name; your NetBenefits login is the portal, but the underlying broker is Fidelity Brokerage Services)
+- Sending account number (visible in your NetBenefits account profile or on a recent statement)
+- Account holder name (must match exactly)
+- Shares to transfer (all or specific lots)
+
+Rovia generates the ACATS request and Alpaca submits it electronically.
+
+### Step 4: confirm on the Fidelity side
+
+Within 1 to 3 business days, Fidelity will request your authorization for the outbound transfer. This usually arrives as a NetBenefits notification or an email from Fidelity. Confirm.
+
+Fidelity NetBenefits historically charged $0 for outbound ACATS from stock-plan accounts, though this has varied by employer plan. If a fee applies, it's a one-time charge of typically $25 to $75 per transfer.
+
+### Step 5: wait 5 to 7 business days
+
+Shares arrive at Rovia with cost basis and original vest dates preserved. The 24-month India LTCG clock continues from the original vest, not from the ACATS settlement date.
+
+### Step 6: reconcile and verify
+
+Cross-check lots against the history from Step 1. Confirm:
+
+- All lots present
+- Correct share counts per lot
+- Correct vest dates
+- Correct USD cost basis per lot
+- Rovia's computed INR cost basis (which uses the SBI TT rate for each vest date)
+
+If anything's off, raise it with Rovia support immediately. The ACATS audit trail is freshest in the first week post-transfer.
+
+### Step 7: leave NetBenefits open for future vests
+
+Don't close the NetBenefits account. Future vests will continue to land there. You'll periodically transfer the freshly-vested portion to Rovia (after the customary post-vest holding period your plan may impose, typically 0 to 5 business days).
+
+## Common questions
+
+**Will moving shares affect my employer's view of my equity?** No. Once shares vest, they're yours. Your employer's HR system marks them as vested and that's the end of their tracking. The post-vest custody is your own.
+
+**What if I have unvested RSUs that haven't vested yet?** They stay at NetBenefits. ACATS only transfers vested, owned shares. Unvested grants live in your stock-plan plan agreement and continue vesting on schedule.
+
+**What about ESPP shares purchased through NetBenefits?** Same flow. ESPP shares are yours after the purchase date. They can be ACATSed alongside your RSU shares, with the original purchase-date cost basis preserved. There's a wrinkle around qualified vs. disqualified disposition that we'll cover in a separate post on ESPP-specific tax mechanics.
+
+**What if my employer plan locks me into a holding period after vest?** Some plans (especially at private companies pre-IPO, but occasionally at public ones) have post-vest holding requirements. If yours does, ACATS during the lock-up window won't be permitted by NetBenefits. Wait for the lock-up to expire, then transfer.
+
+## Related reading
+
+- [The share-transfer problem](/posts/share-transfer-between-brokers-india)
+- [Lot selection and loss harvesting](/posts/rsu-lot-selection-tax-loss-harvesting-india)
+- [How US stocks are taxed in India](/posts/how-us-stocks-are-taxed-in-india)
+- [The complete RSU guide for Indians at US multinationals](/posts/complete-rsu-guide-indians-us-multinationals)

@@ -1,0 +1,181 @@
+---
+title: "Rovia vs Morgan Stanley at Work (Shareworks): a guide for Indian RSU holders"
+metaTitle: "Rovia vs Morgan Stanley Shareworks (India)"
+description: "If your employer uses Morgan Stanley at Work to administer RSUs, here's the honest comparison with Rovia and a step-by-step migration guide for Indian residents."
+date: "2026-05-07"
+category: "rsu-management"
+tags: ["rsu", "morgan-stanley", "shareworks", "rovia", "share-transfer", "comparison"]
+author: "shivang-badaya"
+ogHook: "Shareworks"
+ogLabel: "RSU PLAN VIEW | NOT A BROKER"
+ogContext: "Why Morgan Stanley at Work doesn't behave like a normal brokerage account."
+---
+
+<EmployerCallout for="google,amazon,paloalto,cisco,fortinet" />
+
+If you work at Google, Amazon, Palo Alto Networks, Cisco, or Fortinet and your RSUs vest into something called **Shareworks** or **Morgan Stanley at Work**, this post is for you. The two names refer to the same product &mdash; Morgan Stanley acquired Shareworks (formerly Solium) in 2019 and rebranded the platform. If your stock-plan login URL ends in `shareworks.com` or `stockplanconnect.morganstanley.com`, you're using it.
+
+The platform is competent at what it's built for: administering employer equity plans on behalf of US-headquartered companies. It is not, however, built for an Indian-resident participant trying to manage and report a meaningful US equity position. That gap is the reason this post exists.
+
+## What Morgan Stanley at Work actually is
+
+Most Indian RSU holders assume Shareworks is a brokerage account. It isn't, exactly. It's a **stock-plan administration system** that sits on top of a brokerage account. The brokerage relationship behind your Shareworks login is with Morgan Stanley Smith Barney LLC, but the system you interact with is optimized for "your employer rolled out RSUs and we administer the plan" rather than "you're an investor managing a portfolio."
+
+Practical consequences for you:
+
+- The interface is built around vesting events, exercise windows, and tax withholding choices. Not around lots, cost basis, or portfolio analytics.
+- Many features you'd expect from a normal brokerage (specific lot identification, robust transfer-out flows, configurable order types) are either missing or buried.
+- Reporting is US-centric &mdash; year-end documents are 1099 forms designed for IRS filings, with no INR conversion or Schedule FA support.
+- The account is yours, but the experience is your employer's.
+
+## How Indian residents typically use it
+
+There's a modal pattern. Most Indian residents at companies on Morgan Stanley at Work do exactly three things:
+
+1. **Watch RSUs vest each quarter.** The platform shows the vesting calendar, and you can confirm shares landed when they were supposed to.
+2. **Sell to cover, automatically.** Default behavior at most plans is sell-to-cover &mdash; the platform sells enough shares at vest to cover the US tax withholding on the perquisite, and you keep the rest.
+3. **Sell remaining shares periodically and repatriate.** Once or twice a year, when you need cash or want to diversify, you log in, sell a chunk, withdraw to your Indian bank.
+
+This pattern works, sort of. The problem is what it costs you in flexibility and tax efficiency.
+
+## The five concrete problems for Indian residents
+
+### 1. No INR cost basis or holding-period tracking
+
+Your Shareworks dashboard shows positions in USD. It tells you the vest-day USD price, sometimes the current USD price, and a USD gain/loss. None of this is what you need to file in India.
+
+Indian capital gains rules require:
+
+- Cost basis in **INR**, computed at the SBI TT buying rate on the vest date.
+- Sale proceeds in **INR**, computed at the SBI TT rate on the sale date.
+- Holding period of **24 months** (not 12) to qualify for long-term capital gains treatment.
+
+Shareworks gives you none of this. To file accurately, you (or your CA) pull a transaction history, look up SBI rates for each relevant date, and rebuild everything in a spreadsheet. Most people don't do this thoroughly. Some round to a single year-end USD/INR rate and hope for the best.
+
+### 2. FIFO is your only realistic option
+
+When you sell shares on Shareworks, the platform doesn't surface specific-lot identification in any meaningful way. Most Indian users default to FIFO &mdash; which, as we covered in the [lot selection post](/posts/rsu-lot-selection-tax-loss-harvesting-india), is usually the worst choice from a tax standpoint because the earliest lots tend to have the largest unrealized gains.
+
+Even if you find the specific-lot option in Shareworks (it's available, but buried), the resulting documentation is in US tax format. Carrying that through to an Indian ITR with proper substantiation is an extra step most CAs aren't set up for.
+
+### 3. No tax-loss harvesting workflow
+
+Indian tax law lets you carry forward capital losses for 8 years and offset them against future gains. Realizing those losses requires identifying which specific lots are below cost basis, in INR.
+
+Shareworks won't help you do this. The platform doesn't compute INR cost basis at all, so it can't tell you which lots are underwater in INR. Even if a lot is up in USD, it might be flat or down in INR after rupee depreciation &mdash; or vice versa. Without lot-level INR visibility, harvesting is purely a manual exercise.
+
+### 4. You can only sell, not move
+
+If you want to do something other than sell &mdash; for example, transfer your vested shares to a different broker that supports the rest of the workflow &mdash; Morgan Stanley at Work's options are limited for non-US-resident participants.
+
+ACATS-out from Morgan Stanley to another US broker is technically possible, but you need a *receiving* US broker that will accept the inbound transfer for an Indian-resident account. Most US retail brokers (Schwab, Fidelity retail, TD Ameritrade) don't open accounts for Indian residents at all, so that's a dead end. The receiving option that does work is via Indian-aware platforms partnered with Alpaca Securities &mdash; specifically, Rovia.
+
+### 5. Repatriation cost is real
+
+When you sell on Shareworks and withdraw INR to India, you pay a wire fee on the way out (typically $25 to $35 from Morgan Stanley) and your Indian bank charges an inbound conversion fee with a non-trivial FX spread. Over a few cycles of selling and repatriating, this is meaningful money.
+
+If your shares were at a platform that lets you hold USD and deploy into other US ETFs without round-tripping through INR, you'd save the FX both ways.
+
+## The Rovia comparison
+
+Now the side-by-side. We've tried to be honest about where Morgan Stanley at Work is genuinely the better option (it has its strengths), and where Rovia differs.
+
+| Dimension | Morgan Stanley at Work | Rovia |
+| --- | --- | --- |
+| Primary purpose | Employer stock-plan administration | Indian-resident US-equity brokerage with RSU focus |
+| Underlying broker | Morgan Stanley Smith Barney LLC | Alpaca Securities LLC |
+| Account ownership | Your account, employer-tied access | Your account, you control fully |
+| Cost basis display | USD only | INR (vest-day SBI TT applied) |
+| Holding-period tagging | US 12-month rule | India 24-month rule with countdown per lot |
+| Specific lot identification at sell | Possible but buried | Surfaced as the default workflow |
+| Tax-loss harvesting reporting | None | Realized-loss schedule with carry-forward tracker |
+| Schedule FA helper | None | Auto-generated |
+| Form 67 prep | None | Dividend tracking with FTC-ready reporting |
+| Sell + buy other US stocks | Limited; usually sell-only after RSU vest | Full US equity access (NYSE/NASDAQ at launch; UCITS / global on the 2026 roadmap) |
+| Brokerage commission | Built into employer plan; no per-trade fee on RSU operations | 0.15% per trade on post-transfer trades |
+| FX markup on repatriation | Standard Morgan Stanley wire + Indian-bank FX spread | 50 to 70 paise per USD |
+| Customer support | US-based, business hours; limited India tax fluency | India-based, IST hours, India-tax fluent |
+| Inbound ACATS from other brokers | N/A (this is where shares originate) | Yes, via Alpaca |
+
+Where Morgan Stanley at Work is genuinely better, to be fair:
+
+- **Liquidity at vest is seamless.** When the RSUs vest, sell-to-cover happens automatically in the same place, and the cash for the perquisite-tax-withholding side ends up in the right account by default. If you do nothing else, this works.
+- **Single source of truth for vesting events.** Your employer's HR-stock-plan integration pushes vesting events directly. There's no risk of the platform mis-counting your vests.
+- **For pre-IPO equity at private companies**, Morgan Stanley at Work has structures (RSAs, double-trigger RSUs, exercise windows for options) that a third-party platform wouldn't replicate.
+
+So the model isn't "abandon Morgan Stanley at Work." It's "let it do what it's good at &mdash; receiving vests and handling the perquisite-tax mechanics &mdash; and consider moving the post-vest portion to a platform that handles Indian reporting and lot-selection properly."
+
+## Migration: how to actually move shares from Morgan Stanley to Rovia
+
+The mechanics, in order. You don't need to do this all at once &mdash; many Indian RSU holders move a portion to evaluate the experience before consolidating.
+
+### Step 1: get your lot history out of Morgan Stanley
+
+Log into your Shareworks or stockplanconnect account. Look for a section called "History," "Transactions," or "Tax Documents." You want a CSV or PDF that lists, for each vesting event:
+
+- Date of vesting
+- Number of shares released
+- Vest-day price (USD)
+- Any sell-to-cover transaction triggered at that vest
+
+This becomes your lot-level cost basis ledger. Save it. You'll need it during ACATS reconciliation and at filing time, regardless of where the shares end up.
+
+If your Shareworks UI doesn't expose this cleanly, you can request a transaction history via the Help / Contact section. Response time is usually 2 to 5 business days.
+
+### Step 2: open a Rovia account
+
+Standard onboarding: PAN, Aadhaar, bank account, video KYC. Takes 1 to 3 days for KYC + Alpaca account opening. You'll sign a W-8BEN treaty form during onboarding, which sets you up for the 25% reduced US dividend withholding (instead of 30%).
+
+You don't need to fund the account with INR via LRS at this stage. You're going to receive shares, not buy new ones.
+
+### Step 3: initiate ACATS-in from Rovia
+
+Inside your Rovia account, find the "Transfer in shares" flow. You'll fill in:
+
+- Sending broker: Morgan Stanley Smith Barney LLC
+- Sending account number (visible in your Shareworks account profile)
+- Account holder name (must match exactly &mdash; small mismatches like middle initial vs. full middle name cause delays)
+- The lots you want to transfer (you can transfer all or a subset)
+
+Rovia generates an ACATS request, which Alpaca submits to Morgan Stanley electronically. You'll be asked to authorize the transfer once Morgan Stanley confirms receipt of the request &mdash; usually via an email or in-app prompt to your Shareworks account.
+
+### Step 4: authorize on the Morgan Stanley side
+
+Within 1 to 3 business days of Rovia initiating the request, you'll get a notification on Morgan Stanley at Work asking you to confirm an outbound transfer. This is normal, expected, and required. Without your confirmation, the transfer won't proceed.
+
+Confirm the request. Morgan Stanley may charge an outbound transfer fee &mdash; typically $50 to $75 per ACATS. This is a one-time fee, not a recurring one.
+
+### Step 5: wait 5 to 7 business days
+
+ACATS settlement is electronic and standardized. Shares show up in your Rovia account, with original cost basis preserved. The vest dates that determined your 24-month India LTCG clock are not reset &mdash; the holding period continues from the original vest, not from the ACATS date. This matters: you don't lose long-term-eligibility on lots that have already crossed the 24-month threshold.
+
+### Step 6: reconcile
+
+Once the shares arrive at Rovia, cross-check the lots against the history you exported in Step 1. Each lot should show:
+
+- Correct number of shares
+- Correct vest date (preserved from the original)
+- Correct USD cost basis at vest
+
+Rovia computes the INR cost basis using the SBI TT buying rate for each vest date and surfaces it on the dashboard. If a lot's cost basis comes through wrong &mdash; which is rare but happens with edge cases like ESPP lots or stock splits &mdash; report it to support immediately. The faster you flag it, the easier it is to fix while the ACATS audit trail is fresh.
+
+### Step 7: decide on next actions
+
+Now that the shares are at a platform that supports specific-lot identification and Indian-format reporting, the post-transfer decisions you couldn't make at Morgan Stanley become available:
+
+- **Diversify.** Sell a portion of your employer stock and buy VTI, VOO, or QQQM in the same account, holding USD throughout. We covered the case for this in [the three-fund portfolio post](/posts/three-fund-portfolio-indian-residents).
+- **Harvest losses.** If any lots are below cost basis in INR, realize the loss to offset other capital gains this year, or just to bank the carry-forward inventory.
+- **Plan a deliberate sale.** If you know you're in a low-income year, sell into LTCG deliberately at the right lot. If not, defer.
+
+## What this post deliberately did not say
+
+- "Close your Morgan Stanley account." Don't. Future vests still happen there. You leave it open for the receive-vests function and use Rovia (or another platform) for everything post-vest.
+- "Rovia is better than Morgan Stanley." It's not, on the dimension Morgan Stanley is built for &mdash; receiving employer-vests with proper perquisite-tax mechanics. They're built for different jobs.
+- "Move all your shares immediately." Most people we've worked with move a portion first &mdash; say, the portion they were planning to sell anyway. They evaluate the experience over a quarter, then decide whether to consolidate the rest.
+
+## Related reading
+
+- [The share-transfer problem: why Indian residents are stuck with their employer's broker](/posts/share-transfer-between-brokers-india)
+- [Lot selection and loss harvesting for Indian RSU holders](/posts/rsu-lot-selection-tax-loss-harvesting-india)
+- [Vested vs INDmoney vs IBKR vs Rovia compared](/posts/vested-vs-indmoney-vs-interactive-brokers)
+- [The complete RSU guide for Indians at US multinationals](/posts/complete-rsu-guide-indians-us-multinationals)

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import { EmployerCallout } from "@/components/EmployerCallout";
 
 export const mdxComponents: MDXRemoteProps["components"] = {
+  EmployerCallout,
   a: ({ href = "#", children, ...rest }) => {
     const isInternal = href.startsWith("/") || href.startsWith("#");
     if (isInternal) {

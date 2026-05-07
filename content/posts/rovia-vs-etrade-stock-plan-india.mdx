@@ -1,0 +1,197 @@
+---
+title: "Rovia vs E*TRADE Stock Plan: a guide for Indian RSU holders"
+metaTitle: "Rovia vs E*TRADE Stock Plan (India)"
+description: "If your RSUs vest into E*TRADE Stock Plan Solutions (now part of Morgan Stanley), here's the honest comparison with Rovia and the migration guide."
+date: "2026-05-09"
+category: "rsu-management"
+tags: ["rsu", "etrade", "stock-plan", "rovia", "share-transfer", "comparison", "morgan-stanley"]
+author: "shivang-badaya"
+ogHook: "E*TRADE"
+ogLabel: "ACQUIRED IN 2020 | NOW MORGAN STANLEY"
+ogContext: "What changed for Indian RSU holders after Morgan Stanley bought E*TRADE."
+---
+
+<EmployerCallout for="salesforce,elilily,intuit,spotify,arista,couchbase,udemy" />
+
+If you work at Salesforce, Eli Lilly, Intuit, Spotify, Arista Networks, Couchbase, or Udemy and your RSUs vest into **E*TRADE Stock Plan Solutions**, this post is for you. The login URL is usually `us.etrade.com` or `etrade.com/stockplans`.
+
+There's an additional wrinkle worth flagging up front: **Morgan Stanley acquired E*TRADE in 2020.** The platform still operates under the E*TRADE brand for many users, but behind the scenes the corporate parent and the long-term product roadmap is Morgan Stanley's. Some employers have already migrated their stock plans from "E*TRADE" branding to "Morgan Stanley at Work" branding, and more will over the next few years. If your plan is still on the legacy E*TRADE interface, this post is for you. If it's already moved to Shareworks / Morgan Stanley at Work, see our [Morgan Stanley at Work post](/posts/rovia-vs-morgan-stanley-shareworks-india) instead &mdash; the platforms are converging.
+
+## What E*TRADE Stock Plan actually is
+
+E*TRADE Stock Plan Solutions is a **stock-plan administration system** that sits on top of an E*TRADE brokerage account. The brokerage relationship is with E*TRADE Securities LLC (now an indirect subsidiary of Morgan Stanley), but the system you interact with is structured around your employer's equity plan.
+
+Three structural facts that follow:
+
+- The account is a *stock-plan tier* account, not a regular E*TRADE retail account. Trading capabilities and the asset universe you can access can be more restricted than what a US-resident E*TRADE retail customer sees.
+- E*TRADE doesn't open new retail accounts for Indian residents. The only E*TRADE relationship you can have is the employer-tied stock-plan account.
+- As Morgan Stanley integrates the back-end, some operational behavior is shifting toward the Shareworks model. Your plan today might look more E*TRADE-classic and feel more Morgan Stanley over the next 12 to 24 months.
+
+## The five concrete problems for Indian residents
+
+### 1. Year-end documents are US-format only
+
+E*TRADE will issue you US tax forms each year:
+
+- **1099-B** for stock sales (with USD cost basis and proceeds, classified as STCG/LTCG per IRS rules &mdash; the 12-month US threshold).
+- **1099-DIV** for dividends paid.
+- **Supplemental statements** for any wash-sale adjustments or other US-specific items.
+
+For your Indian filing, none of this is directly usable. You need:
+
+- INR cost basis, computed at vest-day SBI TT buying rate.
+- INR sale proceeds, computed at sale-day SBI TT rate.
+- Indian classification: 24-month threshold for foreign-equity LTCG.
+- Schedule FA disclosure with peak balance and end-of-year value.
+
+The standard workflow: download the 1099 documents in March (US tax year), pull SBI rate history yourself, rebuild lot-by-lot in a spreadsheet for India filing in July. If you have a CA who handles foreign equity well, they do this for you. If you don't, you do it yourself.
+
+### 2. Lot identification is technically supported, practically buried
+
+E*TRADE's UI does support specific-lot identification at sell time. The flag exists. But like Fidelity NetBenefits, it's not the default surface &mdash; you have to find the "specify lots" option inside the order entry, choose specific tax lots, and confirm.
+
+For most users this is one click too many, especially in a market environment where they're trying to execute a sell order at a specific price. The default behavior &mdash; which most users get by accident &mdash; is FIFO.
+
+Even when you do specify lots, the documentation E*TRADE generates is in US format (with US holding period, US LTCG/STCG classification). Carrying that to your Indian ITR with proper substantiation requires a CA who knows to accept broker-provided lot identification under Indian law and to recompute holding period under the 24-month rule.
+
+### 3. Limited post-vest activity for stock-plan accounts
+
+After your RSUs vest and any sell-to-cover happens, you have shares in your E*TRADE stock-plan account. What can you do with them, beyond hold and eventually sell?
+
+In a regular E*TRADE retail account (which you can't have), you could buy other stocks, ETFs, options, mutual funds, bonds, and so on. In a stock-plan account, the universe is typically narrower:
+
+- You can hold cash or a money-market sweep.
+- You can usually buy other publicly-traded US stocks and ETFs, though with some limits depending on plan rules.
+- Options trading, margin trading, bond access, and futures are typically not available.
+
+If your goal post-RSU-vest is "diversify into VTI/VXUS in the same place," E*TRADE Stock Plan can usually do this, but the experience is bare-bones compared to either a full retail brokerage or a platform built around Indian-resident reporting.
+
+### 4. Repatriation costs round-trip you out of dollars
+
+When you sell on E*TRADE and want INR in your Indian bank, the standard flow:
+
+1. Sell shares (USD lands in your E*TRADE cash sweep).
+2. Initiate a wire transfer to your Indian bank account.
+3. Indian bank receives USD, converts to INR at their wholesale rate plus markup, credits INR to your savings.
+
+The friction:
+- **E*TRADE wire-out fee:** typically $25 per outbound wire.
+- **Indian bank inbound charge:** varies, often Rs 500 to Rs 1,500.
+- **Indian bank FX spread:** typically 30 to 60 paise per USD on retail wire conversions, sometimes wider.
+
+Per cycle, expect Rs 3,000 to Rs 7,000 in friction costs on a $10,000 wire. If you do this 4 times a year, the annual drag is meaningful.
+
+Worse, if you wanted to redeploy that cash back into US ETFs at a different platform, you've now paid FX once on the way to INR and again on the way back to USD via LRS. A one-way friction of 80 paise becomes a 1.6 rupee round-trip.
+
+### 5. Inbound transfers from other brokers don't really work for Indian-resident accounts
+
+If you have shares at another broker (say, an old account from a previous employer), E*TRADE's stock-plan account isn't typically set up to receive ACATS for non-US-resident participants. The reverse is also limited &mdash; outbound ACATS to most US retail brokers won't work because those brokers won't accept the receiving account.
+
+This is the broader pattern we covered in [the share-transfer post](/posts/share-transfer-between-brokers-india): the only realistic ACATS destination for an Indian resident is a platform partnered with Alpaca Securities. Rovia is the one currently positioned around RSU-holder workflows.
+
+## The Rovia comparison
+
+| Dimension | E*TRADE Stock Plan | Rovia |
+| --- | --- | --- |
+| Primary purpose | Employer stock-plan administration | Indian-resident US-equity brokerage with RSU focus |
+| Underlying broker | E*TRADE Securities LLC (Morgan Stanley subsidiary) | Alpaca Securities LLC |
+| Cost basis display | USD only | INR (vest-day SBI TT applied) |
+| Holding-period tagging | US 12-month rule | India 24-month rule with countdown per lot |
+| Specific lot identification | Possible but buried | Surfaced as the default workflow |
+| Tax-loss harvesting reporting | None at lot-INR level | Realized-loss schedule with carry-forward tracker |
+| Schedule FA helper | None | Auto-generated |
+| Form 67 prep | None | Dividend tracking with FTC-ready reporting |
+| Asset universe post-sell | Most US stocks/ETFs but with stock-plan-tier limits | Full NYSE/NASDAQ at launch; UCITS / global on 2026 roadmap |
+| Brokerage commission | Free on RSU sells; $0 on most US stocks/ETFs in stock-plan | 0.15% per trade |
+| FX markup on repatriation | Standard wire + Indian-bank FX spread | 50 to 70 paise per USD |
+| Customer support | US-based, decent on stock-plan; limited on Indian tax | India-based, IST hours, India-tax fluent |
+| Outbound ACATS to Indian-aware platform | Yes, via Alpaca-partnered receivers like Rovia | N/A (this is the receiver) |
+
+Where E*TRADE Stock Plan is genuinely better, fairly:
+
+- **$0 commission on US equity trades** for stock-plan accounts is a real advantage if you're actively trading post-vest. Rovia's 0.15% adds up if you turn over your portfolio frequently.
+- **Liquidity at vest is automatic.** Your RSUs land, sell-to-cover handles withholding, and shares are tradable immediately if your plan permits.
+- **Brand-trust.** E*TRADE has been a name in US retail brokerage for 30+ years. Whatever else, the broker is not disappearing.
+
+The flip-side, again: the things E*TRADE does well aren't the things an Indian resident managing a meaningful US equity position needs. The structural mismatch is around reporting, lot-level INR tooling, and tax-loss harvesting, not around order execution or commission.
+
+## Migration: how to actually move shares from E*TRADE to Rovia
+
+### Step 1: get your transaction history
+
+Inside E*TRADE Stock Plan, look for "Stock Plan Transactions," "History," or "Tax Center." Export a transaction history (CSV preferred) covering every vest, sell-to-cover, and post-vest sale you've had.
+
+For each vest, you want:
+- Vest date
+- Shares released
+- Vest-day USD price
+- Sell-to-cover details (if any)
+
+This becomes your lot ledger. Save it. You'll need it during reconciliation and at filing time, regardless of where the shares end up.
+
+### Step 2: open a Rovia account
+
+Standard onboarding: PAN, Aadhaar, bank account, video KYC. 1 to 3 days end-to-end. W-8BEN is signed during onboarding for the 25% reduced US dividend withholding.
+
+You don't need to fund the account with INR via LRS for the share-transfer flow.
+
+### Step 3: initiate ACATS-in from Rovia
+
+Inside Rovia, go to "Transfer in shares" and fill in:
+
+- Sending broker: E*TRADE Securities LLC (note: this is the legal broker name; you'll see it on your E*TRADE statements at the top)
+- Sending account number (visible in your E*TRADE Stock Plan account profile)
+- Account holder name (must match exactly &mdash; pay attention to middle names and initials)
+- Shares to transfer (all or specific lots)
+
+Rovia generates the ACATS request and Alpaca submits it.
+
+### Step 4: confirm on the E*TRADE side
+
+Within 1 to 3 business days, E*TRADE will request your authorization. This usually arrives as an email from E*TRADE or a notification in your stock-plan account. Confirm.
+
+E*TRADE's outbound ACATS fee for stock-plan accounts has historically been $50 to $75. This is a one-time per-transfer charge, not recurring.
+
+### Step 5: wait 5 to 7 business days
+
+Shares arrive at Rovia with cost basis and vest dates preserved. The 24-month India LTCG clock continues from the original vest, not from the ACATS settlement date.
+
+### Step 6: reconcile
+
+Cross-check lots against the history from Step 1. Verify share counts, vest dates, and USD cost basis per lot. Check that Rovia's INR cost basis (computed using SBI TT rate per vest date) matches your own back-of-envelope calculation.
+
+If anything is off, raise with Rovia support promptly. Edge cases involve ESPP lots (which have different cost-basis treatment than RSUs at vest), stock splits, or dividend reinvestments that may not have been in your original ledger.
+
+### Step 7: leave E*TRADE Stock Plan open
+
+Future vests continue at E*TRADE. Don't close the account. The model is "plan administration stays at E*TRADE; long-term holding and tax-aware management moves to Rovia."
+
+## Special note: the Morgan Stanley transition
+
+Over the next 12 to 24 months, more E*TRADE Stock Plan customers will see their plans transitioned to **Morgan Stanley at Work / Shareworks** branding. The underlying corporate consolidation has been ongoing since 2020.
+
+What this means for you:
+
+- Your account history, share holdings, and lot data move with the transition. You don't lose anything.
+- The login URL, dashboard look, and some of the workflow change. Sell-flows behave slightly differently in Shareworks than in classic E*TRADE.
+- Tax reporting consolidates under Morgan Stanley's systems. The 1099 forms you receive may come from Morgan Stanley Smith Barney rather than E*TRADE Securities for the post-transition tax year.
+
+If you transfer your shares to Rovia *before* the Morgan-Stanley-at-Work transition, your migration is one-time. If you wait, you'll go through the platform transition first, then potentially do the migration from the new platform afterwards. Either order works; the platform transition doesn't affect Rovia's ability to receive ACATS-in.
+
+## Common questions
+
+**My E*TRADE plan went restricted-trading. What does that mean?** Some employers institute trading windows where you can't sell during earnings blackouts or other sensitive periods. ACATS-out is generally permitted during these windows even when sales aren't, but check with your stock-plan administrator if your plan has unusually strict rules.
+
+**What about ESPP shares I bought through E*TRADE?** Same migration path. ESPP shares are yours after purchase and can be ACATSed. There's a separate qualified-vs-disqualified-disposition wrinkle for ESPP that affects US-side tax but doesn't affect the transfer mechanics.
+
+**Can I transfer just some of my lots?** Yes. ACATS supports partial transfers. Many people start with the lots they were planning to sell anyway, evaluate the experience over a quarter, and consolidate the rest if they're happy.
+
+**Do I need to tell my employer?** No. Once shares are vested and held in your name, what you do with them is your business. Your employer's HR-stock-plan integration sees the vest event and that's the end of their tracking.
+
+## Related reading
+
+- [Rovia vs Morgan Stanley at Work](/posts/rovia-vs-morgan-stanley-shareworks-india) &mdash; especially relevant if your plan is mid-transition.
+- [Rovia vs Fidelity NetBenefits](/posts/rovia-vs-fidelity-netbenefits-india)
+- [The share-transfer problem](/posts/share-transfer-between-brokers-india)
+- [Lot selection and loss harvesting](/posts/rsu-lot-selection-tax-loss-harvesting-india)
+- [The complete RSU guide for Indians](/posts/complete-rsu-guide-indians-us-multinationals)
