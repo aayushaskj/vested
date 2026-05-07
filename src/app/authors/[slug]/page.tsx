@@ -2,13 +2,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
-  AUTHORS,
   buildPersonLd,
   getAllAuthors,
   getAuthor,
 } from "@/lib/authors";
 import { CATEGORIES, formatDate, getPostsByAuthor } from "@/lib/posts";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import { AuthorAvatar } from "@/components/AuthorAvatar";
+import { AffiliationChips } from "@/components/AffiliationChips";
 
 export function generateStaticParams() {
   return getAllAuthors().map((a) => ({ slug: a.slug }));
@@ -23,7 +24,7 @@ export async function generateMetadata({
   const author = getAuthor(slug);
   if (!author) return {};
   return {
-    title: `${author.name} — author at Vested`,
+    title: `${author.name} — ${author.role}`,
     description: author.shortBio,
     alternates: { canonical: `/authors/${slug}` },
     openGraph: {
@@ -55,25 +56,67 @@ export default async function AuthorPage({
   const personLd = buildPersonLd(author);
 
   return (
-    <div className="container-prose py-12 sm:py-16">
+    <div className="container-prose py-10 sm:py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
       />
-      <header>
-        <p className="text-sm text-ink-500">Author</p>
-        <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">
-          {author.name}
-        </h1>
-        <p className="mt-3 text-base sm:text-lg text-ink-700 leading-relaxed">
-          {author.shortBio}
-        </p>
-        <p className="mt-4 text-ink-700 leading-relaxed">{author.longBio}</p>
 
-        {(author.social.twitter ||
-          author.social.linkedin ||
-          author.social.website) && (
-          <ul className="mt-5 flex flex-wrap gap-3 text-sm">
+      <header className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+        <AuthorAvatar
+          author={author}
+          size={96}
+          className="ring-4 ring-white shadow-md"
+        />
+        <div className="flex-1">
+          <p className="text-sm text-ink-500">Author</p>
+          <h1 className="mt-1 font-display text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">
+            {author.name}
+          </h1>
+          <p className="mt-1 text-sm font-medium text-brand-700">
+            {author.role}
+          </p>
+          <p className="mt-3 text-base text-ink-700 leading-relaxed">
+            {author.shortBio}
+          </p>
+        </div>
+      </header>
+
+      {author.affiliations && author.affiliations.length > 0 && (
+        <section className="mt-6">
+          <AffiliationChips items={author.affiliations} />
+        </section>
+      )}
+
+      <p className="mt-8 text-base text-ink-700 leading-relaxed">
+        {author.longBio}
+      </p>
+
+      {author.credentials && author.credentials.length > 0 && (
+        <section className="mt-8 rounded-2xl border border-ink-100 bg-white p-5 sm:p-6">
+          <h2 className="font-display text-base font-semibold text-ink-900">
+            Credentials
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm text-ink-700">
+            {author.credentials.map((c) => (
+              <li key={c} className="flex gap-2">
+                <span aria-hidden className="mt-1 text-accent-600">
+                  ✓
+                </span>
+                <span>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {(author.social.linkedin ||
+        author.social.twitter ||
+        author.social.website ||
+        author.social.email) && (
+        <section className="mt-6">
+          <h2 className="text-sm font-semibold text-ink-900">Connect</h2>
+          <ul className="mt-3 flex flex-wrap gap-2 text-sm">
             {author.social.linkedin && (
               <li>
                 <a
@@ -110,12 +153,22 @@ export default async function AuthorPage({
                 </a>
               </li>
             )}
+            {author.social.email && (
+              <li>
+                <a
+                  href={`mailto:${author.social.email}`}
+                  className="rounded-md border border-ink-200 px-3 py-1.5 text-ink-700 hover:border-ink-300"
+                >
+                  Email ↗
+                </a>
+              </li>
+            )}
           </ul>
-        )}
-      </header>
+        </section>
+      )}
 
       <section className="mt-10">
-        <h2 className="font-display text-lg font-semibold text-ink-900">
+        <h2 className="font-display text-base font-semibold text-ink-900">
           Areas of expertise
         </h2>
         <ul className="mt-3 flex flex-wrap gap-2">

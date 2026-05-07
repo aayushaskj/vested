@@ -7,74 +7,141 @@ export interface AuthorSocial {
   website?: string;
 }
 
+export interface AuthorAffiliation {
+  /** Display name of the institution / employer. */
+  name: string;
+  /** Optional logo path under /public (e.g., "/logos/iit-bombay.svg"). Falls back to text. */
+  logo?: string;
+  /** Optional descriptor — degree, role, year range. */
+  detail?: string;
+  /** Optional URL (e.g., LinkedIn company page or homepage). */
+  url?: string;
+}
+
 export interface Author {
   slug: string;
   name: string;
+  /** Title and current organisation. */
+  role: string;
   shortBio: string; // 1-2 lines, used in bylines
   longBio: string; // paragraph, used on author page
   expertise: string[]; // topic tags
   credentials?: string[];
+  /** Schools, employers, certifications shown as logo chips on the profile. */
+  affiliations?: AuthorAffiliation[];
   social: AuthorSocial;
-  /** Optional avatar path (under /public). Falls back to monogram if missing. */
+  /** Avatar path under /public. Falls back to monogram if file missing. */
   avatar?: string;
 }
 
 /**
- * Author registry. To add a new author, append a new entry and assign their
- * `slug` to the `author` frontmatter field on posts.
+ * Author registry.
  *
- * NOTE: Bios below are placeholders pending verified copy from each author.
- * Update with real credentials, employer (or "independent"), education,
- * and verified social URLs before launch.
+ * Both authors are co-founders of Rovia (rovia.one) — a cross-border
+ * investing platform. Vested.blog is the editorial publication.
+ *
+ * Logos referenced below should live under /public/logos/. If a logo file
+ * is missing, the author profile page falls back to displaying the
+ * institution name as text.
  */
 export const AUTHORS: Record<string, Author> = {
   "shivang-badaya": {
     slug: "shivang-badaya",
     name: "Shivang Badaya",
+    role: "Co-Founder & Chief Executive Officer, Rovia",
     shortBio:
-      "Writes about RSU management, equity comp negotiation, and US-India cross-border employment.",
+      "CFA charterholder, ex-JP Morgan and Makrana Capital. Writes on RSU management, equity comp, and cross-border investments.",
     longBio:
-      "Shivang covers RSU management and equity compensation at Vested. He writes about vesting mechanics, sell-to-cover strategy, ESPP vs. RSU trade-offs, stock-option taxation, and the negotiation playbook for Indian employees at US multinationals. His work focuses on what actually lands in your account after sell-to-cover, perquisite tax, and capital gains — not the gross numbers HR shows you.",
+      "An engineer turned hedge-fund investor, Shivang got into finance early — clearing all three CFA exams during his undergrad at IIT Bombay before joining JP Morgan. He went on to invest at Makrana Capital as a hedge-fund analyst, then led business at Zolve, an NRI fintech. He's now CEO of Rovia, a platform built for global citizens to invest globally. Shivang writes the RSU and equity-comp side of Vested — vesting mechanics, sell-to-cover strategy, ESPP vs. RSU trade-offs, stock options, and what actually lands in your account after Indian perquisite tax.",
     expertise: [
-      "RSU vesting & taxation",
-      "ESPP / Stock options (ISO/NSO)",
+      "Cross-border investments",
+      "RSU management & taxation",
+      "ESPP and stock options (ISO/NSO)",
+      "Hedge-fund investing",
       "Equity comp negotiation",
-      "Cross-border employment",
-      "Sell-to-cover strategy",
     ],
     credentials: [
-      // TODO: replace with verified credentials when provided
-      "Several years of experience working with cross-border equity compensation",
+      "CFA charterholder (cleared Levels 1, 2 and 3)",
+      "SEBI Registered Investment Advisor (in-principle approval)",
+      "B.Tech, IIT Bombay (2010–2014)",
+      "Ex-JP Morgan, Makrana Capital, Zolve (Head of Business)",
+    ],
+    affiliations: [
+      {
+        name: "IIT Bombay",
+        detail: "B.Tech, 2010–2014",
+        logo: "/logos/iit-bombay.svg",
+        url: "https://www.iitb.ac.in",
+      },
+      {
+        name: "JP Morgan",
+        detail: "Investment Banking Analyst",
+        logo: "/logos/jp-morgan.svg",
+        url: "https://www.jpmorgan.com",
+      },
+      {
+        name: "Zolve",
+        detail: "Head of Business",
+        logo: "/logos/zolve.svg",
+        url: "https://www.zolve.com",
+      },
     ],
     social: {
-      // TODO: replace with verified URLs when provided
-      linkedin: "https://www.linkedin.com/in/shivang-badaya/",
-      twitter: "https://twitter.com/shivangbadaya",
+      linkedin: "https://in.linkedin.com/in/shivang-badaya-66772430",
+      email: "shivang@rovia.one",
+      website: "https://rovia.one",
     },
+    avatar: "/authors/shivang-badaya.jpg",
   },
 
   "arnav-grover": {
     slug: "arnav-grover",
     name: "Arnav Grover",
+    role: "Co-Founder & Chief Product Officer, Rovia",
     shortBio:
-      "Writes about US investing from India, the LRS, US ETFs, and Indian tax compliance for foreign assets.",
+      "IIT Bombay + IIM Calcutta. Founding PM at Aspora (NRI fintech). Writes on cross-border investing, payments, and taxation.",
     longBio:
-      "Arnav covers US investing for Indian residents at Vested. He writes about the Liberalised Remittance Scheme, US brokerage choices, ETF selection, capital gains taxation under Indian law, dividend withholding and Form 67, Schedule FA disclosure, and the compliance side of holding foreign equity. His perspective: most US-investing advice online assumes you're American — Vested fixes that.",
+      "A finance and product enthusiast, Arnav joined IIM Calcutta after his engineering at IIT Bombay. He played key roles on the early teams at Zolve and Aspora (formerly Vance) — now the largest NRI fintech in India. His experience building cross-border platforms led him to deeply understand how international investing actually works for Indian residents, and eventually to co-founding Rovia. At Vested he covers the US investing side: the LRS, brokerage choices, US ETFs, foreign equity taxation, dividend withholding, Form 67, and Schedule FA.",
     expertise: [
-      "LRS & TCS compliance",
-      "US ETFs & portfolio construction",
-      "Capital gains tax (foreign equity)",
-      "Form 67 / Foreign Tax Credit",
-      "Schedule FA disclosure",
+      "Cross-border investing",
+      "Cross-border payments",
+      "Cross-border taxation",
+      "LRS & FEMA compliance",
+      "US ETF portfolio construction",
     ],
     credentials: [
-      // TODO: replace with verified credentials when provided
-      "Experienced in cross-border investing under FEMA / LRS",
+      "CFA Levels 1 and 2 cleared",
+      "SEBI Registered Mutual Funds Distributor",
+      "B.Tech, IIT Bombay (2011–2015)",
+      "MBA, IIM Calcutta (2017–2019)",
+      "Founding Product Manager at Aspora (now the largest NRI fintech)",
+    ],
+    affiliations: [
+      {
+        name: "IIT Bombay",
+        detail: "B.Tech, 2011–2015",
+        logo: "/logos/iit-bombay.svg",
+        url: "https://www.iitb.ac.in",
+      },
+      {
+        name: "IIM Calcutta",
+        detail: "MBA, 2017–2019",
+        logo: "/logos/iim-calcutta.svg",
+        url: "https://www.iimcal.ac.in",
+      },
+      {
+        name: "Aspora",
+        detail: "Founding Product Manager",
+        logo: "/logos/aspora.svg",
+        url: "https://www.aspora.com",
+      },
     ],
     social: {
-      linkedin: "https://www.linkedin.com/in/arnav-grover/",
-      twitter: "https://twitter.com/arnavgrover",
+      linkedin: "https://in.linkedin.com/in/arnav-grover-a4611051",
+      email: "arnav@rovia.one",
+      website: "https://rovia.one",
     },
+    avatar: "/authors/arnav-grover.jpg",
   },
 };
 
@@ -91,15 +158,33 @@ export function authorUrl(slug: string): string {
 }
 
 export function buildPersonLd(author: Author) {
-  const sameAs = [author.social.twitter, author.social.linkedin, author.social.website]
-    .filter((x): x is string => Boolean(x));
+  const sameAs = [
+    author.social.twitter,
+    author.social.linkedin,
+    author.social.website,
+  ].filter((x): x is string => Boolean(x));
+
+  const affiliationLd = (author.affiliations ?? []).map((a) => ({
+    "@type": "Organization",
+    name: a.name,
+    url: a.url,
+  }));
+
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     name: author.name,
+    jobTitle: author.role,
+    worksFor: {
+      "@type": "Organization",
+      name: "Rovia",
+      url: "https://rovia.one",
+    },
     url: authorUrl(author.slug),
     description: author.shortBio,
     knowsAbout: author.expertise,
+    alumniOf: affiliationLd,
     sameAs,
+    image: author.avatar ? `${SITE_URL}${author.avatar}` : undefined,
   };
 }

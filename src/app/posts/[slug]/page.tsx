@@ -17,6 +17,7 @@ import { RelatedPosts } from "@/components/RelatedPosts";
 import { mdxComponents } from "@/components/mdxComponents";
 import { SITE_URL, SITE_NAME, ogImageUrl, postUrl } from "@/lib/seo";
 import { getAuthor, authorUrl, buildPersonLd } from "@/lib/authors";
+import { AuthorAvatar } from "@/components/AuthorAvatar";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -207,17 +208,19 @@ export default async function PostPage({
             {post.description}
           </p>
           {author ? (
-            <p className="mt-6 text-sm text-ink-500">
-              By{" "}
-              <Link
-                href={`/authors/${author.slug}`}
-                className="font-medium text-ink-700 hover:text-ink-900"
-                rel="author"
-              >
-                {author.name}
-              </Link>{" "}
-              <span className="hidden sm:inline">— {author.shortBio}</span>
-            </p>
+            <Link
+              href={`/authors/${author.slug}`}
+              rel="author"
+              className="mt-6 flex items-center gap-3 group"
+            >
+              <AuthorAvatar author={author} size={40} />
+              <span className="flex flex-col text-sm">
+                <span className="font-medium text-ink-900 group-hover:text-brand-700">
+                  {author.name}
+                </span>
+                <span className="text-xs text-ink-500">{author.role}</span>
+              </span>
+            </Link>
           ) : (
             <p className="mt-6 text-sm text-ink-500">
               By{" "}
@@ -253,7 +256,36 @@ export default async function PostPage({
 
         <hr className="my-10 border-ink-100" />
 
-        <div className="rounded-2xl bg-ink-50 p-6 sm:p-8">
+        {author && (
+          <section className="rounded-2xl border border-ink-100 bg-white p-5 sm:p-6">
+            <p className="text-xs uppercase tracking-wider text-ink-500">
+              About the author
+            </p>
+            <div className="mt-3 flex items-start gap-4">
+              <AuthorAvatar author={author} size={56} />
+              <div className="flex-1">
+                <Link
+                  href={`/authors/${author.slug}`}
+                  className="font-display text-base font-semibold text-ink-900 hover:text-brand-700"
+                >
+                  {author.name}
+                </Link>
+                <p className="text-sm text-brand-700">{author.role}</p>
+                <p className="mt-2 text-sm text-ink-600 leading-relaxed">
+                  {author.shortBio}
+                </p>
+                <Link
+                  href={`/authors/${author.slug}`}
+                  className="mt-2 inline-block text-xs font-medium text-ink-700 hover:text-ink-900"
+                >
+                  More about {author.name.split(" ")[0]} →
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        <div className="mt-8 rounded-2xl bg-ink-50 p-6 sm:p-8">
           <h2 className="font-display text-xl font-semibold text-ink-900">
             Get more like this in your inbox
           </h2>
