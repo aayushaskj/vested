@@ -37,13 +37,17 @@ export async function POST(req: Request) {
     });
     return NextResponse.json({ ok: true, alreadySubscribed: !inserted });
   } catch (err) {
-    console.error("[subscribe]", err);
-    // Graceful degradation: don't fail the user-facing form if DB is down.
-    // We log the email to console so it's visible in Vercel logs.
-    console.warn("[subscribe-fallback] email=%s source=%s", email, source);
+    // Surface DB failures so we notice them. We still return a generic 500 to
+    // the client so we don't leak DB internals, but log the full error for
+    // Vercel Function Logs.
+    console.error("[subscribe] DB error", {
+      message: err instanceof Error ? err.message : String(err),
+      email,
+      source,
+    });
     return NextResponse.json(
-      { ok: true, fallback: true },
-      { status: 202 }
+      { ok: false, error: "subscribe_failed" },
+      { status: 500 }
     );
   }
 }

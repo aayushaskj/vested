@@ -10,10 +10,16 @@ import { neon } from "@neondatabase/serverless";
  * Neon database to your project.
  */
 function getSql() {
-  const url = process.env.DATABASE_URL;
+  // Accept either DATABASE_URL (manual) or the Vercel ↔ Neon integration's
+  // POSTGRES_URL / POSTGRES_PRISMA_URL. Pooled URL preferred for serverless.
+  const url =
+    process.env.DATABASE_URL ||
+    process.env.POSTGRES_URL ||
+    process.env.POSTGRES_PRISMA_URL;
   if (!url) {
     throw new Error(
-      "DATABASE_URL is not set. Connect a Neon database in Vercel → Storage."
+      "No Postgres URL set. Connect a Neon database in Vercel → Storage, " +
+        "or set DATABASE_URL manually."
     );
   }
   return neon(url);
