@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/schedule-fa-helper`,
     type: "website",
     locale: "en_IN",
-    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+    images: [{ url: "/api/og-card-tool/schedule-fa-helper", width: 1200, height: 630 }],
   },
 };
 

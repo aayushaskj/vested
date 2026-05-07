@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/sell-to-cover-simulator`,
     type: "website",
     locale: "en_IN",
-    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+    images: [{ url: "/api/og-card-tool/sell-to-cover-simulator", width: 1200, height: 630 }],
   },
 };
 

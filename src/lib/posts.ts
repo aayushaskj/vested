@@ -24,7 +24,14 @@ export const CATEGORIES: Record<
 };
 
 export interface PostFrontmatter {
+  /** Editorial title shown as the H1 on the page. Can be long and writerly. */
   title: string;
+  /**
+   * Optional SEO-optimized meta title used in <title>, og:title, twitter:title
+   * and the search-engine result. Should be ≤ 55 chars, keyword-front-loaded.
+   * Falls back to `title` when omitted.
+   */
+  metaTitle?: string;
   description: string;
   date: string; // ISO yyyy-mm-dd
   category: Category;

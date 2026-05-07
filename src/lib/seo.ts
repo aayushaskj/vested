@@ -20,3 +20,11 @@ export function ogImageUrl(slug?: string): string {
   // CDN doesn't conflate them.
   return slug ? `/api/og-card/${slug}` : "/og-default.png";
 }
+
+export function ogImageUrlTool(slug: string): string {
+  return `/api/og-card-tool/${slug}`;
+}
+
+export function ogImageUrlAuthor(slug: string): string {
+  return `/api/og-card-author/${slug}`;
+}

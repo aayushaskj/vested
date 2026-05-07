@@ -38,12 +38,15 @@ export async function generateMetadata({
   if (!post) return {};
   const url = postUrl(slug);
   const og = ogImageUrl(slug);
+  // Decoupled: <title> (and og/twitter title) prefer the SEO-optimized
+  // metaTitle when set, but the page H1 still uses the editorial post.title.
+  const headTitle = post.metaTitle ?? post.title;
   return {
-    title: post.title,
+    title: headTitle,
     description: post.description,
     alternates: { canonical: `/posts/${slug}` },
     openGraph: {
-      title: post.title,
+      title: headTitle,
       description: post.description,
       url,
       siteName: SITE_NAME,
@@ -64,7 +67,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: headTitle,
       description: post.description,
       images: [og],
     },

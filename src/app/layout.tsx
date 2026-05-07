@@ -16,7 +16,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Vested — US investing & RSUs for Indians",
-    template: "%s · Vested",
+    // Use absolute titles per-page (no global suffix). Google appends the
+    // brand automatically when relevant. Saves precious title-bar pixels
+    // for high-intent posts where the title is already long.
+    template: "%s",
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,

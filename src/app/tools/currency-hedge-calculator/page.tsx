@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/currency-hedge-calculator`,
     type: "website",
     locale: "en_IN",
-    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+    images: [{ url: "/api/og-card-tool/currency-hedge-calculator", width: 1200, height: 630 }],
   },
 };
 

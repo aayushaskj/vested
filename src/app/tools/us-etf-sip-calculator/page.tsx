@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/us-etf-sip-calculator`,
     type: "website",
     locale: "en_IN",
-    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+    images: [{ url: "/api/og-card-tool/us-etf-sip-calculator", width: 1200, height: 630 }],
   },
 };
 

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tools/rsu-calculator`,
     type: "website",
     locale: "en_IN",
-    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+    images: [{ url: "/api/og-card-tool/rsu-calculator", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "RSU Calculator for Indian residents",
     description: "Estimate RSU take-home as an Indian resident.",
-    images: ["/og-default.png"],
+    images: ["/api/og-card-tool/rsu-calculator"],
   },
 };
 

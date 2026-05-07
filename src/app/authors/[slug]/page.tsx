@@ -7,7 +7,7 @@ import {
   getAuthor,
 } from "@/lib/authors";
 import { CATEGORIES, formatDate, getPostsByAuthor } from "@/lib/posts";
-import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, ogImageUrlAuthor } from "@/lib/seo";
 import { AuthorAvatar } from "@/components/AuthorAvatar";
 import { AffiliationChips } from "@/components/AffiliationChips";
 
@@ -23,8 +23,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const author = getAuthor(slug);
   if (!author) return {};
+  const ogImage = ogImageUrlAuthor(slug);
+  // Short, SEO-optimised meta title — separate from the editorial H1 on page.
+  const headTitle = `${author.name} — ${SITE_NAME}`;
   return {
-    title: `${author.name} — ${author.role}`,
+    title: headTitle,
     description: author.shortBio,
     alternates: { canonical: `/authors/${slug}` },
     openGraph: {
@@ -33,13 +36,13 @@ export async function generateMetadata({
       url: `${SITE_URL}/authors/${slug}`,
       type: "profile",
       locale: "en_IN",
-      images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+      images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${author.name} · ${SITE_NAME}`,
       description: author.shortBio,
-      images: ["/og-default.png"],
+      images: [ogImage],
     },
   };
 }
