@@ -32,6 +32,12 @@ export interface PostFrontmatter {
   /** Author slug from src/lib/authors.ts (e.g., "shivang-badaya"). */
   author?: string;
   draft?: boolean;
+  /** Magazine-cover OG image: the big number / phrase. e.g. "₹4.17L", "24 months", "₹10L". */
+  ogHook?: string;
+  /** Magazine-cover OG image: the 1-3 word concept under the hook. e.g. "RSU TAX", "LTCG RULE". */
+  ogLabel?: string;
+  /** Optional contextual line above the hook. e.g. "On every vest at the 30% slab,". */
+  ogContext?: string;
 }
 
 export interface Post extends PostFrontmatter {
