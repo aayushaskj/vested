@@ -29,7 +29,7 @@ Both are **SEBI-registered Indian platforms** that act as intermediaries. When y
 You → Vested or INDmoney (Indian platform) → US partner broker (DriveWealth, Alpaca, or similar) → NYSE/NASDAQ
 ```
 
-Vested partners with DriveWealth. INDmoney partners with both Alpaca Securities and DriveWealth. All three (DriveWealth, Alpaca) are licensed US broker-dealers. Your shares are held at the US broker, in your name, in a sub-account. The Indian platform provides the UI, customer support, KYC, and the regulatory wrapper that makes it work for Indian residents.
+Vested partners with DriveWealth. INDmoney partners with both Alpaca Securities and DriveWealth. Both DriveWealth and Alpaca are licensed US broker-dealers. Your shares are held at the US broker, in your name, in a sub-account. The Indian platform provides the UI, customer support, KYC, and the regulatory wrapper that makes it work for Indian residents.
 
 This means:
 
@@ -83,7 +83,7 @@ This is not bad. It's just slower.
 
 ### FX markup — where the real cost lives
 
-This is the biggest cost differential between the three. When you remit ₹10 lakh to your broker, the platform converts INR to USD at some rate. The difference between the rate they give you and the live interbank rate is the **FX markup**, and it's where most of the platforms make their money.
+This is the biggest cost differential between the four. When you remit Rs 10 lakh to your broker, the platform converts INR to USD at some rate. The difference between the rate they give you and the live interbank rate is the **FX markup**, and it's where most of the platforms make their money.
 
 | Platform | Typical FX markup vs. interbank (inbound LRS) |
 |---|---|
@@ -105,15 +105,13 @@ The inbound LRS leg (INR to USD) is where most Indian-aware platforms make their
 
 Where Rovia diverges structurally is on the *outbound* repatriation leg (USD to INR), where Rovia takes 0 platform fee on the conversion &mdash; you pay only your Indian bank's FX rate (which you can negotiate, especially with HNI banking) or whatever the wire-provider charges. Vested and INDmoney bundle FX markup into both directions; Rovia and IBKR don't.
 
-That's a real number. On a ₹50 lakh annual investing budget, IBKR saves you ₹40,000+ a year vs. Vested. Over a decade, that's ₹4 lakh in your pocket.
-
-But — and this is important — that's *only* on the inbound conversion. You don't pay FX again until you repatriate (sell + bring INR back to India). For a long-hold investor, FX is a one-time-per-remittance cost, not a recurring drag.
+For a long-hold investor, FX is a one-time-per-remittance cost on the inbound leg and a one-time cost again on outbound &mdash; not a recurring drag like brokerage commissions. The cumulative round-trip impact is meaningful for larger deployments: on a Rs 50 lakh annual investing budget, IBKR saves roughly Rs 40,000 a year vs. Vested over the inbound leg alone.
 
 ### Brokerage commissions
 
 | Platform | Equity commission | ETF commission |
 |---|---|---|
-| Vested | 0.25% per trade (in addition to FX markup) | Same |
+| Vested | 0.25% per trade | Same |
 | INDmoney | 0.25% per trade | Same |
 | Rovia | 0.15% per trade | Same |
 | IBKR (Tiered plan) | $0.0035/share, min $0.35 | Same |
@@ -130,7 +128,7 @@ For most retail-sized trades (a few hundred shares), IBKR's commission is neglig
 | Rovia | Most major NYSE/NASDAQ stocks and ETFs at launch. UCITS funds and global stocks on the Q2/Q3 2026 roadmap. No options or OTC at launch. |
 | IBKR | Everything. NYSE, NASDAQ, AMEX, OTC, plus 80+ international exchanges. Options, futures (margin permission required, not for most retail), bonds, mutual funds. |
 
-If you want to buy a small-cap US stock or a London-listed ETF, IBKR is the only path among the three.
+For OTC stocks and most US small/mid-caps, INDmoney is the broadest of the Indian-aware platforms. For London-listed ETFs or any non-US exchange, IBKR is the only path among the four.
 
 ### Fractional shares
 
@@ -141,7 +139,7 @@ If you want to buy a small-cap US stock or a London-listed ETF, IBKR is the only
 | Rovia | Yes |
 | IBKR | Yes (added in 2020) |
 
-All three now offer fractionals. Used to be a meaningful Vested advantage; not anymore.
+All four now offer fractionals. Used to be a meaningful Vested advantage; not anymore.
 
 ### Tax document handling
 
@@ -232,9 +230,7 @@ The reason this matters is covered in detail in [the lot-selection post](/posts/
 
 ## Cost comparison: a 5-year scenario
 
-Suppose you invest Rs 50 lakh over 5 years (Rs 10 lakh per year), buying VTI and holding. Total costs across the four platforms:
-
-This scenario is for the *deployment* leg only (LRS into the platform, buy ETFs, hold). Costs vary based on platform fees taken at conversion-in.
+Suppose you invest Rs 50 lakh over 5 years (Rs 10 lakh per year), buying VTI and holding. This scenario is for the *deployment* leg only (LRS into the platform, buy ETFs, hold). Costs across the four platforms:
 
 | Cost line | Vested | INDmoney | Rovia | IBKR |
 |---|---|---|---|---|
@@ -306,5 +302,3 @@ A few things this post deliberately did not say:
 - "Use crypto exchanges to get USD exposure." Don't. The regulatory uncertainty is real and crypto USD-pegged exposure is a fundamentally different bet than equity.
 
 The boring conclusion is the right one: pick the platform that matches your stage and what assets you already hold, focus on actually deploying money, and revisit the choice every 2 to 3 years as your portfolio grows.
-
-The boring conclusion is the right one: pick the platform that matches your stage, focus on actually deploying money, and revisit the choice every 2–3 years as your portfolio grows.
