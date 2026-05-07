@@ -16,5 +16,7 @@ export function categoryUrl(slug: string): string {
 }
 
 export function ogImageUrl(slug?: string): string {
-  return slug ? `/api/og?slug=${slug}` : "/og-default.png";
+  // Per-slug static route — each post has its own pre-rendered PNG so the
+  // CDN doesn't conflate them.
+  return slug ? `/api/og-card/${slug}` : "/og-default.png";
 }
