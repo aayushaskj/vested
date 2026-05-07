@@ -3,7 +3,11 @@ import { getPostBySlug } from "@/lib/posts";
 import { extractOgHook } from "@/lib/og-extract";
 
 export const runtime = "nodejs";
-export const dynamic = "force-static";
+// Per-post OG: needs to read the slug query param at request time, so we
+// can't statically pre-render this. We do cache the response at the edge
+// for 1 hour, with stale-while-revalidate for 24 hours, so per-slug
+// rendering is cheap after the first request.
+export const dynamic = "force-dynamic";
 
 /**
  * Magazine-cover OG image.
@@ -194,6 +198,13 @@ export async function GET(request: Request) {
     {
       width: 1200,
       height: 630,
+      headers: {
+        // Cache at the edge for 1 hour, allow stale serving up to 1 day while
+        // revalidating in the background. Per-slug responses are cheap to
+        // generate so this is a great trade-off.
+        "Cache-Control":
+          "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400",
+      },
     }
   );
 }
