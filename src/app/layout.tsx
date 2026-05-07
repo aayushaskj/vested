@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -139,10 +138,8 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <NewsletterPopup />
-        {/* Vercel Web Analytics — pageviews + custom events. Free tier on Hobby. */}
+        {/* Vercel Web Analytics — pageviews + custom events. */}
         <Analytics />
-        {/* Vercel Speed Insights — Core Web Vitals (LCP, INP, CLS) per route. */}
-        <SpeedInsights />
       </body>
     </html>
   );
