@@ -47,8 +47,12 @@ export function SiteHeader() {
           <span className="text-lg font-display font-semibold tracking-tight">
             Vested
           </span>
-          <span className="hidden sm:inline-block text-sm text-ink-400 font-medium">
-            .blog
+          <span
+            aria-hidden
+            className="hidden sm:inline-block h-4 w-px bg-ink-200 mx-1"
+          />
+          <span className="hidden sm:inline-block text-sm text-ink-500 font-medium">
+            US investing for Indians
           </span>
         </Link>
 
