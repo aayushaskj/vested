@@ -31,7 +31,9 @@ export function SiteFooter() {
             title="Site"
             links={[
               { href: "/about", label: "About" },
+              { href: "/authors", label: "Authors" },
               { href: "/blog", label: "All posts" },
+              { href: "/tags", label: "Topics" },
               { href: "/search", label: "Search" },
               { href: "/feed.xml", label: "RSS feed" },
             ]}

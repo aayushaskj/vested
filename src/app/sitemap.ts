@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { CATEGORIES, getAllPosts } from "@/lib/posts";
+import { CATEGORIES, getAllPosts, getAllTags, tagToSlug } from "@/lib/posts";
+import { getAllAuthors } from "@/lib/authors";
 import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -55,5 +56,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...postRoutes];
+  const authorRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/authors`,
+      lastModified: new Date(lastPostDate),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    ...getAllAuthors().map((a) => ({
+      url: `${SITE_URL}/authors/${a.slug}`,
+      lastModified: new Date(lastPostDate),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  const tagRoutes: MetadataRoute.Sitemap = getAllTags().map((t) => ({
+    url: `${SITE_URL}/tags/${tagToSlug(t)}`,
+    lastModified: new Date(lastPostDate),
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...categoryRoutes,
+    ...authorRoutes,
+    ...tagRoutes,
+    ...postRoutes,
+  ];
 }

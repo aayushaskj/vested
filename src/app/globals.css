@@ -46,3 +46,34 @@
     @apply badge bg-ink-100 text-ink-700 ring-1 ring-inset ring-ink-200;
   }
 }
+
+/* Make MDX-rendered tables horizontally scrollable on mobile.
+   GFM tables compile to a plain <table>; we wrap them in a scroll container via CSS. */
+@layer base {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (min-width: 768px) {
+    .prose table {
+      display: table;
+      white-space: normal;
+    }
+  }
+  .prose th,
+  .prose td {
+    @apply px-3 py-2 align-top;
+  }
+  .prose thead th {
+    @apply border-b border-ink-200 text-left font-semibold;
+  }
+  .prose tbody tr {
+    @apply border-b border-ink-100;
+  }
+  /* Long inline code shouldn't break layout on mobile */
+  .prose :not(pre) > code {
+    word-break: break-word;
+  }
+}

@@ -10,11 +10,13 @@ import {
   getAllPosts,
   getPostBySlug,
   getRelatedPosts,
+  tagToSlug,
 } from "@/lib/posts";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { RelatedPosts } from "@/components/RelatedPosts";
 import { mdxComponents } from "@/components/mdxComponents";
 import { SITE_URL, SITE_NAME, ogImageUrl, postUrl } from "@/lib/seo";
+import { getAuthor, authorUrl, buildPersonLd } from "@/lib/authors";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -90,6 +92,8 @@ export default async function PostPage({
     },
   });
 
+  const author = post.author ? getAuthor(post.author) : null;
+
   // Article schema
   const articleLd = {
     "@context": "https://schema.org",
@@ -99,11 +103,22 @@ export default async function PostPage({
     datePublished: post.date,
     dateModified: post.date,
     inLanguage: "en-IN",
-    author: {
-      "@type": "Person",
-      name: post.author ?? "Vested",
-      url: `${SITE_URL}/about`,
-    },
+    author: author
+      ? {
+          "@type": "Person",
+          name: author.name,
+          url: authorUrl(author.slug),
+          sameAs: [
+            author.social.twitter,
+            author.social.linkedin,
+            author.social.website,
+          ].filter(Boolean),
+        }
+      : {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
@@ -118,6 +133,8 @@ export default async function PostPage({
     keywords: (post.tags ?? []).join(", "),
     timeRequired: `PT${post.readingMinutes}M`,
   };
+
+  const personLd = author ? buildPersonLd(author) : null;
 
   // Breadcrumb schema
   const breadcrumbLd = {
@@ -155,9 +172,15 @@ export default async function PostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      {personLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+        />
+      )}
 
       <header className="border-b border-ink-100 bg-ink-50/40">
-        <div className="container-prose pt-12 pb-10">
+        <div className="container-prose pt-8 pb-8 sm:pt-12 sm:pb-10">
           <nav className="text-sm text-ink-500" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-ink-700">
               Home
@@ -170,36 +193,65 @@ export default async function PostPage({
               {cat.label}
             </Link>
           </nav>
-          <div className="mt-4 flex items-center gap-2 text-xs text-ink-500">
+          <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-500">
             <span className={cat.badgeClass}>{cat.label}</span>
             <span>·</span>
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             <span>·</span>
             <span>{post.readingMinutes} min read</span>
           </div>
-          <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl lg:text-5xl">
+          <h1 className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-5xl">
             {post.title}
           </h1>
-          <p className="mt-4 text-lg text-ink-600 leading-relaxed">
+          <p className="mt-3 text-base sm:text-lg text-ink-600 leading-relaxed">
             {post.description}
           </p>
-          <p className="mt-6 text-sm text-ink-500">
-            By{" "}
-            <Link
-              href="/about"
-              className="font-medium text-ink-700 hover:text-ink-900"
-              rel="author"
-            >
-              {post.author ?? "Vested"}
-            </Link>
-          </p>
+          {author ? (
+            <p className="mt-6 text-sm text-ink-500">
+              By{" "}
+              <Link
+                href={`/authors/${author.slug}`}
+                className="font-medium text-ink-700 hover:text-ink-900"
+                rel="author"
+              >
+                {author.name}
+              </Link>{" "}
+              <span className="hidden sm:inline">— {author.shortBio}</span>
+            </p>
+          ) : (
+            <p className="mt-6 text-sm text-ink-500">
+              By{" "}
+              <Link
+                href="/authors"
+                className="font-medium text-ink-700 hover:text-ink-900"
+                rel="author"
+              >
+                Vested
+              </Link>
+            </p>
+          )}
         </div>
       </header>
 
-      <div className="container-prose pt-12">
+      <div className="container-prose pt-8 sm:pt-12">
         <div className="prose prose-ink max-w-none">{compiled}</div>
 
-        <hr className="my-12 border-ink-100" />
+        {(post.tags ?? []).length > 0 && (
+          <div className="mt-10 flex flex-wrap items-center gap-2 text-sm">
+            <span className="text-ink-500">Tagged:</span>
+            {(post.tags ?? []).map((t) => (
+              <Link
+                key={t}
+                href={`/tags/${tagToSlug(t)}`}
+                className="rounded-full border border-ink-200 bg-white px-2.5 py-0.5 text-xs text-ink-700 hover:border-ink-300 hover:bg-ink-50"
+              >
+                #{t}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        <hr className="my-10 border-ink-100" />
 
         <div className="rounded-2xl bg-ink-50 p-6 sm:p-8">
           <h2 className="font-display text-xl font-semibold text-ink-900">

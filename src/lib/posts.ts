@@ -29,6 +29,7 @@ export interface PostFrontmatter {
   date: string; // ISO yyyy-mm-dd
   category: Category;
   tags?: string[];
+  /** Author slug from src/lib/authors.ts (e.g., "shivang-badaya"). */
   author?: string;
   draft?: boolean;
 }
@@ -78,6 +79,26 @@ export function getPostBySlug(slug: string): Post | null {
 
 export function getPostsByCategory(category: Category): Post[] {
   return getAllPosts().filter((p) => p.category === category);
+}
+
+export function getPostsByAuthor(authorSlug: string): Post[] {
+  return getAllPosts().filter((p) => p.author === authorSlug);
+}
+
+export function getAllTags(): string[] {
+  const tags = new Set<string>();
+  for (const p of getAllPosts()) {
+    for (const t of p.tags ?? []) tags.add(t);
+  }
+  return Array.from(tags).sort();
+}
+
+export function getPostsByTag(tag: string): Post[] {
+  return getAllPosts().filter((p) => (p.tags ?? []).includes(tag));
+}
+
+export function tagToSlug(tag: string): string {
+  return tag.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
 export function formatDate(iso: string): string {

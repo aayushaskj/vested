@@ -54,19 +54,19 @@ export default function HomePage() {
             }}
           />
         </div>
-        <div className="container-wide py-16 sm:py-24">
+        <div className="container-wide py-12 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full bg-accent-50 px-3 py-1 text-xs font-medium text-accent-700 ring-1 ring-inset ring-accent-100">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
               Written for Indian residents
             </p>
-            <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 font-display text-[2rem] font-semibold leading-[1.1] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">
               US investing & RSU management,{" "}
               <span className="bg-gradient-to-r from-brand-700 to-accent-600 bg-clip-text text-transparent">
                 without the guesswork.
               </span>
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-ink-600 leading-relaxed">
+            <p className="mt-5 max-w-2xl text-base sm:text-lg text-ink-600 leading-relaxed">
               Practical guides on the LRS, US brokerages, RSU vesting,
               double-taxation relief, and reinvesting strategies — built for
               Indian residents earning in INR (and sometimes USD).
@@ -74,13 +74,13 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/category/us-investing"
-                className="inline-flex items-center justify-center rounded-lg bg-ink-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-ink-800"
+                className="inline-flex w-full items-center justify-center rounded-lg bg-ink-900 px-5 py-3 text-sm font-medium text-white hover:bg-ink-800 sm:w-auto"
               >
                 Start with US Investing
               </Link>
               <Link
                 href="/category/rsu-management"
-                className="inline-flex items-center justify-center rounded-lg border border-ink-200 bg-white px-5 py-2.5 text-sm font-medium text-ink-800 hover:border-ink-300"
+                className="inline-flex w-full items-center justify-center rounded-lg border border-ink-200 bg-white px-5 py-3 text-sm font-medium text-ink-800 hover:border-ink-300 sm:w-auto"
               >
                 RSU guides →
               </Link>
