@@ -23,13 +23,13 @@ Before comparing them, it helps to understand the underlying plumbing.
 
 ### Vested and INDmoney
 
-Both are **SEBI-registered Indian platforms** that act as intermediaries. When you buy AAPL on Vested, the trade actually flows through:
+Both are **SEBI-registered Indian platforms** that act as intermediaries. When you buy AAPL on Vested or INDmoney, the trade actually flows through:
 
 ```
-You → Vested (Indian platform) → DriveWealth or Stockal (US broker) → NYSE/NASDAQ
+You → Vested or INDmoney (Indian platform) → US partner broker (DriveWealth, Alpaca, or similar) → NYSE/NASDAQ
 ```
 
-DriveWealth and Stockal are licensed US broker-dealers. Your shares are held at one of them, in your name, in a sub-account. Vested/INDmoney provides the UI, customer support, KYC, and the regulatory wrapper that makes it work for Indian residents.
+Vested partners with DriveWealth. INDmoney partners with both Alpaca Securities and DriveWealth. All three (DriveWealth, Alpaca) are licensed US broker-dealers. Your shares are held at the US broker, in your name, in a sub-account. The Indian platform provides the UI, customer support, KYC, and the regulatory wrapper that makes it work for Indian residents.
 
 This means:
 
@@ -39,7 +39,7 @@ This means:
 
 ### Rovia
 
-Rovia follows the same architectural pattern as Vested and INDmoney, but partners with **Alpaca Securities** instead of DriveWealth or Stockal.
+Rovia follows the same architectural pattern as Vested and INDmoney, but partners exclusively with **Alpaca Securities**.
 
 ```
 You → Rovia (Indian platform) → Alpaca Securities (US broker) → NYSE/NASDAQ
@@ -126,7 +126,7 @@ For most retail-sized trades (a few hundred shares), IBKR's commission is neglig
 | Platform | What's available |
 |---|---|
 | Vested | Curated list: ~200 ETFs + top US stocks. Limited mid/small-cap coverage. No options, no OTC stocks, no international markets. |
-| INDmoney | Broader: most major NYSE/NASDAQ stocks and ETFs. Still no options, no OTC, no international. |
+| INDmoney | Broadest among the Indian-aware platforms: NYSE/NASDAQ + most small/mid-caps + OTC stocks. Still no options or international exchanges. |
 | Rovia | Most major NYSE/NASDAQ stocks and ETFs at launch. UCITS funds and global stocks on the Q2/Q3 2026 roadmap. No options or OTC at launch. |
 | IBKR | Everything. NYSE, NASDAQ, AMEX, OTC, plus 80+ international exchanges. Options, futures (margin permission required, not for most retail), bonds, mutual funds. |
 
@@ -148,7 +148,7 @@ All three now offer fractionals. Used to be a meaningful Vested advantage; not a
 | Platform | Year-end tax docs |
 |---|---|
 | Vested | INR P&L statement, Schedule FA helper, capital gains breakdown &mdash; all India-friendly |
-| INDmoney | Same &mdash; full Indian tax-friendly outputs |
+| INDmoney | ITR-format reports with dividend breakdowns and lot-level capital gains; Schedule FA helper |
 | Rovia | INR P&L per lot, Schedule FA helper, dividend tracking with Form 67 prep, plus realized loss schedule for harvesting |
 | IBKR | US-style 1099 forms (1099-DIV for dividends, 1099-B for sales). You convert to INR and prepare Schedule FA yourself. |
 
@@ -179,7 +179,7 @@ For most retail users, India-based support is meaningfully better. You can call 
 | Platform | Underlying broker | Safety |
 |---|---|---|
 | Vested | DriveWealth (US, FINRA-regulated) | SIPC insurance up to $500k per account |
-| INDmoney | Stockal / DriveWealth | Same SIPC coverage |
+| INDmoney | Alpaca Securities / DriveWealth | Same SIPC coverage |
 | Rovia | Alpaca Securities (US, FINRA-regulated) | Same SIPC coverage |
 | IBKR | Interactive Brokers (US, FINRA-regulated, public company) | SIPC + supplemental excess insurance up to $30M |
 
@@ -187,7 +187,7 @@ For most retail users, India-based support is meaningfully better. You can call 
 
 IBKR adds proprietary excess insurance through Lloyd's of London, taking total coverage to $30M. For a high-net-worth investor with millions at the broker, this matters. For most retail accounts under $500k, the standard SIPC is plenty.
 
-What about the Indian platform itself failing? Vested, INDmoney, and Rovia are all private companies. If any of them go bankrupt, your shares remain at the US broker (DriveWealth, Stockal, or Alpaca respectively) in your name. You'd contact the US broker directly to claim them. Not zero-friction, but not catastrophic.
+What about the Indian platform itself failing? Vested, INDmoney, and Rovia are all private companies. If any of them go bankrupt, your shares remain at the US broker (DriveWealth or Alpaca, depending on the platform) in your name. You'd contact the US broker directly to claim them. Not zero-friction, but not catastrophic.
 
 ### Repatriation — getting money back to India
 
@@ -213,18 +213,18 @@ This is the dimension where the three Indian-aware platforms diverge sharply.
 | Platform | Inbound ACATS from US employer brokers? |
 |---|---|
 | Vested | Not supported. New deployments only. |
-| INDmoney | Not supported. New deployments only. |
+| INDmoney | Supported via Alpaca for inbound transfers from US brokers. |
 | Rovia | Supported via Alpaca. RSUs at Fidelity, E*TRADE, Schwab, Morgan Stanley can be transferred in. |
 | IBKR | Technically supported, but IBKR India accounts cannot receive ACATS from US brokers; only IBKR US (LLC) accounts can, and those are essentially impossible for Indian residents to open. |
 
-If you have meaningful vested RSUs at an employer broker today and you want to move them rather than sell first, the only currently-realistic path among the four platforms is Rovia. We covered the mechanics in [the share-transfer post](/posts/share-transfer-between-brokers-india).
+If you have meaningful vested RSUs at an employer broker today and you want to move them rather than sell first, both INDmoney (via its Alpaca partnership) and Rovia (also via Alpaca) currently support inbound ACATS. Vested doesn't, at the time of writing. The differences between the two supported paths come down to RSU-specific tooling: Rovia is built around lot-level Indian-tax automation as the core workflow, while INDmoney offers it as part of a broader retail-investing product. We covered the mechanics in [the share-transfer post](/posts/share-transfer-between-brokers-india).
 
 ### Lot selection and tax-loss harvesting
 
 | Platform | Lot-level INR cost basis | Specific lot identification at sell | Loss-harvesting reporting |
 |---|---|---|---|
 | Vested | Yes, in INR | Limited; FIFO default | Basic capital gains report |
-| INDmoney | Yes | Limited; FIFO default | Basic capital gains report |
+| INDmoney | Yes, in INR with lot-level taxation | Surfaced | ITR-ready capital gains and dividend breakdowns |
 | Rovia | Yes, with vest-date SBI TT rates pre-applied | Yes; choose the lot at sell time | Realized loss schedule with carry-forward tracking |
 | IBKR | Yes, in USD | Yes; choose the lot at sell time | US-format only; you compute INR equivalents |
 
@@ -261,7 +261,7 @@ Across all four platforms, the bigger savings often come from disciplined lot se
 - You value India-business-hours support.
 - You don't have RSUs at an employer broker that you want to consolidate.
 
-Between Vested and INDmoney, **either is fine**. INDmoney has slightly better FX (~15p tighter on average) and a wider asset list. Vested has slightly better Indian-tax tooling. If you're already a user of one, stay. If you're starting fresh and FX matters, lean INDmoney.
+Between Vested and INDmoney, **INDmoney is the more feature-complete platform**. Slightly better FX (~15p tighter on average), a meaningfully wider asset list (small/mid-caps and OTC stocks, which Vested lacks), ITR-format tax reporting with lot-level breakdowns, and inbound share-transfer support via Alpaca. Vested is the older brand and remains a clean entry-level product, but for anyone with non-trivial US-investing needs, INDmoney is generally the more pragmatic pick of the two.
 
 ### Use Rovia if:
 
@@ -270,7 +270,7 @@ Between Vested and INDmoney, **either is fine**. INDmoney has slightly better FX
 - You're cost-sensitive on commissions and want the lowest among the Indian-aware platforms (0.15% vs. the 0.25% standard).
 - You're okay being on a younger platform (Rovia launched more recently than Vested or INDmoney; the team is small, the product is narrower in scope at launch).
 
-The trade-off is breadth. If you want every NYSE small-cap and access to UCITS funds today, Vested or INDmoney has a wider catalog at launch. Rovia's roadmap (Q2/Q3 2026 for UCITS and global stocks) is real but unshipped at the time of writing.
+The trade-off is breadth. If you want every NYSE small-cap, OTC stocks, and a fully-featured retail US-investing experience today, INDmoney has the widest catalog. Rovia's roadmap (Q2/Q3 2026 for UCITS and global stocks) is real but unshipped at the time of writing.
 
 ### Use IBKR if:
 
@@ -295,7 +295,7 @@ There is no universal winner. The right answer depends on **how much you're inve
 | Profile | Recommendation |
 |---|---|
 | Under Rs 5 lakh/year, no RSUs | Vested or INDmoney. Don't optimize FX, just get started. |
-| Rs 5 - 25 lakh/year, no RSUs | INDmoney leans cheaper; Vested leans more polished. Pick based on UX preference. |
+| Rs 5 - 25 lakh/year, no RSUs | INDmoney is the more feature-complete pick (wider asset list, ITR-format reports, share-transfer support). Vested is acceptable if you're already there. |
 | Indian resident with vested RSUs at Fidelity / E*TRADE / Schwab | Rovia, primarily for the inbound ACATS support and lot-level tax tooling. |
 | Above Rs 25 lakh/year, no RSU consolidation needed | IBKR for new flows. Migrate over time if it makes sense. |
 
