@@ -199,10 +199,11 @@ export default async function AuthorPage({
                   href={`/posts/${p.slug}`}
                   className="group flex flex-col gap-1"
                 >
-                  <div className="flex items-center gap-2 text-xs text-ink-500">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-500">
                     <span className={cat.badgeClass}>{cat.label}</span>
-                    <span>·</span>
-                    <time dateTime={p.date}>{formatDate(p.date)}</time>
+                    <time dateTime={p.date} className="whitespace-nowrap">
+                      {formatDate(p.date)}
+                    </time>
                   </div>
                   <h3 className="font-display text-base font-medium text-ink-900 group-hover:text-brand-700 sm:text-lg">
                     {p.title}

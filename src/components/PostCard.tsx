@@ -9,12 +9,13 @@ export function PostCard({ post, featured = false }: { post: Post; featured?: bo
         featured ? "sm:p-8" : ""
       }`}
     >
-      <div className="flex items-center gap-2 text-xs text-ink-500">
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-500">
         <span className={cat.badgeClass}>{cat.label}</span>
-        <span>·</span>
-        <time dateTime={post.date}>{formatDate(post.date)}</time>
-        <span>·</span>
-        <span>{post.readingMinutes} min read</span>
+        <time dateTime={post.date} className="whitespace-nowrap">
+          {formatDate(post.date)}
+        </time>
+        <span aria-hidden>·</span>
+        <span className="whitespace-nowrap">{post.readingMinutes} min read</span>
       </div>
       <h2
         className={`mt-3 font-display font-semibold tracking-tight text-ink-900 ${

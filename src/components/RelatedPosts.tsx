@@ -19,10 +19,11 @@ export function RelatedPosts({ posts }: { posts: Post[] }) {
               href={`/posts/${p.slug}`}
               className="group flex flex-col rounded-xl border border-ink-100 bg-white p-5 transition hover:border-ink-200 hover:shadow-sm"
             >
-              <div className="flex items-center gap-2 text-xs text-ink-500">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-500">
                 <span className={cat.badgeClass}>{cat.label}</span>
-                <span>·</span>
-                <time dateTime={p.date}>{formatDate(p.date)}</time>
+                <time dateTime={p.date} className="whitespace-nowrap">
+                  {formatDate(p.date)}
+                </time>
               </div>
               <h3 className="mt-2 font-display text-base font-semibold leading-snug text-ink-900 group-hover:text-brand-700">
                 {p.title}
