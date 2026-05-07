@@ -1,0 +1,131 @@
+---
+title: "The share-transfer problem: why Indian residents are stuck with their employer's broker"
+metaTitle: "Share transfer between US brokers (India guide)"
+description: "Indian residents holding US RSUs at Fidelity, Morgan Stanley, or E*TRADE can't move their shares to a better broker. Why the friction exists, and what's changing."
+date: "2026-05-04"
+category: "rsu-management"
+tags: ["rsu", "share-transfer", "fidelity", "morgan-stanley", "etrade", "rovia", "alpaca"]
+author: "shivang-badaya"
+ogHook: "ACATS"
+ogLabel: "FOUR LETTERS | INDIANS DON'T KNOW"
+ogContext: "Why your US colleague can move shares between brokers and you can't."
+---
+
+Try this experiment.
+
+Pick a colleague at your company who is based in the United States. Probably someone who joined around the same time as you, earns roughly the same, and sits in the same RSU plan. Ask them this question:
+
+> "Have you ever moved your vested RSUs from Fidelity to a different broker?"
+
+If they hold any meaningful equity, you'll get one of two answers. Either "yes, I moved them to Schwab last year" or "no, but I could if I wanted to. Why?"
+
+Now ask the same question to anyone you know in India who holds vested RSUs through E*TRADE, Morgan Stanley at Work, Fidelity NetBenefits, or Charles Schwab. The answer will be a confused stare followed by a question back: "wait, you can do that?"
+
+This post is about why your American colleague can do something you can't, why nobody at Fidelity or your CA's office is going to fix it for you, and what that means for your taxes, your fees, and your portfolio.
+
+## The mental model Indians have for shares
+
+If you grew up in India investing in Indian stocks, you have a specific mental model for where your shares live. They sit in a **demat account** maintained by NSDL or CDSL, and your broker (Zerodha, Groww, Upstox, ICICI Direct) is just a window into that demat account. Whether you place the trade through Zerodha or Groww, the shares end up in the same demat. The broker is a UI; the depository is the source of truth.
+
+Because of that architecture, the question "can I move shares from Zerodha to Groww?" doesn't really come up. There's nothing to move. You just open a Groww account against the same demat and trade through whichever broker you prefer. The shares already live in a single, broker-agnostic place.
+
+US markets do not work this way.
+
+## How US brokerage actually works
+
+In the United States, your shares live with your broker, not with a central depository. When you have RSUs at Fidelity, those shares are in a Fidelity-administered account. The custodian of record is Fidelity (or a Fidelity affiliate). If you want them at a different broker — say, you find Charles Schwab's interface better, or you want to consolidate everything at Interactive Brokers — you use a system called **ACATS** to move them.
+
+ACATS stands for Automated Customer Account Transfer Service. It is, essentially, a standardized way for one US broker to hand your account positions over to another US broker. Fidelity packages up your shares, lot history, and cost basis, and ships them to Schwab. The whole thing usually takes 5 to 7 business days and costs the receiving broker nothing (the sending broker sometimes charges a transfer-out fee, typically $50 to $100).
+
+For an American sitting in San Francisco, ACATS is mundane. They might do it because they want a different research platform, lower commissions, better margin rates, or they're following a financial advisor to a new firm. The mechanics are unremarkable — log in, fill out a form, wait a week.
+
+For you, sitting in Bangalore or Mumbai, ACATS is mostly theoretical.
+
+## Why ACATS doesn't really work for Indian residents
+
+Two reasons. The first is account eligibility. The second is reporting.
+
+### Account eligibility
+
+When your employer rolled out RSUs, they signed a stock-plan administration contract with one specific broker — Fidelity, E*TRADE (now part of Morgan Stanley), Schwab, Computershare, or similar. That broker sets up an account for you under their stock-plan rules, which are designed around US residents. Once your shares vest and you "own" them outright, they sit in this account.
+
+If you want to move them out via ACATS, you need a *receiving* US brokerage account. And here's where you discover that almost no US retail broker is willing to open a brokerage account for an Indian resident.
+
+- **Charles Schwab International** used to serve Indian residents. Then they stopped, gradually, over 2020 to 2023. Their current published policy excludes Indian residents from new accounts.
+- **Fidelity** itself does not offer retail accounts to Indian residents. The only Fidelity account you can have is the employer-tied stock-plan account.
+- **TD Ameritrade** (now part of Schwab) similarly excluded most non-US residents.
+- **Interactive Brokers India** is set up for Indians, but it is technically a separate entity (Interactive Brokers India Private Limited, SEBI-regulated) and shares cannot be ACATSed into it from a US broker. You can hold US shares there, but you have to fund a new account with USD via LRS and buy them again — paying brokerage and FX twice.
+
+So even if Fidelity is happy to release your shares, you have nowhere to receive them. Schwab won't open an account for you. IBKR India won't accept inbound ACATS from Fidelity US. The shares are functionally trapped at the broker your employer chose.
+
+The "Indian-friendly" platforms that exist (INDmoney, the original Vested platform, Stockal-now-Borderless) all work by opening you an account with a US partner broker — DriveWealth and Alpaca being the two most common. But until very recently, none of them supported inbound ACATS for an existing RSU position. You could open a fresh account and buy new shares, but you couldn't bring your existing vested RSUs home.
+
+### Reporting
+
+The second reason is more subtle. Even if a broker is willing to open an account for you, the reports they generate are written for an American filer. They show year-end gains and losses in USD, classify everything according to US tax codes (short-term vs. long-term capital gains as the IRS defines them, with the 12-month threshold), and provide forms like 1099-B and 5498.
+
+For your Indian filing you need:
+
+- **Capital gains in INR**, computed with the **SBI TT buying rate** on each acquisition and sale date.
+- The Indian definition of holding period: short-term capital gains (STCG) if held under **24 months**, long-term capital gains (LTCG) if held **24 months or longer** (not 12 like the US).
+- **Schedule FA** disclosure of the foreign asset, with peak-balance, purchase, and disposal data.
+- **Form 67** if you want to claim foreign tax credit on dividend withholding.
+
+Fidelity will give you none of these. Their report will tell you about your "long-term gains" (defined per US rules), and you'll spend a weekend with a spreadsheet converting everything into the Indian format. Most CAs in India aren't fluent in cross-border equity reporting either, so you end up doing it yourself, finding the SBI rates manually, recomputing each lot, and hoping you got the dates right.
+
+This is why even when share-transfer mechanically becomes possible, most Indians don't do it. The reporting burden of holding US shares anywhere other than where they vested is just too much.
+
+## What it costs you
+
+Being stuck with the employer-default broker isn't free. There are three concrete costs.
+
+**One: forced sell-to-cash if you want to redeploy.** Most Indian residents, when they want to do something with their vested shares — say, diversify into VTI rather than holding 100% of their employer's stock — end up selling at the employer broker, repatriating the proceeds back to India as cash, and then either keeping it in an INR account (losing the dollar exposure) or sending it back via LRS to an Indian-friendly platform to buy ETFs (paying TCS, FX markup, and round-trip fees). The shares could have been held in dollar form the whole time if you could have moved them to a flexible US broker.
+
+**Two: no tax-loss harvesting.** Indian capital gains rules let you carry forward losses for 8 assessment years and offset them against future gains. But to harvest losses, you need to sell specific lots — not just "100 shares" but "the specific 100 shares I bought at $200 in 2022 that are now worth $150." Most US employer-broker interfaces don't surface lot-level controls clearly, and even when they do, the platforms aren't reporting in the format your CA needs to actually claim the loss in India. So in practice, most Indian RSU holders never harvest losses, even though it would save them tens of thousands of rupees over a few years.
+
+**Three: high implicit cost on selling.** When you eventually do sell at the employer broker and repatriate to India, you'll pay a wire fee (typically $25 to $35 from the broker, plus an inbound charge from your Indian bank), and you'll lose a tighter spread on the FX conversion than you'd get if the shares had been at an India-aware platform from the start. Over a few cycles, this is meaningful money.
+
+## What's changing
+
+Two pieces of infrastructure have shifted recently.
+
+**Alpaca Securities supporting inbound ACATS for non-US residents.** Alpaca is a clearing-broker and custodian based in the US that provides white-labeled brokerage to platforms (think of them as the AWS of US brokerage). For most of the 2010s, Alpaca focused on the US-resident market like everyone else. Over the last two years, they've quietly built support for inbound ACATS into accounts opened for non-US residents — meaning if a partner platform opens you an Alpaca account, you can move shares into it from Fidelity, E*TRADE, Schwab, etc.
+
+**India-aware platforms layering on top of Alpaca.** Several platforms partner with Alpaca to offer Indian residents brokerage accounts. The newest of these is [Rovia](https://rovia.one), which we co-founded and which Vested is the editorial publication of. Rovia opens an Alpaca account for you, accepts inbound ACATS from your employer's US broker, and provides Indian-format reporting on top — capital gains in INR using SBI TT rates, Schedule FA-ready disclosures, lot-level visibility, and Form 67-ready dividend tracking.
+
+We're not the only ones doing this. INDmoney and the original Vested platform have been around longer and serve a broader retail US-investing audience. The differences are in focus and pricing — Rovia is built specifically for RSU and equity-comp holders rather than general retail; brokerage is 0.15% versus the 0.25% standard at INDmoney and the original Vested; and the reporting and lot-selection automation is geared at the kind of cross-border tax optimization that matters when you're holding meaningful US equity through your employer.
+
+But this post isn't really about which platform you should pick. It's about the fact that *moving shares is now possible*, and most Indian RSU holders don't realize it. If you've been mentally tagging your Fidelity vested shares as "trapped, will sell when I retire," you have more flexibility than you thought. Whether you choose to move them, where you move them, and what you do with that flexibility is the next set of decisions.
+
+## The mental shift
+
+The single biggest mental shift for an Indian RSU holder, once share transfer becomes a real option, is this:
+
+> Your US shares are not stuck. They are an asset you can move, restructure, sell in lots, harvest losses against, and rebalance. The constraint you've been operating under was a market failure, not a regulatory one.
+
+What that means in practice:
+
+1. **You can split your shares across multiple positions.** Sell 30% of your employer stock to diversify into VTI, hold 70% for the long-term, harvest losses on a specific lot when one of them dips below cost basis. None of this is possible at most employer brokers.
+2. **You can hold your dollar exposure as actual dollars.** Instead of selling at the employer broker and converting to INR, you can keep your shares (or your post-sale dollars) in a US-resident-friendly broker, deploy into US ETFs, and let your dollar wealth compound in dollars.
+3. **You can plan tax events deliberately.** If you know you'll be in a low-income year, you can sell deliberately into LTCG. If you know you'll have realized gains from selling property, you can harvest losses on specific RSU lots to offset them.
+
+The infrastructure to do any of this used to require a US bank account, a US tax ID, and a US address. It doesn't anymore.
+
+## What to do about it
+
+If you have meaningful vested RSUs sitting at Fidelity, E*TRADE, or Schwab, here's the audit:
+
+- **Look up your current cost basis, lot by lot.** Most employer brokers expose this somewhere; if yours doesn't, request a transaction history. You'll need this when you sell, regardless of which broker holds the shares.
+- **Identify any lots that are below cost basis.** These are tax-loss harvesting candidates. In India, you can offset short-term losses against any capital gains and long-term losses against long-term gains, with 8-year carry-forward.
+- **Decide whether to consolidate.** If you have RSUs at three different brokers (an employer transition, an old plan, a current plan), the friction of three sets of statements every March is real. Moving everything to one platform that gives you Indian-format reporting saves real time at filing.
+- **If you choose to move, request an ACATS-out.** The receiving platform initiates the request; you authorize. Your shares show up at the new broker in a week, with their original cost basis intact (this matters — the original date of vesting is preserved, so your 24-month LTCG clock is not reset).
+
+We'll cover the actual mechanics of the ACATS process — what to enter on which form, what fees to expect, and what to do if cost basis comes through incorrectly — in a follow-up post. The point of this one is just to surface the option. Most Indian RSU holders don't know it exists.
+
+Now you do.
+
+## Related reading
+
+- [The complete RSU guide for Indians at US multinationals](/posts/complete-rsu-guide-indians-us-multinationals) — vesting, taxes, withholding, the full lifecycle.
+- [Vested vs INDmoney vs Interactive Brokers vs Rovia](/posts/vested-vs-indmoney-vs-interactive-brokers) — how the platforms compare on cost, features, and India-specific reporting.
+- [How US stocks are taxed in India](/posts/how-us-stocks-are-taxed-in-india) — the three tax events you'll face, and what your CA needs to file each one.

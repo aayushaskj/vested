@@ -87,7 +87,7 @@ export async function GET(
             fontWeight: 600,
           }}
         >
-          fx · {kicker}
+          fx | {kicker}
         </div>
 
         {/* Center: hero name + concept label, stacked */}
@@ -143,7 +143,7 @@ export async function GET(
               color: "rgba(96,165,250,0.95)",
             }}
           >
-            FREE · INDIAN TAX RULES · LIVE USD/INR
+            FREE | INDIAN TAX RULES | LIVE USD/INR
           </div>
         </div>
 

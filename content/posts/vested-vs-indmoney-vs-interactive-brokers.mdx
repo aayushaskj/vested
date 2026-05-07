@@ -1,19 +1,21 @@
 ---
-title: "Vested vs INDmoney vs IBKR: best US stock platform for Indians"
-metaTitle: "Vested vs INDmoney vs IBKR (Indian comparison)"
-description: "Honest comparison of the three viable routes for Indian residents: costs, FX markup, taxes, and which broker fits your stage."
-date: "2026-04-15"
+title: "Vested vs INDmoney vs IBKR vs Rovia: best US stock platform for Indians"
+metaTitle: "Vested vs INDmoney vs IBKR vs Rovia (compared)"
+description: "Honest comparison of the four viable routes for Indian residents: costs, FX markup, RSU support, share transfer, and which platform fits your stage."
+date: "2026-05-05"
 category: "us-investing"
-tags: ["brokerage", "vested", "indmoney", "ibkr", "comparison"]
+tags: ["brokerage", "vested", "indmoney", "ibkr", "rovia", "comparison"]
 author: "arnav-grover"
-ogHook: "75 paise"
-ogLabel: "FX MARKUP · PER USD"
-ogContext: "On ₹50L/yr investing, that's ₹40k+ a year. Pick right."
+ogHook: "0.15%"
+ogLabel: "BROKERAGE FEE | LOWEST TIER"
+ogContext: "Four platforms, four very different value propositions for Indian RSU holders."
 ---
 
-There are roughly twenty platforms that claim they let Indians invest in US stocks. In practice, three are worth your time: **Vested**, **INDmoney**, and **Interactive Brokers (IBKR)**. The other seventeen are either niche, unregulated, defunct, or thin wrappers over the same underlying US partner brokers as the big three.
+There are roughly twenty platforms that claim they let Indians invest in US stocks. In practice, four are worth a serious look: **Vested**, **INDmoney**, **Interactive Brokers (IBKR)**, and **Rovia**. The other sixteen are either niche, unregulated, defunct, or thin wrappers over the same underlying US partner brokers as the big four.
 
-This post compares the three head-to-head on the dimensions that actually matter — not the marketing-friendly ones.
+This post compares all four head-to-head on the dimensions that actually matter — not the marketing-friendly ones.
+
+A disclosure upfront: Vested.blog is the editorial publication of Rovia. We've tried to keep this comparison honest — Rovia is the newest of the four and there are dimensions where the more established platforms are still ahead. We'll flag those as we go.
 
 ## How the platforms are actually structured
 
@@ -35,6 +37,18 @@ This means:
 - If Vested/INDmoney goes under, your shares stay at the US broker — but you'd have to deal with that broker directly to access them.
 - The Indian platform takes a cut on FX and sometimes commissions; that's how they make money.
 
+### Rovia
+
+Rovia follows the same architectural pattern as Vested and INDmoney, but partners with **Alpaca Securities** instead of DriveWealth or Stockal.
+
+```
+You → Rovia (Indian platform) → Alpaca Securities (US broker) → NYSE/NASDAQ
+```
+
+Alpaca is a US-licensed clearing broker (think of them as the AWS of US brokerage — they provide white-labeled brokerage to platforms). The structurally interesting bit is that Alpaca supports inbound ACATS for non-US-resident accounts. That means if you have RSUs at Fidelity, E*TRADE, or Morgan Stanley, you can transfer them into your Rovia account without selling first. We covered the details in [the share-transfer post](/posts/share-transfer-between-brokers-india).
+
+Rovia's positioning is narrower than the others: built specifically for Indian residents holding US RSUs, with lot-level tax tooling as the core differentiator rather than the breadth of US-stock access. If you're a general retail investor without RSU exposure, Rovia is over-engineered for your use case. If you're holding employer stock, the RSU-specific features are why it exists.
+
 ### Interactive Brokers
 
 IBKR is a direct US broker. You're a customer of IBKR — there's no Indian intermediary.
@@ -49,11 +63,12 @@ IBKR has an Indian entity (IBKR India Pvt Ltd) for legal and tax service purpose
 
 ### Onboarding time and difficulty
 
-| Platform | Time to first trade | Difficulty (1–5) |
+| Platform | Time to first trade | Difficulty (1-5) |
 |---|---|---|
-| Vested | 30 min – 2 days | 1 |
-| INDmoney | 30 min – 2 days | 1 |
-| Interactive Brokers | 5–10 business days | 4 |
+| Vested | 30 min - 2 days | 1 |
+| INDmoney | 30 min - 2 days | 1 |
+| Rovia | 1 - 3 days | 1 |
+| Interactive Brokers | 5 - 10 business days | 4 |
 
 Vested and INDmoney are paved roads. PAN, Aadhaar, bank account, video KYC — all of it lives in their app. Most users are trading within 24–48 hours.
 
@@ -72,17 +87,19 @@ This is the biggest cost differential between the three. When you remit ₹10 la
 
 | Platform | Typical FX markup vs. interbank |
 |---|---|
-| Vested | 75–100 paise per USD |
-| INDmoney | 50–80 paise per USD |
-| Interactive Brokers | 1–5 paise per USD |
+| Vested | 75 - 100 paise per USD |
+| INDmoney | 50 - 80 paise per USD |
+| Rovia | 50 - 70 paise per USD |
+| Interactive Brokers | 1 - 5 paise per USD |
 
-On a ₹10 lakh remittance (~$11,976 at ₹83.5):
+On a Rs 10 lakh remittance (~$11,976 at Rs 83.5):
 
 | Platform | FX markup cost |
 |---|---|
-| Vested (75p) | ₹8,982 |
-| INDmoney (60p) | ₹7,186 |
-| IBKR (3p) | ₹359 |
+| Vested (75p) | Rs 8,982 |
+| INDmoney (60p) | Rs 7,186 |
+| Rovia (60p) | Rs 7,186 |
+| IBKR (3p) | Rs 359 |
 
 That's a real number. On a ₹50 lakh annual investing budget, IBKR saves you ₹40,000+ a year vs. Vested. Over a decade, that's ₹4 lakh in your pocket.
 
@@ -92,19 +109,21 @@ But — and this is important — that's *only* on the inbound conversion. You d
 
 | Platform | Equity commission | ETF commission |
 |---|---|---|
-| Vested | $0 / share (built into FX) | $0 |
-| INDmoney | $0 / share | $0 |
+| Vested | 0.25% per trade (in addition to FX markup) | Same |
+| INDmoney | 0.25% per trade | Same |
+| Rovia | 0.15% per trade | Same |
 | IBKR (Tiered plan) | $0.0035/share, min $0.35 | Same |
 | IBKR (Fixed plan) | $0.005/share, min $1 | Same |
 
-For most retail-sized trades (a few hundred shares), IBKR's commission is negligible. On a 100-share VTI buy, you pay $0.35 — about ₹30. Vested and INDmoney don't charge a per-trade commission but bake their economics into FX.
+For most retail-sized trades (a few hundred shares), IBKR's commission is negligible &mdash; on a 100-share VTI buy, you pay $0.35, about Rs 30. The Indian-aware platforms (Vested, INDmoney, Rovia) all charge a percentage commission on top of the FX markup; Rovia's 0.15% versus the others' 0.25% works out to roughly 40% lower commission per trade. On a Rs 10 lakh deployment, that's a difference of Rs 1,000 in commissions per buy.
 
 ### Asset universe — what you can actually buy
 
 | Platform | What's available |
 |---|---|
 | Vested | Curated list: ~200 ETFs + top US stocks. Limited mid/small-cap coverage. No options, no OTC stocks, no international markets. |
-| INDmoney | Broader — most major NYSE/NASDAQ stocks and ETFs. Still no options, no OTC, no international. |
+| INDmoney | Broader: most major NYSE/NASDAQ stocks and ETFs. Still no options, no OTC, no international. |
+| Rovia | Most major NYSE/NASDAQ stocks and ETFs at launch. UCITS funds and global stocks on the Q2/Q3 2026 roadmap. No options or OTC at launch. |
 | IBKR | Everything. NYSE, NASDAQ, AMEX, OTC, plus 80+ international exchanges. Options, futures (margin permission required, not for most retail), bonds, mutual funds. |
 
 If you want to buy a small-cap US stock or a London-listed ETF, IBKR is the only path among the three.
@@ -113,8 +132,9 @@ If you want to buy a small-cap US stock or a London-listed ETF, IBKR is the only
 
 | Platform | Fractional shares? |
 |---|---|
-| Vested | Yes — buy as little as $1 of any supported stock |
+| Vested | Yes &mdash; buy as little as $1 of any supported stock |
 | INDmoney | Yes |
+| Rovia | Yes |
 | IBKR | Yes (added in 2020) |
 
 All three now offer fractionals. Used to be a meaningful Vested advantage; not anymore.
@@ -123,17 +143,18 @@ All three now offer fractionals. Used to be a meaningful Vested advantage; not a
 
 | Platform | Year-end tax docs |
 |---|---|
-| Vested | INR P&L statement, Schedule FA helper, capital gains breakdown — all India-friendly |
-| INDmoney | Same — full Indian tax-friendly outputs |
+| Vested | INR P&L statement, Schedule FA helper, capital gains breakdown &mdash; all India-friendly |
+| INDmoney | Same &mdash; full Indian tax-friendly outputs |
+| Rovia | INR P&L per lot, Schedule FA helper, dividend tracking with Form 67 prep, plus realized loss schedule for harvesting |
 | IBKR | US-style 1099 forms (1099-DIV for dividends, 1099-B for sales). You convert to INR and prepare Schedule FA yourself. |
 
-This matters more than people think. If you're filing your own ITR, the difference between "download a Schedule FA helper PDF" and "manually compute peak value across 200 trading days from a US-format 1099-B" is real. For users with IBKR, hiring a CA familiar with foreign equity is essentially mandatory; with Vested/INDmoney, you can DIY if you're patient.
+This matters more than people think. If you're filing your own ITR, the difference between "download a Schedule FA helper PDF" and "manually compute peak value across 200 trading days from a US-format 1099-B" is real. For users with IBKR, hiring a CA familiar with foreign equity is essentially mandatory; with the Indian-aware platforms, you can DIY if you're patient. Rovia is the only one of the four that surfaces lot-level realized-loss reporting in a format ready for the [loss-harvesting](/posts/rsu-lot-selection-tax-loss-harvesting-india) workflow we covered separately.
 
 ### W-8BEN handling
 
 The W-8BEN is the IRS form that establishes you as a non-US person and reduces dividend withholding to 25% under the US-India treaty.
 
-- **Vested / INDmoney**: handled at signup. You sign once digitally; renewal every 3 years is automated.
+- **Vested / INDmoney / Rovia**: handled at signup. You sign once digitally; renewal every 3 years is automated.
 - **IBKR**: you upload W-8BEN yourself. Renewal reminders come from IBKR. Slightly more work.
 
 If you don't have a valid W-8BEN on file, your dividend withholding is **30%, not 25%** — and the extra 5% is *not recoverable* via FTC. Make sure your W-8BEN is current.
@@ -143,7 +164,8 @@ If you don't have a valid W-8BEN on file, your dividend withholding is **30%, no
 | Platform | Support quality |
 |---|---|
 | Vested | India-based, in-app chat, English/Hindi, IST hours. Responses within 24 hours typically. |
-| INDmoney | Similar — India-based, multi-channel. |
+| INDmoney | Similar &mdash; India-based, multi-channel. |
+| Rovia | India-based, IST hours, in-app chat plus email. The newest of the four; team is small and response times reflect that, but engineering and product responses are direct. |
 | IBKR | US-based, email + chat. Strong on technical broker issues; weaker on Indian-specific tax questions. Hours overlap awkwardly with IST. |
 
 For most retail users, India-based support is meaningfully better. You can call when you're confused about a TCS deduction. With IBKR, you'll Google or pay a CA.
@@ -154,13 +176,14 @@ For most retail users, India-based support is meaningfully better. You can call 
 |---|---|---|
 | Vested | DriveWealth (US, FINRA-regulated) | SIPC insurance up to $500k per account |
 | INDmoney | Stockal / DriveWealth | Same SIPC coverage |
+| Rovia | Alpaca Securities (US, FINRA-regulated) | Same SIPC coverage |
 | IBKR | Interactive Brokers (US, FINRA-regulated, public company) | SIPC + supplemental excess insurance up to $30M |
 
 **SIPC** is the US equivalent of investor protection — it covers you if the *broker* fails (not if your stocks go down). SIPC insures up to $500,000 per account, including up to $250,000 in cash.
 
 IBKR adds proprietary excess insurance through Lloyd's of London, taking total coverage to $30M. For a high-net-worth investor with millions at the broker, this matters. For most retail accounts under $500k, the standard SIPC is plenty.
 
-What about the Indian platform itself failing? Vested and INDmoney are private companies — if either goes bankrupt, your shares remain at the US broker (DriveWealth/Stockal) in your name. You'd contact the US broker directly to claim them. Not zero-friction, but not catastrophic.
+What about the Indian platform itself failing? Vested, INDmoney, and Rovia are all private companies. If any of them go bankrupt, your shares remain at the US broker (DriveWealth, Stockal, or Alpaca respectively) in your name. You'd contact the US broker directly to claim them. Not zero-friction, but not catastrophic.
 
 ### Repatriation — getting money back to India
 
@@ -172,42 +195,77 @@ When you sell US stocks and want to bring INR home, the flow is:
 
 | Platform | Repatriation friction |
 |---|---|
-| Vested | 3–7 business days, decent FX |
+| Vested | 3 - 7 business days, decent FX |
 | INDmoney | Similar |
-| IBKR | 2–5 business days, best FX |
+| Rovia | 3 - 5 business days, similar FX to INDmoney |
+| IBKR | 2 - 5 business days, best FX |
 
-All three are fine. IBKR is marginally faster and cheaper.
+All four are fine. IBKR is marginally faster and cheaper.
+
+### Share transfer (ACATS-in)
+
+This is the dimension where the three Indian-aware platforms diverge sharply.
+
+| Platform | Inbound ACATS from US employer brokers? |
+|---|---|
+| Vested | Not supported. New deployments only. |
+| INDmoney | Not supported. New deployments only. |
+| Rovia | Supported via Alpaca. RSUs at Fidelity, E*TRADE, Schwab, Morgan Stanley can be transferred in. |
+| IBKR | Technically supported, but IBKR India accounts cannot receive ACATS from US brokers; only IBKR US (LLC) accounts can, and those are essentially impossible for Indian residents to open. |
+
+If you have meaningful vested RSUs at an employer broker today and you want to move them rather than sell first, the only currently-realistic path among the four platforms is Rovia. We covered the mechanics in [the share-transfer post](/posts/share-transfer-between-brokers-india).
+
+### Lot selection and tax-loss harvesting
+
+| Platform | Lot-level INR cost basis | Specific lot identification at sell | Loss-harvesting reporting |
+|---|---|---|---|
+| Vested | Yes, in INR | Limited; FIFO default | Basic capital gains report |
+| INDmoney | Yes | Limited; FIFO default | Basic capital gains report |
+| Rovia | Yes, with vest-date SBI TT rates pre-applied | Yes; choose the lot at sell time | Realized loss schedule with carry-forward tracking |
+| IBKR | Yes, in USD | Yes; choose the lot at sell time | US-format only; you compute INR equivalents |
+
+The reason this matters is covered in detail in [the lot-selection post](/posts/rsu-lot-selection-tax-loss-harvesting-india). Short version: lot selection is the difference between paying tax at the FIFO default and paying tax against the actual highest-cost-basis lots, and it can save Indian RSU holders Rs 1 to 2 lakh in a typical year if there's a meaningful realized gain.
 
 ## Cost comparison: a 5-year scenario
 
-Suppose you invest ₹50 lakh over 5 years (₹10 lakh per year), buying VTI and holding. Total costs across the three platforms:
+Suppose you invest Rs 50 lakh over 5 years (Rs 10 lakh per year), buying VTI and holding. Total costs across the four platforms:
 
-| Cost line | Vested | INDmoney | IBKR |
-|---|---|---|---|
-| FX markup (₹10L × 5 yrs × 75p / 60p / 3p per $) | ₹44,910 | ₹35,928 | ₹1,796 |
-| Brokerage commissions (5 buys, ~100 shares each) | ₹0 | ₹0 | ~₹150 |
-| Annual platform/account fees | ₹0 | ₹0 | ₹0 |
-| Wire fees (5 wires) | ₹2,500 | ₹2,500 | ₹2,500 |
-| **Total 5-year cost** | **₹47,410** | **₹38,428** | **₹4,446** |
+| Cost line | Vested | INDmoney | Rovia | IBKR |
+|---|---|---|---|---|
+| FX markup (Rs 10L x 5 yrs x 75p / 60p / 60p / 3p per $) | Rs 44,910 | Rs 35,928 | Rs 35,928 | Rs 1,796 |
+| Brokerage commissions (5 buys at 0.25% / 0.25% / 0.15% / IBKR per-share) | Rs 12,500 | Rs 12,500 | Rs 7,500 | ~Rs 150 |
+| Annual platform/account fees | Rs 0 | Rs 0 | Rs 0 | Rs 0 |
+| Wire fees (5 wires) | Rs 2,500 | Rs 2,500 | Rs 2,500 | Rs 2,500 |
+| **Total 5-year cost** | **Rs 59,910** | **Rs 50,928** | **Rs 45,928** | **Rs 4,446** |
 
-IBKR saves you ~₹40k vs. Vested over 5 years on this scenario. That's the trade-off: **lower cost vs. easier UX and India-friendly tax outputs.**
+IBKR remains by far the cheapest if you're willing to handle US-format tax docs yourself. Among the Indian-aware platforms, Rovia is the cheapest by a margin of roughly Rs 5,000 over a 5-year cycle for this scenario, mostly from the lower brokerage commission. The bigger savings, when they apply, come from disciplined lot selection and loss harvesting &mdash; which we'd estimate is worth multiples of the cost difference for a typical RSU holder with meaningful realized gains.
 
 ## So which one should you actually use?
 
 ### Use Vested or INDmoney if:
 
-- You're starting out (under ~₹10 lakh deployed).
+- You're starting out (under ~Rs 10 lakh deployed).
 - You don't want to deal with US-format tax forms.
 - You want everything in INR with built-in Schedule FA helpers.
 - The FX markup is small in absolute terms because your investing amount is small.
 - You value India-business-hours support.
+- You don't have RSUs at an employer broker that you want to consolidate.
 
 Between Vested and INDmoney, **either is fine**. INDmoney has slightly better FX (~15p tighter on average) and a wider asset list. Vested has slightly better Indian-tax tooling. If you're already a user of one, stay. If you're starting fresh and FX matters, lean INDmoney.
 
+### Use Rovia if:
+
+- You hold meaningful RSUs at Fidelity, E*TRADE, Morgan Stanley, or Schwab and want to consolidate them onto an India-friendly platform without selling first.
+- You want lot-level tax tooling &mdash; specific lot identification at sell, automated loss-harvesting suggestions, ITR-ready realized-loss schedules.
+- You're cost-sensitive on commissions and want the lowest among the Indian-aware platforms (0.15% vs. the 0.25% standard).
+- You're okay being on a younger platform (Rovia launched more recently than Vested or INDmoney; the team is small, the product is narrower in scope at launch).
+
+The trade-off is breadth. If you want every NYSE small-cap and access to UCITS funds today, Vested or INDmoney has a wider catalog at launch. Rovia's roadmap (Q2/Q3 2026 for UCITS and global stocks) is real but unshipped at the time of writing.
+
 ### Use IBKR if:
 
-- You're investing larger amounts (₹25 lakh+ a year) where FX markup adds up.
-- You want access to international markets (London ETFs, TSE, HKEX) — IBKR is the only option.
+- You're investing larger amounts (Rs 25 lakh+ a year) where FX markup adds up.
+- You want access to international markets (London ETFs, TSE, HKEX) &mdash; IBKR is the only option.
 - You're comfortable with US-format tax forms or you have a CA who is.
 - You want maximum broker stability and excess SIPC coverage.
 
@@ -215,25 +273,28 @@ Between Vested and INDmoney, **either is fine**. INDmoney has slightly better FX
 
 For investors with a long horizon and growing portfolios, a common pattern:
 
-1. **Year 1–2**: start on Vested or INDmoney. Learn the LRS/Schedule FA cycle. Get comfortable.
-2. **Year 3+, deploying ₹25 lakh+/year**: open an IBKR account in parallel. Use IBKR for new deployments. Leave existing positions on the Indian platform (transferring shares is non-trivial).
+1. **Year 1-2**: start on Vested, INDmoney, or Rovia depending on whether you have RSUs to consolidate. Learn the LRS/Schedule FA cycle. Get comfortable.
+2. **Year 3+, deploying Rs 25 lakh+/year**: open an IBKR account in parallel. Use IBKR for new deployments. Leave existing positions on the Indian platform.
 
 You end up with assets at both brokers. Schedule FA includes both. Slightly more reporting, much lower ongoing FX cost.
 
 ## The verdict
 
-There is no universal winner. The right answer depends on **how much you're investing per year** and **how much friction you're willing to handle for cost savings.**
+There is no universal winner. The right answer depends on **how much you're investing per year**, **whether you already have RSUs at a US employer broker**, and **how much friction you're willing to handle for cost savings.**
 
-| Annual investing budget | Recommendation |
+| Profile | Recommendation |
 |---|---|
-| Under ₹5 lakh | Vested or INDmoney. Don't optimize FX, just get started. |
-| ₹5–25 lakh | INDmoney leans cheaper; Vested leans more polished. Pick based on UX preference. |
-| Above ₹25 lakh | IBKR for new flows. Migrate over time if it makes sense. |
+| Under Rs 5 lakh/year, no RSUs | Vested or INDmoney. Don't optimize FX, just get started. |
+| Rs 5 - 25 lakh/year, no RSUs | INDmoney leans cheaper; Vested leans more polished. Pick based on UX preference. |
+| Indian resident with vested RSUs at Fidelity / E*TRADE / Schwab | Rovia, primarily for the inbound ACATS support and lot-level tax tooling. |
+| Above Rs 25 lakh/year, no RSU consolidation needed | IBKR for new flows. Migrate over time if it makes sense. |
 
 A few things this post deliberately did not say:
 
-- "Platform X is a scam." None of the three are scams. They're regulated.
-- "You should use a private bank's PMS." For amounts under ₹5 crore, this is generally not a better deal — high fees, narrow universe, opaque structures.
+- "Platform X is a scam." None of the four are scams. They're regulated, in their respective jurisdictions, by FINRA, SEBI, or both.
+- "You should use a private bank's PMS." For amounts under Rs 5 crore, this is generally not a better deal &mdash; high fees, narrow universe, opaque structures.
 - "Use crypto exchanges to get USD exposure." Don't. The regulatory uncertainty is real and crypto USD-pegged exposure is a fundamentally different bet than equity.
+
+The boring conclusion is the right one: pick the platform that matches your stage and what assets you already hold, focus on actually deploying money, and revisit the choice every 2 to 3 years as your portfolio grows.
 
 The boring conclusion is the right one: pick the platform that matches your stage, focus on actually deploying money, and revisit the choice every 2–3 years as your portfolio grows.

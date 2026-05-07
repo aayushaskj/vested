@@ -5,12 +5,12 @@ import { NewsletterForm } from "@/components/NewsletterForm";
 export const metadata: Metadata = {
   title: "About Vested",
   description:
-    "Vested is a publication for Indian residents covering US investing, RSU management, and Indian tax compliance.",
+    "Vested is the editorial publication of Rovia, a global investment platform for global citizens. We write about US investing, RSU management, and Indian tax for residents.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Vested",
     description:
-      "Vested is a publication for Indian residents covering US investing, RSU management, and Indian tax compliance.",
+      "Vested is the editorial publication of Rovia, a global investment platform for global citizens.",
     url: "/about",
     type: "profile",
     locale: "en_IN",
@@ -32,54 +32,102 @@ export default function AboutPage() {
       </p>
 
       <div className="prose prose-ink mt-10 max-w-none">
-        <h2>Why this exists</h2>
+        <h2>Who&rsquo;s behind Vested</h2>
         <p>
-          If you live in India and earn (or hold) US assets — RSUs from a
-          multinational employer, ETFs bought via the LRS, ESPP shares — most
-          of the content out there is written for an American reader. It
-          glosses over the parts that actually matter for you: 20% TCS on
-          remittances, 25% US dividend withholding, capital gains classified as
-          “unlisted foreign equity,” Form 67 for foreign tax credit, schedule
-          FA disclosures, and so on.
+          Vested is the editorial publication of{" "}
+          <a
+            href="https://rovia.one"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Rovia
+          </a>
+          . Rovia is a global investment platform we&rsquo;re building for
+          global citizens. The premise is simple: if you live in the UK, UAE,
+          India, or Singapore and earn US equity through your employer, you are
+          already globally diversified. But brokerage rules, jurisdictional
+          restrictions, and local compliance often stop you from investing the
+          way a local does. Rovia exists to remove that friction. Live anywhere,
+          invest where you feel like.
         </p>
         <p>
-          Vested is the publication I wished existed when I first started
+          Vested is written by{" "}
+          <Link href="/authors/shivang-badaya">Shivang Badaya</Link> and{" "}
+          <Link href="/authors/arnav-grover">Arnav Grover</Link>, the
+          co-founders of Rovia. We write about what we work on every day &mdash;
+          cross-border investing, RSU mechanics, Indian tax compliance, and the
+          gaps between &ldquo;what the platform shows you&rdquo; and &ldquo;what
+          actually happens at filing time.&rdquo;
+        </p>
+
+        <h2>Why this exists</h2>
+        <p>
+          If you live in India and earn (or hold) US assets &mdash; RSUs from a
+          multinational employer, ETFs bought via the LRS, ESPP shares &mdash;
+          most of the content out there is written for an American reader. It
+          glosses over the parts that actually matter for you: 20% TCS on
+          remittances, 25% US dividend withholding, capital gains classified as
+          unlisted foreign equity, Form 67 for foreign tax credit, Schedule FA
+          disclosures, and so on.
+        </p>
+        <p>
+          Vested is the publication we wished existed when we first started
           investing across borders. Every post is written from one assumption:
           you are an Indian resident, and the rules you operate under are
           Indian.
         </p>
 
-        <h2>What you’ll find here</h2>
+        <h2>What you&rsquo;ll find here</h2>
         <ul>
           <li>
-            <strong>US Investing</strong> — LRS basics, brokerage comparisons
-            (Vested, INDmoney, IBKR), ETF picks, capital gains taxation,
-            currency risk, and rebalancing across rupee/dollar portfolios.
+            <strong>US investing</strong> &mdash; LRS basics, brokerage
+            comparisons, ETF picks, capital gains taxation in INR, currency
+            risk, and rebalancing across rupee and dollar portfolios.
           </li>
           <li>
-            <strong>RSU Management</strong> — vesting mechanics, the sell-to-cover
-            trap, US-India tax treaty relief, when to hold vs. sell, and how to
-            redeploy proceeds.
+            <strong>RSU management</strong> &mdash; vesting mechanics, the
+            sell-to-cover trap, US-India tax treaty relief, when to hold vs.
+            sell, share transfer between brokers, and how to redeploy proceeds.
           </li>
           <li>
-            <strong>Calculators</strong> — small interactive tools so you can
-            run the numbers on your own situation, not someone else’s.
+            <strong>Calculators</strong> &mdash; small interactive tools so you
+            can run the numbers on your own situation, not someone else&rsquo;s.
+            All free, all built around Indian rules.
           </li>
         </ul>
 
+        <h2>Editorial independence</h2>
+        <p>
+          Rovia funds Vested, but Vested doesn&rsquo;t exist to sell Rovia. The
+          posts you read here are written to be useful even if you never become
+          a Rovia customer. Where Rovia is genuinely the relevant answer to
+          something we&rsquo;re explaining (for example, when discussing how to
+          actually move shares out of a US-employer broker), we&rsquo;ll say so
+          plainly. Otherwise, we cover the ecosystem &mdash; INDmoney, the
+          original Vested platform, IBKR, employer-default brokers like Fidelity
+          and Morgan Stanley &mdash; the way a publication should: on merits.
+        </p>
+        <p>
+          Rovia has a referral program for early users who help bring other RSU
+          holders onto the platform. The details are intentionally not on this
+          page; if you&rsquo;re curious, the Rovia team can walk you through it
+          directly.
+        </p>
+
         <h2>What this is not</h2>
         <p>
-          This is not investment, tax, or legal advice. I write what I’ve
-          learned and what I’ve verified against primary sources (RBI master
-          directions, the Income Tax Act, IRS publications). For decisions
-          specific to you, please talk to a SEBI-registered investment advisor
-          and a qualified CA.
+          This is not investment, tax, or legal advice. We write what
+          we&rsquo;ve learned and what we&rsquo;ve verified against primary
+          sources (RBI master directions, the Income Tax Act, IRS publications).
+          For decisions specific to you, please talk to a SEBI-registered
+          investment advisor and a qualified CA.
         </p>
 
         <h2>Contact</h2>
         <p>
           Got a topic you want covered, or a correction? Reach out via the{" "}
-          <Link href="/">homepage</Link> or reply to the newsletter.
+          <Link href="/">homepage</Link>, the{" "}
+          <Link href="/authors">authors page</Link>, or reply to the newsletter.
         </p>
       </div>
 

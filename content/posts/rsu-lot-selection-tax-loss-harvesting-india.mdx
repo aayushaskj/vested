@@ -1,0 +1,167 @@
+---
+title: "Lot selection and loss harvesting: the RSU tax tools your CA isn't using"
+metaTitle: "RSU lot selection & loss harvesting (India)"
+description: "Indian RSU holders default to FIFO and miss thousands in tax savings. The lot-by-lot math, loss harvesting, and 8-year carry-forward, with worked examples."
+date: "2026-05-06"
+category: "rsu-management"
+tags: ["rsu", "tax", "loss-harvesting", "lot-selection", "fifo", "capital-gains"]
+author: "shivang-badaya"
+ogHook: "8 years"
+ogLabel: "OF LOSS CARRY-FORWARD | UNUSED"
+ogContext: "Why most Indian RSU holders never harvest a single rupee of losses."
+---
+
+If you hold US RSUs and you've ever sold any, here's a question. When you sold, which specific shares did you sell?
+
+Most people, when asked this, give one of three answers:
+
+- "I sold 100 shares. What do you mean which specific shares?"
+- "Whatever Fidelity sold by default."
+- "FIFO, I think. My CA mentioned it."
+
+All three are the same answer. You sold whatever your broker picked for you, your CA filed it with whatever method was easiest, and you paid more capital gains tax than you needed to. This post is about the difference between those answers and a more deliberate one — and why, for an Indian RSU holder with even moderate equity, that difference can be in the high five figures of rupees over a few years.
+
+## What is a "lot"
+
+When your RSUs vest, each vesting event creates a **lot**. A lot has three properties: the number of shares, the price at which they vested (which becomes your cost basis for capital gains), and the date of vesting (which determines your holding period — short term or long term).
+
+Suppose you joined a US-headquartered company in January 2022 with a four-year vest, quarterly. Every three months for four years, a chunk of your RSUs vests. By 2026, you might have something like:
+
+| Lot | Vest date | Shares | Vest-day price | Cost basis (INR) |
+| --- | --- | --- | --- | --- |
+| 1 | Jan 2022 | 50 | $200 | ~Rs 7,42,000 (at SBI TT 74.20) |
+| 2 | Apr 2022 | 50 | $180 | ~Rs 6,93,000 (at SBI TT 77.00) |
+| 3 | Jul 2022 | 50 | $170 | ~Rs 6,79,000 (at SBI TT 79.90) |
+| 4 | Oct 2022 | 50 | $250 | ~Rs 10,37,000 (at SBI TT 82.95) |
+| 5 | Jan 2023 | 50 | $310 | ~Rs 12,71,000 (at SBI TT 82.00) |
+| ... | ... | ... | ... | ... |
+
+Each row above is a separate tax lot. If you decide to sell 100 shares today (say, the price is $290), you have 16 lots over four years to choose from, and the choice you make has real tax consequences. Different lots have different cost basis. Different lots crossed the 24-month long-term threshold at different times. Some lots are profitable, some might be at a loss.
+
+## The FIFO default and why it's bad
+
+In India, when you sell a portion of a fungible asset (shares of the same company, units of the same mutual fund), the default cost-basis method the Income Tax Act expects is **FIFO** &mdash; First In, First Out. The shares acquired earliest are deemed sold first.
+
+For most asset classes, FIFO is fine. For RSUs, it's actively bad, and here's why.
+
+When you joined your company, the first lots that vested were probably from a lower stock price (early in your equity comp lifecycle, before promotions, before the stock ran up). These earliest lots are usually the ones with the **largest unrealized gains**. If you sell 100 shares under FIFO, you're selling the lots with the highest gain percentage and triggering the biggest tax bill.
+
+A made-up but realistic example. Your earliest 100 shares vested at $150, and the stock is now $290. Selling those triggers a gain of $14,000 on 100 shares. At the Indian LTCG rate of 12.5% (post-July 2024 budget), that's a tax bill of about Rs 1.5 lakh.
+
+Now suppose your most recent 100 shares vested at $280, and the stock is now $290. Selling those triggers a gain of $1,000 on 100 shares. The tax bill is about Rs 11,000.
+
+Same number of shares sold. Same realized cash. **Tax difference: more than Rs 1.4 lakh.**
+
+Most CAs will file FIFO without asking, because it's the default and because tracking specific lots requires a clean record-keeping system that most people don't have. But specific lot identification is allowed under Indian tax law, as long as you can substantiate it with proper documentation.
+
+## Specific lot identification, the legal version
+
+Indian tax law allows you to identify which specific shares you sold, as long as the shares are physically distinguishable through the record-keeping (which they are in any modern brokerage statement). The CBDT has historically accepted broker-provided lot identification as substantiating documentation, similar to the way the IRS accepts it in the US.
+
+What you need:
+
+1. **A lot-level cost basis record.** Each lot's vest date, vest-day price, vest-day FX rate, and resulting INR cost basis. Most US employer brokers expose this if you dig; Indian-aware platforms will surface it for you automatically.
+2. **A specific identification at the time of sale.** When you place the sell order, you (or the broker) needs to mark which lot is being sold. Most US brokers support specific identification for the IRS — Fidelity calls it "specific shares," E*TRADE calls it "tax lot selection." The same flag, used properly, gives you the documentation you need on the Indian side too.
+3. **Reporting that matches.** When you file your ITR, the capital gains schedule should show the gain computed against the specific lot's cost basis, not the FIFO default.
+
+The friction is that most US employer-broker UIs make specific identification non-obvious — usually buried two clicks deep in a sell-order modal — and most CAs don't know to ask for it. The result is that even when investors technically can do specific identification, in practice they default to FIFO and lose the optimization.
+
+## Tax-loss harvesting: the upside of having losses
+
+A loss is the difference between cost basis and sale price, when sale price is lower. In India, capital losses can be set off against capital gains under specific rules, and any unused loss can be **carried forward for 8 assessment years**.
+
+The setoff rules are the part most people miss:
+
+| Loss type | Can offset against |
+| --- | --- |
+| Short-term capital loss (held < 24 months) | Any capital gain &mdash; short-term or long-term |
+| Long-term capital loss (held >= 24 months) | Only long-term capital gains |
+
+Short-term losses are the more flexible currency. If you can realize a short-term loss, it can wipe out short-term *or* long-term gains. Long-term losses can only offset long-term gains.
+
+Tax-loss harvesting is the deliberate practice of selling lots that are below cost basis, to generate a loss that you can use to offset other gains. For US-asset-holders in India, the typical scenarios where this matters:
+
+- **You sold a portion of your employer stock at a gain this year.** The gain triggers tax. Selling some of your underwater positions in the same year creates a loss that offsets the gain.
+- **You sold property or some other capital asset at a gain.** Same principle &mdash; the RSU loss can be set off against the unrelated capital gain, as long as the loss type matches the rules in the table.
+- **You expect future gains.** Even if you have no gains this year, harvesting losses now means you carry them forward for 8 years. When you do realize gains in year three or year five, you have an inventory of losses sitting there waiting.
+
+The 8-year carry-forward rule is a real, structural advantage of the Indian system that most RSU holders never use. The reason they don't use it is mechanical: their broker doesn't make it easy to identify which specific lots are below cost basis, and their CA doesn't proactively flag it.
+
+## A worked example
+
+Suppose this is your situation in March 2026, planning your tax filing for FY 2025-26:
+
+**Realized capital gains so far this year:**
+- Sold property: Rs 25 lakh long-term capital gain.
+- Sold mutual fund units: Rs 3 lakh short-term capital gain.
+
+**Your RSU position at your employer broker:**
+
+| Lot | Shares | Cost basis (INR/share) | Current price (INR/share) | Unrealized gain/(loss) per share |
+| --- | --- | --- | --- | --- |
+| A | 100 | Rs 11,500 | Rs 24,000 | +Rs 12,500 |
+| B | 100 | Rs 14,800 | Rs 24,000 | +Rs 9,200 |
+| C | 100 | Rs 21,000 | Rs 24,000 | +Rs 3,000 |
+| D | 100 | Rs 27,500 | Rs 24,000 | -Rs 3,500 (LT) |
+| E | 100 | Rs 31,000 | Rs 24,000 | -Rs 7,000 (ST) |
+
+You have 200 shares with unrealized losses, totaling **Rs 10.5 lakh** in losses you could realize. Lot D is long-term (held over 24 months), Lot E is short-term.
+
+If you realize both losses today:
+- Lot D (LT loss of Rs 3.5 lakh) offsets your Rs 25 lakh property LTCG, reducing it to Rs 21.5 lakh.
+- Lot E (ST loss of Rs 7 lakh) can offset *either* the remaining LTCG or your ST mutual fund gain. Say you apply it to the ST gain first (Rs 3 lakh) — that ST gain becomes zero, and the remaining Rs 4 lakh of ST loss can still offset the LTCG, dropping it from Rs 21.5 lakh to Rs 17.5 lakh.
+
+**Net taxable capital gains after harvesting:**
+- LTCG: Rs 17.5 lakh (taxed at 12.5%) = Rs 2.19 lakh tax
+- STCG: Rs 0
+
+**Without harvesting:**
+- LTCG: Rs 25 lakh (taxed at 12.5%) = Rs 3.125 lakh tax
+- STCG: Rs 3 lakh (taxed at slab; assume 30%) = Rs 0.9 lakh tax
+- Total: Rs 4.025 lakh tax
+
+**Saving from harvesting: Rs 1.83 lakh.**
+
+This is a one-year illustration. Over a typical RSU-holding career of 5 to 10 years, the cumulative tax saving from disciplined lot selection and loss harvesting can reach 10 to 20 lakh.
+
+## What stops people from doing this
+
+Three things, in our experience.
+
+**1. Broker UI.** Most US employer brokers don't surface lot-level controls in a clear way. To find which of your lots are below cost basis you have to manually pull a transaction history, compute INR cost basis at each vest using SBI TT rates from the relevant date, and compare against the current INR price. This is several hours of work, every quarter or so, in Excel.
+
+**2. CA fluency.** Most Indian CAs don't routinely deal with US-asset capital gains. The rules are clear (specific identification is allowed, 8-year carry-forward is allowed, losses set off as in the table above), but applying them requires the CA to know what to ask the client for and to be willing to file the gains schedule with non-default lot identification.
+
+**3. Inertia.** Even when both above are solved, you still need to actually click "sell this specific lot" at the right time. Most people don't, because the broker treats it as a power-user feature and the default is FIFO with one click.
+
+## What to look for in a platform
+
+When evaluating any US-investing platform from an Indian-resident perspective, the lot-and-tax features that matter:
+
+- **Lot-level visibility, in INR.** Each lot's vest-date INR cost basis (computed using the SBI TT rate for the vest date), current INR value, and unrealized gain/loss in INR.
+- **Holding-period tagging per lot.** Whether each lot has crossed 24 months and is now LTCG-eligible, with countdown for lots that haven't.
+- **Specific lot identification at sell time.** Ability to choose which lot you're selling, with the broker flagging it correctly in your statement.
+- **Loss-harvesting reporting.** A schedule of realized gains and losses by holding period, formatted in a way your CA can drop into the ITR's capital gains schedule.
+- **Carry-forward tracking.** A running tally of losses carried forward from prior years, so when you (or your CA) file in March, you know exactly what's available to offset.
+
+This is one of the reasons we built [Rovia](https://rovia.one). The lot-level INR cost basis, the LT/ST timer, the "harvest this lot" suggestions when realized gains appear elsewhere in your portfolio, and the ITR-ready schedule are the features that turn this from a hours-of-spreadsheet exercise into a couple of clicks. Other platforms do parts of this — INDmoney shows you holdings in INR; the original Vested platform does some basic lot reporting. None of them, that we've seen, fully automate the harvest-suggestion-and-execute flow specifically for RSU holders.
+
+But this isn't a Rovia post. The point is that the math is real and the savings are real, and even if you do this manually with a spreadsheet and a patient CA, the discipline pays off.
+
+## Year-end checklist
+
+If you have meaningful US RSUs and you've never actively done lot selection, here's a 30-minute exercise to do before March 31 each year:
+
+1. **Pull lot-level cost basis.** Get every vest's date, share count, vest-day price (USD), and the SBI TT buying rate for that date. If your broker doesn't give you this, you can pull SBI rates from [sbi.co.in/web/business/exchange-rates](https://www.sbi.co.in/web/business/exchange-rates) or use the rate published in the RBI's reference rate archive.
+2. **Compute current INR position per lot.** Today's USD price multiplied by today's SBI TT rate, multiplied by share count.
+3. **Tag each lot:** ST or LT (24-month rule). In the money or below cost basis.
+4. **Cross-reference against realized gains.** What other capital gains have you booked this year, from any source — equity, property, mutual funds?
+5. **Decide.** If you have losses available and gains to offset, harvest. If you only have gains and your taxable income for next year will be lower, consider deferring sales. If you have any below-cost lots and no gains this year, harvesting still buys you carry-forward inventory.
+
+You don't have to do all of this every year forever. Most of the gains come from the first time you do it deliberately, because you'll typically find you have one or two large below-cost lots from a downturn that have been silently sitting there for years. Realize them once, harvest the losses, and even if you re-buy the same stock the next week (there's no wash-sale rule in India), you've reset the cost basis higher and bought yourself the carried-forward loss.
+
+## Related reading
+
+- [How US stocks are taxed in India](/posts/how-us-stocks-are-taxed-in-india) &mdash; the three tax events and what your CA actually needs to file.
+- [Holding period rules across asset classes](/posts/holding-period-rules-asset-classes-india) &mdash; the 12-vs-24 month rules, mapped to the right asset.
+- [The share-transfer problem](/posts/share-transfer-between-brokers-india) &mdash; why your RSU lots may be trapped at an employer broker, and what's changing.

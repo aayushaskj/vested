@@ -83,7 +83,7 @@ export async function GET(
             fontWeight: 600,
           }}
         >
-          ✎ AUTHOR · VESTED
+          AUTHOR | VESTED
         </div>
 
         {/* Center: name + role + affiliations */}
