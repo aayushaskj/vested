@@ -36,9 +36,9 @@ export default function AboutPage() {
         <p>
           Vested is the editorial publication of{" "}
           <a
-            href="https://rovia.one"
+            href="https://rovia.onelink.me/xOtI/c29h3ped"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored noopener noreferrer"
           >
             Rovia
           </a>
@@ -112,6 +112,16 @@ export default function AboutPage() {
           holders onto the platform. The details are intentionally not on this
           page; if you&rsquo;re curious, the Rovia team can walk you through it
           directly.
+        </p>
+
+        <h2>A note on platform links</h2>
+        <p>
+          When we link to platforms (Vested, INDmoney, IBKR, Rovia), some of
+          those links may be referral or affiliate links. We may earn a small
+          credit if you sign up through them. Linked or not, our coverage of
+          each platform is based on what the product actually does &mdash; the
+          comparisons would read the same with non-affiliate links, which is
+          the test we hold ourselves to.
         </p>
 
         <h2>What this is not</h2>

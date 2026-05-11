@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import { EmployerCallout } from "@/components/EmployerCallout";
+import { isAffiliateUrl } from "@/lib/platformLinks";
 
 export const mdxComponents: MDXRemoteProps["components"] = {
   EmployerCallout,
@@ -13,8 +14,14 @@ export const mdxComponents: MDXRemoteProps["components"] = {
         </Link>
       );
     }
+    // Affiliate / referral links get rel="sponsored" per Google's recommended
+    // attribute for affiliate links. Auto-detected from the lib registry so
+    // every linked occurrence gets the right rel without per-link config.
+    const rel = isAffiliateUrl(href)
+      ? "sponsored noopener noreferrer"
+      : "noopener noreferrer";
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+      <a href={href} target="_blank" rel={rel} {...rest}>
         {children}
       </a>
     );
